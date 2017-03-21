@@ -35,17 +35,15 @@ public class Questao11 extends HttpServlet {
         int n1 = Integer.valueOf(request.getParameter("n1"));
         int n2 = Integer.valueOf(request.getParameter("n2"));
         String repeticao;
-        int i = 0, y;
+        int i;
+        
         
         if (n2 <= n1){
             repeticao = "sim";
             response.sendRedirect("questao11.jsp?repeticao="+repeticao);
         }
         
-        
-        for (i = n1; i++; i<=n2){
-            
-        }
+         
          
         
                    
@@ -59,7 +57,11 @@ public class Questao11 extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1> Questão 11</h1>");
-            
+            out.println("<h3> Os números entre "+n1+" e "+n2+" são: ");
+            i = n1;
+            while(i < n2){
+                out.println("<h4> "+i+",");
+            }
             out.println("</body>");
             out.println("</html>");
         }

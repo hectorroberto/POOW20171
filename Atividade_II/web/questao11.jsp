@@ -20,6 +20,7 @@
                 <input type="text" name="n1"> <br/>
                  Informe outro valor: 
                 <input type="text" name="n2"> <br/>
+                <input type="submit" value="Enviar"/>
              </form>
         <%} else {%>
             <h1> Números inválidos</h1>
@@ -29,7 +30,9 @@
                 <input type="text" name="n1"> <br/>
                  Informe outro valor: 
                 <input type="text" name="n2"> <br/>
+                <input type="submit" value="Enviar"/>
              </form>
         <% } %>
+        
     </body>
 </html>
