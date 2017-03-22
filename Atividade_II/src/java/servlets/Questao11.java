@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author haguilar
+ * @author Hector Roberto Velásquez
  */
-@WebServlet(name = "Questao01", urlPatterns = {"/questao01"})
+@WebServlet(name = "Questao11", urlPatterns = {"/questao11"})
 public class Questao11 extends HttpServlet {
 
     /**
@@ -32,36 +32,38 @@ public class Questao11 extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        // Recebendo os valores do JSP
         int n1 = Integer.valueOf(request.getParameter("n1"));
         int n2 = Integer.valueOf(request.getParameter("n2"));
-        String repeticao;
-        int i;
+        // Criando algumas variáveis
+        int i = n1+1;
+        int soma = i;
+        String numeros = (""+i);
+        // Atribuindo a String ela mesma mais o número q será constantemente incrementado
+        do{
+            // A resposta final dessa string serão todos os números que estão entre os recebidos
+            i++;
+            numeros = (numeros+", "+i);  
+            soma += i;
+        } while (i < n2-1);
+        numeros += ".";
         
-        
-        if (n2 <= n1){
-            repeticao = "sim";
-            response.sendRedirect("questao11.jsp?repeticao="+repeticao);
-        }
-        
-         
-         
-        
-                   
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Questao01</title>");            
+            out.println("<title>Servlet Questao11</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> Questão 11</h1>");
-            out.println("<h3> Os números entre "+n1+" e "+n2+" são: ");
-            i = n1;
-            while(i < n2){
-                out.println("<h4> "+i+",");
-            }
+            out.println("<h2> Os números entre "+n1+" e "+n2+" são: </br>"+numeros+"</h2>");
+            out.println("<h2></br>A soma desses valores é: "+soma+"</h2>");
+            /* Esta forma também dá certo, mas ela não exibe os valores em linha e eu quero em linha.
+            while (i <= n2){
+                out.print("<h4> "+i+", </h4>");
+                i++;
+            }*/
             out.println("</body>");
             out.println("</html>");
         }
