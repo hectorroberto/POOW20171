@@ -31,41 +31,30 @@ public class Questao12 extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                int idMaior = 0, max = 5;
-                int idade;
-                String nome;
-                boolean a = false;
+        
+                int idMaior = 0, aux = 0, max = 5;
+                String nomeM = "--";
+                boolean achei = false;
                 
-                idade = Integer.valueOf(request.getParameter("idade"));
-                nome = request.getParameter("nome");
+                int idades[] = new int[max];
+                String nomes[] = new String[max];
                 
-                /* NÃO DEU CERTO NEM ASSIM NEM SÓ EM UM LAÇO FOR
-                idade[0] = Integer.valueOf(request.getParameter("idade1"));
-                nome[0] = request.getParameter("nome1");
-                
-                idade[1] = Integer.valueOf(request.getParameter("idade2"));
-                nome[1] = request.getParameter("nome2");
-                
-                idade[2] = Integer.valueOf(request.getParameter("idade3"));
-                nome[2] = request.getParameter("nome3");
-                
-                idade[3] = Integer.valueOf(request.getParameter("idade4"));
-                nome[3] = request.getParameter("nome4");
-                
-                idade[4] = Integer.valueOf(request.getParameter("idade5"));
-                nome[4] = request.getParameter("nome5");
-                
-                
-                while (!a){
+                aux = 1;
+                for (int x = 0; x < max; x++){
+                    nomes[x] = request.getParameter("nome"+aux);
+                    idades[x] = Integer.valueOf(request.getParameter("idade"+aux));
+                    aux++;
+                }
+                                
+                while (achei==false){
                     for (int y = 0; y<max-1; y++){
-                        a = true;
-                        if (idade[idMaior] > idade[y+1]) {
-                            idMaior = y;
-                            a = false;
+                        achei = true;
+                        if (idades[idMaior] < idades[y+1]) {
+                            idMaior = y+1;
+                            achei = false;
                         }
                     }
                 }
-                */
                 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -76,7 +65,7 @@ public class Questao12 extends HttpServlet {
             out.println("<title>Servlet Questao12</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> A maior nota foi do "+nome+" e sua nota foi "+idade+". </h1>");
+            out.println("<h1> A maior nota foi do "+nomes[idMaior]+" e sua nota foi "+idades[idMaior]+". </h1>");
             out.println("</body>");
             out.println("</html>");
         }

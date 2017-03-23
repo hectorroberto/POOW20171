@@ -39,6 +39,7 @@
            [5] Informe a idade do aluno:
            <input type="text" name="idade5"/><br/><br/>
             
+           <input type="submit" value="Enviar"/>
         </form>
     </body>
 </html>
