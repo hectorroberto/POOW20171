@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Números primos: Questão 3</h1>
-        <form action="questao14" method="POST">
+        <form action="primos_3" method="POST">
             <h2> Serão exibidos para você os números primos de 1 a 100 <br/>
             Clique em "Continuar" </h2>
             <input type="submit" value="Conitnuar"/>

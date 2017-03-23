@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Números Primos: Questão 1 e 2</h1>
-        <form action="questao13" method="POST">
+        <form action="primos_1_2" method="POST">
             Informe um valor:
             <input type="text" name="num"/><br/>
             <input type="submit" value="Enviar"/>
