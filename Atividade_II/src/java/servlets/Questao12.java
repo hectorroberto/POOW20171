@@ -34,8 +34,8 @@ public class Questao12 extends HttpServlet {
                 int idMaior = -1, max = 5;
                 int nota[] = new int[max];
                 String nome[] = new String[max];
-                
                 boolean a = false;
+                
                 for (int i = 0; i <max; i++){
                     nota[i] = Integer.valueOf(request.getParameter("nota"+i));
                     nome[i] = request.getParameter("nome"+i);
@@ -43,7 +43,11 @@ public class Questao12 extends HttpServlet {
                 
                 while (!a){
                     for (int y = 0; y<max-1; y++){
-                    //    if (nota[y] ) Ordenando o ID do vetor contendo a maior nota
+                        a = true;
+                        if (nota[y] > nota[y+1]) {
+                            idMaior = y;
+                            a = false;
+                        }
                     }
                 }
                 
