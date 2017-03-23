@@ -32,10 +32,13 @@ public class Questao12 extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 int idMaior = 0, max = 5;
-                int idade[] = new int[max];
-                String nome[] = new String[max];
+                int idade;
+                String nome;
                 boolean a = false;
-
+                
+                idade = Integer.valueOf(request.getParameter("idade"));
+                nome = request.getParameter("nome");
+                
                 /* NÃO DEU CERTO NEM ASSIM NEM SÓ EM UM LAÇO FOR
                 idade[0] = Integer.valueOf(request.getParameter("idade1"));
                 nome[0] = request.getParameter("nome1");
@@ -51,7 +54,7 @@ public class Questao12 extends HttpServlet {
                 
                 idade[4] = Integer.valueOf(request.getParameter("idade5"));
                 nome[4] = request.getParameter("nome5");
-                */
+                
                 
                 while (!a){
                     for (int y = 0; y<max-1; y++){
@@ -62,6 +65,7 @@ public class Questao12 extends HttpServlet {
                         }
                     }
                 }
+                */
                 
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -72,7 +76,7 @@ public class Questao12 extends HttpServlet {
             out.println("<title>Servlet Questao12</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> A maior nota foi do "+nome[idMaior]+" e sua nota foi "+idade[idMaior]+". </h1>");
+            out.println("<h1> A maior nota foi do "+nome+" e sua nota foi "+idade+". </h1>");
             out.println("</body>");
             out.println("</html>");
         }
