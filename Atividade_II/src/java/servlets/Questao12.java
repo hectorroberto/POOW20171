@@ -31,20 +31,32 @@ public class Questao12 extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                int idMaior = -1, max = 5;
-                int nota[] = new int[max];
+                int idMaior = 0, max = 5;
+                int idade[] = new int[max];
                 String nome[] = new String[max];
                 boolean a = false;
+
+                /* NÃO DEU CERTO NEM ASSIM NEM SÓ EM UM LAÇO FOR
+                idade[0] = Integer.valueOf(request.getParameter("idade1"));
+                nome[0] = request.getParameter("nome1");
                 
-                for (int i = 0; i <max; i++){
-                    nota[i] = Integer.valueOf(request.getParameter("nota"+i));
-                    nome[i] = request.getParameter("nome"+i);
-                }
+                idade[1] = Integer.valueOf(request.getParameter("idade2"));
+                nome[1] = request.getParameter("nome2");
+                
+                idade[2] = Integer.valueOf(request.getParameter("idade3"));
+                nome[2] = request.getParameter("nome3");
+                
+                idade[3] = Integer.valueOf(request.getParameter("idade4"));
+                nome[3] = request.getParameter("nome4");
+                
+                idade[4] = Integer.valueOf(request.getParameter("idade5"));
+                nome[4] = request.getParameter("nome5");
+                */
                 
                 while (!a){
                     for (int y = 0; y<max-1; y++){
                         a = true;
-                        if (nota[y] > nota[y+1]) {
+                        if (idade[idMaior] > idade[y+1]) {
                             idMaior = y;
                             a = false;
                         }
@@ -60,7 +72,7 @@ public class Questao12 extends HttpServlet {
             out.println("<title>Servlet Questao12</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> O número desejado é: </h1>");
+            out.println("<h1> A maior nota foi do "+nome[idMaior]+" e sua nota foi "+idade[idMaior]+". </h1>");
             out.println("</body>");
             out.println("</html>");
         }
