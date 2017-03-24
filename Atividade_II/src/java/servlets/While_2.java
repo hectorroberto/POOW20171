@@ -37,20 +37,11 @@ public class While_2 extends HttpServlet {
         int escolha = Integer.valueOf(request.getParameter("escolha"));
         String status = request.getParameter("status"), msg = "-----";
                 
-        if (status.equals("prosseguir")){
-            switch (escolha){
-                case 1: 
-                    msg = ("A soma dos números é "+(num1+num2));
-                    break;
-                case 2:
-                    msg = ("A subtração dos números é "+(num1-num2));
-                    break;
-                case 3:
-                    msg = ("A divisão dos números é "+(num1/num2));
-                    break;
-            }
-        } else if ((num1 == 0) || (num2 == 0))
-            response.sendRedirect("while_2.jsp?status="+"repetir");
+        if ((num1 == 0) || (num2 == 0)){
+            status = "repetir";
+            response.sendRedirect("while_2.jsp?status="+status);
+        }
+            
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

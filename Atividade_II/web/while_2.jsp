@@ -5,13 +5,13 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%String status = request.getParameter("status");%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    <%String status = request.getParameter("status");%>
     <body>
         <%if (status == null){ %>
             <h1>While: Questão 2</h1>
