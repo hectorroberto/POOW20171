@@ -21,6 +21,7 @@
                 Informe outro valor:
                 <input type="text" name="num2"/><br/><br/>
                 <input type="submit" value="Enviar"/>
+                <%  %>
             </form>
             
         <%} else if (status.equals("repetir")){ %>
@@ -34,14 +35,6 @@
             <input type="submit" value="Enviar"/>
             <% status = null;%>
         </form>
-        <% } else if(status.equals("prosseguir")){ %>
-            <form action="while_2" method="POST">
-                <input type="radio" name="escolha" value="1"/> Somar <br/>
-                <input type="radio" name="escolha" value="2"/> Subtrair <br/>
-                <input type="radio" name="escolha" value="3"/> Dividir <br/>
-                <input type="submit" value="Enviar"/>
-                <%status="prosseguir"; %>
-            </form>
-        <% } %>    
+        <% } %>
     </body>
 </html>

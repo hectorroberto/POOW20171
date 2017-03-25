@@ -34,15 +34,27 @@ public class While_2 extends HttpServlet {
         
         int num1 = Integer.valueOf(request.getParameter("num1"));
         int num2 = Integer.valueOf(request.getParameter("num2"));
-        int escolha = Integer.valueOf(request.getParameter("escolha"));
-        String status = request.getParameter("status"), msg = "-----";
-                
-        if ((num1 == 0) || (num2 == 0)){
+        String status = request.getParameter("status");
+        
+        
+        
+        if ((num1 == 0) || (num2==0)){
             status = "repetir";
             response.sendRedirect("while_2.jsp?status="+status);
+        } /* else if ((status.equals("coletado"))){
+            status = "prosseguir";
+            response.sendRedirect("while_2.jsp?status="+status);
         }
-            
         
+        int escolha = Integer.valueOf(request.getParameter("escolha"));
+        String msg = "---------------";
+        
+        switch (escolha){
+            case 1:
+                msg = ("A soma entre os números é "+(num1+num2));
+                break;
+        }
+        */
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -52,8 +64,7 @@ public class While_2 extends HttpServlet {
             out.println("<title>Servlet While_2</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h2> O valores informados foram "+num1+" e "+num2+". </h2>");
-            out.println("<h3> "+msg+" </h3>");
+            out.println("<h2> O valores informados foram "+num1+" e "+num2+". Status: "+status+"</h2>");
             out.println("</body>");
             out.println("</html>");
         }
