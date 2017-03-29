@@ -15,9 +15,7 @@
         <h1>Questão 01</h1>
         <form action="questao01" name="senha">
         Senha:  <input type ="password" name="senha1" size="20">
-    <br>
-        Confirmar Senha: <input type="password" name="senha2" size="20">  
-    <br>
+    
                 <input type="button" value="validar" onclick="validarSenha()">
         </form>
     </body>
