@@ -79,7 +79,10 @@ public class While_3 extends HttpServlet {
             out.println("<title>Servlet While_3</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet While_3 at " + request.getContextPath() + "</h1>");
+            out.println("<h1> Maior idade</h1>");
+            out.println("<h2> Nome: "+nome[idMaiorIdade]+" Idade: "+idade[idMaiorIdade]+"</h2>");
+            out.println("<h1> Maior altura</h1>");
+            out.println("<h2> Nome: "+nome[idMaiorAltura]+" Idade: "+idade[idMaiorAltura]+"</h2>");
             out.println("</body>");
             out.println("</html>");
         }

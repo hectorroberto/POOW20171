@@ -83,6 +83,7 @@
             <input type="text" name="idade10"/><br/>
             [10] Informe a altura da pessoa:
             <input type="text" name="altura10"/><br/><br/>
+            <input type="submit" value="Enviar"/>
          </form>
     </body>
 </html>
