@@ -33,8 +33,7 @@ public class Questao04 extends HttpServlet {
             throws ServletException, IOException {
         
        
-        int valor= Integer.valueOf(request.getParameter("numero"));
-        int intcontador= 1; 
+        int n = Integer.valueOf(request.getParameter("numero"));
         int fat= 1;
         
         response.setContentType("text/html;charset=UTF-8");
@@ -47,11 +46,11 @@ public class Questao04 extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Resultado: </h1>");
-            out.println("O numero informado"+valor);
-          while (intcontador <= valor) {
-			fat = fat + (fat * (valor - 1) );
-			valor--;
-		}
+            out.println("O numero informado"+fat);
+        while(n > 1) {
+            fat = fat*n;
+            n--;
+        }
             
             out.println("</body>");
             out.println("</html>");

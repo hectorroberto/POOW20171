@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Questão 04</title>
     </head>
     <body>
         <h1>Questão 04</h1>
-        <form action="questao11" method="POST">
+        <form action="questao04" method="POST">
             <input type="text" name="numero">
             <input type="submit" value="Enviar">
         </form>
