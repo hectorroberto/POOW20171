@@ -39,13 +39,15 @@ public class Vetor_10 extends HttpServlet {
         for (i = 0; i < 10; i++){
             vetor[i] = Integer.valueOf(request.getParameter("valor"+i));
         }
+        
         Arrays.sort(vetor);
+        
         String vetorCrescente = ""; 
         String vetorDecrescente = "";
         for (i = 0; i < 10; i++)
             vetorCrescente += ""+vetor[i]+", ";
         
-        for (i = 10; i >= 0; i--)
+        for (i = 9; i >= 0; i--)
             vetorDecrescente += ""+vetor[i]+", ";
         
         
