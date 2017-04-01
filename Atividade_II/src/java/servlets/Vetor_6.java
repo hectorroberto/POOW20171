@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author haguilar
+ * @author Administrador
  */
-@WebServlet(name = "Vetor_5", urlPatterns = {"/vetor_5"})
-public class Vetor_5 extends HttpServlet {
+@WebServlet(name = "Vetor_6", urlPatterns = {"/vetor_6"})
+public class Vetor_6 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,12 +32,29 @@ public class Vetor_5 extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String pass = request.getParameter("pass");
-        int max = Integer.valueOf((request.getParameter("max")));
+        float nota[] = new float[10];
+        int conta8 = 0, contaAcimaMedia = 0, i, aux;
+        float media = 0;
         
-        response.sendRedirect("vetor.jsp?+pass="+"getValores");
+        aux = 1;
+        for (i = 0; i < 10; i++){
+            nota[i] = Float.valueOf(request.getParameter("nota"+aux));
+            aux++;
+        }
         
-        
+        for ( i = 0; i < 10; i++){
+            if (nota[i] <= 8){
+                conta8++;
+            }
+            media += nota[i];
+        }
+        media = media/10;
+        for (i = 0; i < 10; i++){
+            if (nota[i] > media)
+            contaAcimaMedia++;
+                
+        }
+            
         
         
         response.setContentType("text/html;charset=UTF-8");
@@ -46,10 +63,15 @@ public class Vetor_5 extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Vetor_5</title>");            
+            out.println("<title>Servlet Vetor_6</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Max: "+max+"</h1>");
+            out.println("<h1> Resultados</h1>");
+            out.println("<h2> Media total dos alunos: "+media+"<h2/>");
+            out.println("<h2> Quantidade de alunos que tiraram nota acima ou igual a 8: "+conta8+"<h2/>");
+            out.println("<h2> Quantidade de alunos que tiraram nota acima da média: "+contaAcimaMedia+"<h2/>");
+            out.println("<h2> Quantidade de alunos que tiraram abaixo da média: "+(10-contaAcimaMedia)+"<h2/>");
+            out.println("<h2> <h2/>");
             out.println("</body>");
             out.println("</html>");
         }
