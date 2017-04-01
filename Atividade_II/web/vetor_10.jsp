@@ -1,10 +1,11 @@
 <%-- 
     Document   : vetor_10
-    Created on : 01/04/2017, 01:18:52
+    Created on : 01/04/2017, 01:48:08
     Author     : Administrador
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%String status = request.getParameter("status");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
     </head>
     <body>
         <h1>Questão 10</h1>
-        <form action="vetor_7" method="POST">
+        <form action="vetor_10" method="POST">
             <%for(int i = 0; i < 10;i++){%>
                 [<%=i+1%>]Informe o valor do vetor: <input type="text" name="valor<%=i%>" placeholder="Valor..."/><br/><br/>
             <%}%>
