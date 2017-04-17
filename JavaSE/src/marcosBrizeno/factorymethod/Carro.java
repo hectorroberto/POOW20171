@@ -7,4 +7,5 @@ package marcosBrizeno.factorymethod;
  */
 public interface Carro {
     void exibirInfo();
+    void exibirCor();
 }
