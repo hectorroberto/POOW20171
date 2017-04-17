@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Bridge">
+  <ClassDiagramComponents>
+    <Class name="JanelaAbstrata" package="Bridge" visibility="public" isAbstract="true" xPosition="527.0" yPosition="291.0">
+      <Fields>
+        <Field name="janela" type="JanelaImplementada" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JanelaImplementada" name="j"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="desenharJanela" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="desenharBotao" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="desenhar" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="JanelaAviso" package="Bridge" visibility="public" xPosition="201.0" yPosition="527.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JanelaImplementada" name="j"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="desenhar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="JanelaDialogo" package="Bridge" visibility="public" xPosition="529.0" yPosition="601.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="JanelaImplementada" name="j"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="desenhar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="JanelaWindows" package="Bridge" visibility="public" xPosition="1013.0" yPosition="170.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="desenharJanela" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="desenharBotao" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Teste" package="Bridge" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="JanelaImplementada" package="Bridge" visibility="public" xPosition="899.0" yPosition="532.0">
+      <Methods>
+        <Method name="desenharJanela" returnType="void" visibility="package">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="desenharBotao" returnType="void" visibility="package">
+          <Argument type="String" name="titulo"/>
+        </Method>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="janela" source="Bridge.JanelaAbstrata" target="Bridge.JanelaImplementada" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Bridge.JanelaWindows" target="Bridge.JanelaImplementada"/>
+    <IsRelation name="is" source="Bridge.JanelaDialogo" target="Bridge.JanelaAbstrata"/>
+    <IsRelation name="is" source="Bridge.JanelaAviso" target="Bridge.JanelaAbstrata"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
