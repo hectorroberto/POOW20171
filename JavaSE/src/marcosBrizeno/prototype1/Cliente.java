@@ -1,4 +1,4 @@
-package br.padroes.prototype;
+package marcosBrizeno.prototype1;
 
 public class Cliente {
 	public static void main(String[] args) {
