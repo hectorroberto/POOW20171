@@ -1,7 +1,7 @@
 package marcosBrizeno.prototype1;
 
 public class PalioPrototype extends CarroPrototype {
-
+    
 	private PalioPrototype(PalioPrototype palioPrototype) {
 		this.valorCompra = palioPrototype.getValorCompra();
 	}
@@ -19,6 +19,7 @@ public class PalioPrototype extends CarroPrototype {
 	@Override
 	public CarroPrototype clonar() {
 		return new PalioPrototype(this);
+                
 	}
-
+  
 }
