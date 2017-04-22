@@ -1,4 +1,4 @@
-package br.padroes.composite.seguro;
+package marcosBrizeno.composite.seguro1;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class ArquivoComposite extends ArquivoComponent {
 				return;
 			}
 		}
-		throw new Exception("Não existe este arquivo");
+		throw new Exception("Nï¿½o existe este arquivo");
 	}
 
 	public ArquivoComponent getArquivo(String nomeDoArquivo) throws Exception {
@@ -38,6 +38,6 @@ public class ArquivoComposite extends ArquivoComponent {
 				return arquivoTmp;
 			}
 		}
-		throw new Exception("Não existe este arquivo");
+		throw new Exception("Nï¿½o existe este arquivo");
 	}
 }

@@ -1,4 +1,4 @@
-package br.padroes.composite.seguro;
+package marcosBrizeno.composite.seguro1;
 
 public class ArquivoVideo extends ArquivoComponent {
 	public ArquivoVideo(String nomeDoArquivo) {

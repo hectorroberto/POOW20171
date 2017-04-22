@@ -1,4 +1,4 @@
-package br.padroes.composite.seguro;
+package marcosBrizeno.composite.seguro1;
 
 public abstract class ArquivoComponent {
 	String nomeDoArquivo;
