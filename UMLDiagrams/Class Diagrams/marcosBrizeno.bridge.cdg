@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ClassDiagram name="Bridge">
+<ClassDiagram name="marcosBrizeno.bridge1">
   <ClassDiagramComponents>
-    <Class name="JanelaAbstrata" package="Bridge" visibility="public" isAbstract="true" xPosition="527.0" yPosition="291.0">
+    <Class name="Cliente" package="marcosBrizeno.bridge1" visibility="public" xPosition="349.0" yPosition="54.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="JanelaAbstrata" package="marcosBrizeno.bridge1" visibility="public" isAbstract="true" xPosition="160.0" yPosition="185.0">
       <Fields>
         <Field name="janela" type="JanelaImplementada" visibility="protected"/>
       </Fields>
@@ -21,7 +30,7 @@
         <Method name="desenhar" returnType="void" visibility="public" isAbstract="true"/>
       </Methods>
     </Class>
-    <Class name="JanelaAviso" package="Bridge" visibility="public" xPosition="201.0" yPosition="527.0">
+    <Class name="JanelaAviso" package="marcosBrizeno.bridge1" visibility="public" xPosition="118.0" yPosition="512.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public">
@@ -32,7 +41,7 @@
         <Method name="desenhar" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="JanelaDialogo" package="Bridge" visibility="public" xPosition="529.0" yPosition="601.0">
+    <Class name="JanelaDialogo" package="marcosBrizeno.bridge1" visibility="public" xPosition="407.0" yPosition="512.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public">
@@ -43,7 +52,7 @@
         <Method name="desenhar" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="JanelaWindows" package="Bridge" visibility="public" xPosition="1013.0" yPosition="170.0">
+    <Class name="JanelaLinux" package="marcosBrizeno.bridge1" visibility="public" xPosition="458.0" yPosition="329.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -55,16 +64,19 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Teste" package="Bridge" visibility="public" xPosition="1520.0" yPosition="20.0">
+    <Class name="JanelaWindows" package="marcosBrizeno.bridge1" visibility="public" xPosition="712.0" yPosition="329.0">
       <Fields/>
       <Constructors/>
       <Methods>
-        <Method name="main" returnType="void" visibility="public" isStatic="true">
-          <Argument type="String[]" name="args"/>
+        <Method name="desenharJanela" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="desenharBotao" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
         </Method>
       </Methods>
     </Class>
-    <Interface name="JanelaImplementada" package="Bridge" visibility="public" xPosition="899.0" yPosition="532.0">
+    <Interface name="JanelaImplementada" package="marcosBrizeno.bridge1" visibility="public" xPosition="571.0" yPosition="167.0">
       <Methods>
         <Method name="desenharJanela" returnType="void" visibility="package">
           <Argument type="String" name="titulo"/>
@@ -76,9 +88,10 @@
     </Interface>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="janela" source="Bridge.JanelaAbstrata" target="Bridge.JanelaImplementada" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Bridge.JanelaWindows" target="Bridge.JanelaImplementada"/>
-    <IsRelation name="is" source="Bridge.JanelaDialogo" target="Bridge.JanelaAbstrata"/>
-    <IsRelation name="is" source="Bridge.JanelaAviso" target="Bridge.JanelaAbstrata"/>
+    <IsRelation name="is" source="marcosBrizeno.bridge1.JanelaAviso" target="marcosBrizeno.bridge1.JanelaAbstrata"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.bridge1.JanelaLinux" target="marcosBrizeno.bridge1.JanelaImplementada"/>
+    <IsRelation name="is" source="marcosBrizeno.bridge1.JanelaDialogo" target="marcosBrizeno.bridge1.JanelaAbstrata"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.bridge1.JanelaWindows" target="marcosBrizeno.bridge1.JanelaImplementada"/>
+    <HasRelation name="janela" source="marcosBrizeno.bridge1.JanelaAbstrata" target="marcosBrizeno.bridge1.JanelaImplementada" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>

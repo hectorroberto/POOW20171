@@ -2,7 +2,7 @@
 
 <ClassDiagram name="marcosBrizeno.composite.seguro1">
   <ClassDiagramComponents>
-    <Class name="ArquivoComponent" package="marcosBrizeno.composite.seguro1" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+    <Class name="ArquivoComponent" package="marcosBrizeno.composite.seguro1" visibility="public" isAbstract="true" xPosition="300.0" yPosition="7.0">
       <Fields>
         <Field name="nomeDoArquivo" type="String" visibility="package"/>
       </Fields>
@@ -12,7 +12,7 @@
         <Method name="printNomeDoArquivo" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="ArquivoComposite" package="marcosBrizeno.composite.seguro1" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="ArquivoComposite" package="marcosBrizeno.composite.seguro1" visibility="public" xPosition="416.0" yPosition="222.0">
       <Fields>
         <Field name="arquivos" type="ArrayList&lt;ArquivoComponent&gt;" visibility="protected"/>
       </Fields>
@@ -34,7 +34,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="ArquivoVideo" package="marcosBrizeno.composite.seguro1" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="ArquivoVideo" package="marcosBrizeno.composite.seguro1" visibility="public" xPosition="129.0" yPosition="222.0">
       <Fields/>
       <Constructors>
         <Constructor visibility="public">
@@ -43,7 +43,7 @@
       </Constructors>
       <Methods/>
     </Class>
-    <Class name="Main" package="marcosBrizeno.composite.seguro1" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="Main" package="marcosBrizeno.composite.seguro1" visibility="public" xPosition="511.0" yPosition="7.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -54,9 +54,8 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <UseRelation source="marcosBrizeno.composite.seguro1.ArquivoComposite" target="marcosBrizeno.composite.seguro1.ArquivoComponent" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <IsRelation name="is" source="marcosBrizeno.composite.seguro1.ArquivoVideo" target="marcosBrizeno.composite.seguro1.ArquivoComponent"/>
     <IsRelation name="is" source="marcosBrizeno.composite.seguro1.ArquivoComposite" target="marcosBrizeno.composite.seguro1.ArquivoComponent"/>
+    <IsRelation name="is" source="marcosBrizeno.composite.seguro1.ArquivoVideo" target="marcosBrizeno.composite.seguro1.ArquivoComponent"/>
     <HasRelation name="arquivos" source="marcosBrizeno.composite.seguro1.ArquivoComposite" target="marcosBrizeno.composite.seguro1.ArquivoComponent" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ArquivoComponent&gt;"/>
   </ClassDiagramRelations>
 </ClassDiagram>

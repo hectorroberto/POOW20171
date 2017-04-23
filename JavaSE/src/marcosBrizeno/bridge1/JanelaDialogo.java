@@ -1,4 +1,4 @@
-package br.padroes.bridge;
+package marcosBrizeno.bridge1;
 
 public class JanelaDialogo extends JanelaAbstrata {
 
