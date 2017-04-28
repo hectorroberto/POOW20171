@@ -7,7 +7,7 @@ public class Cliente {
 		dados.attach(new BarraObserver(dados));
 		dados.attach(new PorcentoObserver(dados));
 
-		dados.setState(new Dados(7, 3, 1));
-		dados.setState(new Dados(2, 3, 1));
+		dados.setState(new Dados(10, 3, 1));
+		dados.setState(new Dados(2, 30, 100));
 	}
 }

@@ -1,4 +1,4 @@
-package br.padroes.mediator;
+package marcosBrizeno.mediator1;
 
 public abstract class Colleague {
 	protected Mediator mediator;

@@ -1,4 +1,4 @@
-package br.padroes.mediator;
+package marcosBrizeno.mediator1;
 
 public class IOSColleague extends Colleague {
 
