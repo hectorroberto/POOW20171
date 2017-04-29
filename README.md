@@ -20,4 +20,4 @@ Orientador
 
 Sobre
 ------------------
-A disciplina de Programação Orientada a Objetos para Web corresponde ao Curso Bacharel em Sistemas de Informação oferecido pela [UNINORTE](http://www.uninorteac.com.br/novo/) no [Acre](https://pt.wikipedia.org/wiki/Acre).
+A disciplina de Programação Orientada a Objetos para Web corresponde ao Curso Bacharel em Sistemas de Informação oferecido pela [UNINORTE](http://www.uninorteac.com.br/novo/) no Estado do [Acre](https://pt.wikipedia.org/wiki/Acre).
