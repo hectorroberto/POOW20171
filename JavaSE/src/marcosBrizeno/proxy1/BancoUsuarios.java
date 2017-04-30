@@ -1,4 +1,4 @@
-package br.padroes.proxy;
+package marcosBrizeno.proxy1;
 
 public class BancoUsuarios {
 	private int quantidadeDeUsuarios;

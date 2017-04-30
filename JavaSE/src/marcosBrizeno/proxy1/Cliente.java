@@ -1,8 +1,8 @@
-package br.padroes.proxy;
+package marcosBrizeno.proxy1;
 
 public class Cliente {
 	public static void main(String[] args) {
-		System.out.println("Hacker acessando >(");
+		System.out.println("Hacker acessando :(");
 		BancoUsuarios banco = new BancoProxy("Hacker", "1234");
 		System.out.println(banco.getNumeroDeUsuarios());
 		System.out.println(banco.getUsuariosConectados());
