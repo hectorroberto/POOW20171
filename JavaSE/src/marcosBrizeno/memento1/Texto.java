@@ -1,4 +1,4 @@
-package br.padroes.memento;
+package marcosBrizeno.memento1;
 
 public class Texto {
 	protected String texto;

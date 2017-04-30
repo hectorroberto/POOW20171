@@ -1,4 +1,4 @@
-package br.padroes.memento;
+package marcosBrizeno.memento1;
 
 public class Cliente {
 	public static void main(String[] args) {
@@ -8,12 +8,6 @@ public class Cliente {
 		texto.escreverTexto("Terceira linha do texto\n");
 		texto.mostrarTexto();
 		texto.desfazerEscrita();
-		texto.mostrarTexto();
-		texto.desfazerEscrita();
-		texto.mostrarTexto();
-		texto.desfazerEscrita();
-		texto.mostrarTexto();
-		texto.desfazerEscrita();
-		texto.mostrarTexto();
+
 	}
 }

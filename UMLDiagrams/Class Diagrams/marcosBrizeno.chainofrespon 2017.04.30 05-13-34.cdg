@@ -32,7 +32,7 @@
         <Method name="quemSou" returnType="void" visibility="protected"/>
       </Methods>
     </Class>
-    <Class name="BancoChain" package="marcosBrizeno.chainofrespon" visibility="public" isAbstract="true" xPosition="920.0" yPosition="20.0">
+    <Class name="BancoChain" package="marcosBrizeno.chainofrespon" visibility="public" isAbstract="true" xPosition="485.0" yPosition="328.0">
       <Fields>
         <Field name="next" type="BancoChain" visibility="protected"/>
         <Field name="identificadorDoBanco" type="IDBancos" visibility="protected"/>
@@ -107,15 +107,15 @@
     </Enum>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
+    <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoD" target="marcosBrizeno.chainofrespon.BancoChain"/>
     <UseRelation source="marcosBrizeno.chainofrespon.BancoChain" target="marcosBrizeno.chainofrespon.BancoChain" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoF" target="marcosBrizeno.chainofrespon.BancoChain"/>
     <HasRelation name="identificadorDoBanco" source="marcosBrizeno.chainofrespon.BancoChain" target="marcosBrizeno.chainofrespon.IDBancos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoA" target="marcosBrizeno.chainofrespon.BancoChain"/>
-    <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoF" target="marcosBrizeno.chainofrespon.BancoChain"/>
-    <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoB" target="marcosBrizeno.chainofrespon.BancoChain"/>
-    <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoD" target="marcosBrizeno.chainofrespon.BancoChain"/>
-    <UseRelation source="marcosBrizeno.chainofrespon.BancoChain" target="marcosBrizeno.chainofrespon.IDBancos" sourceCardinality="1..1" targetCardinality="1..1"/>
     <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoE" target="marcosBrizeno.chainofrespon.BancoChain"/>
     <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoC" target="marcosBrizeno.chainofrespon.BancoChain"/>
+    <IsRelation name="is" source="marcosBrizeno.chainofrespon.BancoB" target="marcosBrizeno.chainofrespon.BancoChain"/>
     <HasRelation name="next" source="marcosBrizeno.chainofrespon.BancoChain" target="marcosBrizeno.chainofrespon.BancoChain" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="marcosBrizeno.chainofrespon.BancoChain" target="marcosBrizeno.chainofrespon.IDBancos" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
