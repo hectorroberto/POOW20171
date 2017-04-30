@@ -1,4 +1,4 @@
-package br.padroes.chain;
+package marcosBrizeno.chainofrespon;
 
 public abstract class BancoChain {
 
@@ -11,6 +11,7 @@ public abstract class BancoChain {
 	}
 
 	public void setNext(BancoChain forma) {
+            
 		if (next == null) {
 			next = forma;
 		} else {
@@ -37,5 +38,6 @@ public abstract class BancoChain {
 	}
 
 	protected abstract void efetuaPagamento();
+        protected abstract void quemSou();
 
 }

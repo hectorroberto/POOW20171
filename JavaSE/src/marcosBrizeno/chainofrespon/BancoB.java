@@ -1,4 +1,4 @@
-package br.padroes.chain;
+package marcosBrizeno.chainofrespon;
 
 public class BancoB extends BancoChain {
 
@@ -10,5 +10,10 @@ public class BancoB extends BancoChain {
 	protected void efetuaPagamento() {
 		System.out.println("Pagamento efetuado no banco B");
 	}
+
+    @Override
+    protected void quemSou() {
+        System.out.println("Sou Banco B");
+    }
 
 }
