@@ -1,4 +1,4 @@
-package br.padroes.state;
+package marcosBrizeno.state1;
 
 public class Mario {
 	protected MarioState estado;
