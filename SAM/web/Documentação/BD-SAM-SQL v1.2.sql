@@ -4,17 +4,10 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
--- -----------------------------------------------------
--- Schema SAM
--- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `sam` DEFAULT CHARACTER SET utf8 ;
+USE `sam` ;
 
-CREATE SCHEMA IF NOT EXISTS `SAM` DEFAULT CHARACTER SET utf8 ;
-USE `SAM` ;
-
--- -----------------------------------------------------
--- Table `SAM`.`usuarios`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `sam`.`usuarios` (
   `cod_usuario` INT(11) NOT NULL AUTO_INCREMENT,
   `login` VARCHAR(30) NOT NULL,
   `senha` VARCHAR(40) NOT NULL,
@@ -26,7 +19,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `SAM`.`perfil`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`perfil` (
+CREATE TABLE IF NOT EXISTS `sam`.`perfil` (
   `cod_perfil` INT NOT NULL AUTO_INCREMENT,
   `tipo_perfil` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`cod_perfil`))
@@ -36,7 +29,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SAM`.`gerencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`gerencia` (
+CREATE TABLE IF NOT EXISTS `sam`.`gerencia` (
   `cod_gerencia` INT NOT NULL AUTO_INCREMENT,
   `nome_completo` VARCHAR(100) NOT NULL,
   `perfil` VARCHAR(45) NOT NULL,
@@ -47,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `SAM`.`gerencia` (
   INDEX `fk_gerencia_perfil1_idx` (`perfil_cod_perfil` ASC),
   CONSTRAINT `fk_gerencia_usuarios1`
     FOREIGN KEY (`usuarios_cod_usuario`)
-    REFERENCES `SAM`.`usuarios` (`cod_usuario`)
+    REFERENCES `sam`.`usuarios` (`cod_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_gerencia_perfil1`
@@ -61,7 +54,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SAM`.`avaliacao`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`avaliacao` (
+CREATE TABLE IF NOT EXISTS `sam`.`avaliacao` (
   `cod_avaliacao` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`cod_avaliacao`))
 ENGINE = InnoDB;
@@ -70,7 +63,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `SAM`.`avalicao_textual`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`avalicao_textual` (
+CREATE TABLE IF NOT EXISTS `sam`.`avalicao_textual` (
   `cod_avaliacao_textual` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `texto` TEXT NOT NULL,
   `avaliacao_cod_avaliacao` INT NOT NULL,
@@ -85,9 +78,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`coordenador`
+-- Table `sam`.`coordenador`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`coordenador` (
+CREATE TABLE IF NOT EXISTS `sam`.`coordenador` (
   `cod_coordenador` INT(11) NOT NULL AUTO_INCREMENT,
   `nome_completo` VARCHAR(100) NOT NULL,
   `email` VARCHAR(100) NULL DEFAULT NULL,
@@ -105,9 +98,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`curso`
+-- Table `sam`.`curso`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`curso` (
+CREATE TABLE IF NOT EXISTS `sam`.`curso` (
   `cod_curso` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `coordenador_cod_coordenador` INT(11) NOT NULL,
@@ -115,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `SAM`.`curso` (
   INDEX `fk_curso_coordenador1_idx` (`coordenador_cod_coordenador` ASC),
   CONSTRAINT `fk_curso_coordenador1`
     FOREIGN KEY (`coordenador_cod_coordenador`)
-    REFERENCES `SAM`.`coordenador` (`cod_coordenador`)
+    REFERENCES `sam`.`coordenador` (`cod_coordenador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -123,9 +116,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`aluno`
+-- Table `sam`.`aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`aluno` (
+CREATE TABLE IF NOT EXISTS `sam`.`aluno` (
   `cod_aluno` INT(11) NOT NULL AUTO_INCREMENT,
   `nome_completo` VARCHAR(100) NOT NULL,
   `avaliação_textual` TEXT NULL DEFAULT NULL,
@@ -138,12 +131,12 @@ CREATE TABLE IF NOT EXISTS `SAM`.`aluno` (
   INDEX `fk_aluno_curso1_idx` (`curso_cod_curso` ASC, `curso_coordenador_cod_coordenador` ASC),
   CONSTRAINT `fk_aluno_usuarios1`
     FOREIGN KEY (`usuarios_cod_usuario`)
-    REFERENCES `SAM`.`usuarios` (`cod_usuario`)
+    REFERENCES `sam`.`usuarios` (`cod_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_aluno_curso1`
     FOREIGN KEY (`curso_cod_curso` , `curso_coordenador_cod_coordenador`)
-    REFERENCES `SAM`.`curso` (`cod_curso` , `coordenador_cod_coordenador`)
+    REFERENCES `sam`.`curso` (`cod_curso` , `coordenador_cod_coordenador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -153,7 +146,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `SAM`.`avaliacao_aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`avaliacao_aluno` (
+CREATE TABLE IF NOT EXISTS `sam`.`avaliacao_aluno` (
   `avaliacao_cod_avaliacao` INT NOT NULL AUTO_INCREMENT,
   `aluno_cod_aluno` INT(11) NOT NULL,
   `pendencia` TINYINT(1) NOT NULL DEFAULT 0,
@@ -169,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `SAM`.`avaliacao_aluno` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_avaliacao_has_aluno_aluno1`
     FOREIGN KEY (`aluno_cod_aluno`)
-    REFERENCES `SAM`.`aluno` (`cod_aluno`)
+    REFERENCES `sam`.`aluno` (`cod_aluno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_avaliacao_aluno_gerencia1`
@@ -180,19 +173,11 @@ CREATE TABLE IF NOT EXISTS `SAM`.`avaliacao_aluno` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `SAM`.`table1`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`table1` (
-)
-ENGINE = InnoDB;
-
-USE `SAM` ;
 
 -- -----------------------------------------------------
--- Table `SAM`.`avaliacao_numerica`
+-- Table `sam`.`avaliacao_numerica`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`avaliacao_numerica` (
+CREATE TABLE IF NOT EXISTS `sam`.`avaliacao_numerica` (
   `cod_avaliacao_numerica` INT(11) NOT NULL,
   `nota` FLOAT NOT NULL,
   `avaliacao_cod_avaliacao` INT NOT NULL,
@@ -208,9 +193,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`professor`
+-- Table `sam`.`professor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`professor` (
+CREATE TABLE IF NOT EXISTS `sam`.`professor` (
   `cod_professor` INT(11) NOT NULL AUTO_INCREMENT,
   `nome_completo` VARCHAR(100) NOT NULL,
   `cod_avaliacao_aluno` INT NOT NULL,
@@ -226,9 +211,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`disciplina`
+-- Table `sam`.`disciplina`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`disciplina` (
+CREATE TABLE IF NOT EXISTS `sam`.`disciplina` (
   `cod_disciplina` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `curso_cod_curso` INT(11) NOT NULL,
@@ -239,12 +224,12 @@ CREATE TABLE IF NOT EXISTS `SAM`.`disciplina` (
   INDEX `fk_disciplina_professor1_idx` (`professor_cod_professor` ASC),
   CONSTRAINT `fk_disciplina_curso1`
     FOREIGN KEY (`curso_cod_curso1`)
-    REFERENCES `SAM`.`curso` (`cod_curso`)
+    REFERENCES `sam`.`curso` (`cod_curso`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_disciplina_professor1`
     FOREIGN KEY (`professor_cod_professor`)
-    REFERENCES `SAM`.`professor` (`cod_professor`)
+    REFERENCES `sam`.`professor` (`cod_professor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -252,9 +237,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`professor_curso`
+-- Table `sam`.`professor_curso`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`professor_curso` (
+CREATE TABLE IF NOT EXISTS `sam`.`professor_curso` (
   `professor_cod_professor` INT(11) NOT NULL,
   `curso_cod_curso` INT(11) NOT NULL,
   `gerencia_cod_gerencia` INT NOT NULL,
@@ -264,12 +249,12 @@ CREATE TABLE IF NOT EXISTS `SAM`.`professor_curso` (
   INDEX `fk_professor_curso_gerencia1_idx` (`gerencia_cod_gerencia` ASC),
   CONSTRAINT `fk_professor_has_curso_professor1`
     FOREIGN KEY (`professor_cod_professor`)
-    REFERENCES `SAM`.`professor` (`cod_professor`)
+    REFERENCES `sam`.`professor` (`cod_professor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_professor_has_curso_curso1`
     FOREIGN KEY (`curso_cod_curso`)
-    REFERENCES `SAM`.`curso` (`cod_curso`)
+    REFERENCES `sam`.`curso` (`cod_curso`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_professor_curso_gerencia1`
@@ -282,9 +267,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`disciplina_aluno`
+-- Table `sam`.`disciplina_aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SAM`.`disciplina_aluno` (
+CREATE TABLE IF NOT EXISTS `sam`.`disciplina_aluno` (
   `disciplina_cod_disciplina` INT(11) NOT NULL,
   `aluno_cod_aluno` INT(11) NOT NULL,
   `gerencia_cod_gerencia` INT NOT NULL,
@@ -294,12 +279,12 @@ CREATE TABLE IF NOT EXISTS `SAM`.`disciplina_aluno` (
   INDEX `fk_disciplina_aluno_gerencia1_idx` (`gerencia_cod_gerencia` ASC),
   CONSTRAINT `fk_disciplina_has_aluno_disciplina1`
     FOREIGN KEY (`disciplina_cod_disciplina`)
-    REFERENCES `SAM`.`disciplina` (`cod_disciplina`)
+    REFERENCES `sam`.`disciplina` (`cod_disciplina`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_disciplina_has_aluno_aluno1`
     FOREIGN KEY (`aluno_cod_aluno`)
-    REFERENCES `SAM`.`aluno` (`cod_aluno`)
+    REFERENCES `sam`.`aluno` (`cod_aluno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_disciplina_aluno_gerencia1`
