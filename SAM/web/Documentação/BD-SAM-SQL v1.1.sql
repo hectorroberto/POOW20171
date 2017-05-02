@@ -4,11 +4,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-
 CREATE SCHEMA IF NOT EXISTS `sam` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+USE `sam`  ;
 
 -- -----------------------------------------------------
 -- Table `sam`.`usuarios`
@@ -23,9 +20,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`perfil`
+-- Table `sam` .`perfil`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`perfil` (
+CREATE TABLE IF NOT EXISTS `sam` .`perfil` (
   `cod_perfil` INT NOT NULL AUTO_INCREMENT,
   `tipo_perfil` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`cod_perfil`))
@@ -33,9 +30,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`gerencia`
+-- Table `sam` .`gerencia`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`gerencia` (
+CREATE TABLE IF NOT EXISTS `sam` .`gerencia` (
   `cod_gerencia` INT NOT NULL AUTO_INCREMENT,
   `nome_completo` VARCHAR(100) NOT NULL,
   `perfil` VARCHAR(45) NOT NULL,
@@ -51,25 +48,25 @@ CREATE TABLE IF NOT EXISTS `mydb`.`gerencia` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_gerencia_perfil1`
     FOREIGN KEY (`perfil_cod_perfil`)
-    REFERENCES `mydb`.`perfil` (`cod_perfil`)
+    REFERENCES `sam` .`perfil` (`cod_perfil`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`avaliacao`
+-- Table `sam` .`avaliacao`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`avaliacao` (
+CREATE TABLE IF NOT EXISTS `sam` .`avaliacao` (
   `cod_avaliacao` INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`cod_avaliacao`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`avalicao_textual`
+-- Table `sam` .`avalicao_textual`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`avalicao_textual` (
+CREATE TABLE IF NOT EXISTS `sam` .`avalicao_textual` (
   `cod_avaliacao_textual` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `texto` TEXT NOT NULL,
   `avaliacao_cod_avaliacao` INT NOT NULL,
@@ -77,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`avalicao_textual` (
   INDEX `fk_avalicao_textual_avaliacao1_idx` (`avaliacao_cod_avaliacao` ASC),
   CONSTRAINT `fk_avalicao_textual_avaliacao1`
     FOREIGN KEY (`avaliacao_cod_avaliacao`)
-    REFERENCES `mydb`.`avaliacao` (`cod_avaliacao`)
+    REFERENCES `sam` .`avaliacao` (`cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -124,9 +121,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`avaliacao_aluno`
+-- Table `sam` .`avaliacao_aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`avaliacao_aluno` (
+CREATE TABLE IF NOT EXISTS `sam` .`avaliacao_aluno` (
   `avaliacao_cod_avaliacao` INT NOT NULL,
   `aluno_cod_aluno` INT(11) NOT NULL,
   `pendencia` TINYINT(1) NOT NULL,
@@ -137,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`avaliacao_aluno` (
   INDEX `fk_avaliacao_has_aluno_gerencia1_idx` (`gerencia_cod_gerencia` ASC),
   CONSTRAINT `fk_avaliacao_has_aluno_avaliacao1`
     FOREIGN KEY (`avaliacao_cod_avaliacao`)
-    REFERENCES `mydb`.`avaliacao` (`cod_avaliacao`)
+    REFERENCES `sam` .`avaliacao` (`cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_avaliacao_has_aluno_aluno1`
@@ -147,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`avaliacao_aluno` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_avaliacao_has_aluno_gerencia1`
     FOREIGN KEY (`gerencia_cod_gerencia`)
-    REFERENCES `mydb`.`gerencia` (`cod_gerencia`)
+    REFERENCES `sam` .`gerencia` (`cod_gerencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

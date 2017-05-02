@@ -11,13 +11,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerente - SAM</title>
     </head>
+    
     <body>
         <h1>Bem-vindo, Gerente!</h1>
         <center>
-        <a href="construcao.jsp"> <img src="pic\gerencial\bus-fun.png" alt="Buscar Funcionário" align="left"/></a>
-        <a href="construcao.jsp"> <img src="pic\gerencial\va-av-text.png" alt="Validação de Avaliação" align="center"/></a>
-        <a href="construcao.jsp"> <img src="pic\gerencial\va-pen.png" alt="Validações Pendentes" align="right"/></a>
-        <a href="construcao.jsp"> <img src="pic\gerencial\es-gera.png" alt="Estatísticas Gerais" align="right"/></a>
+        <a href="construcao.jsp"> <img src="pic\gerencial\bus-fun.png" alt="Buscar Funcionário" width="150"/></a>
+        <a href="construcao.jsp"> <img src="pic\gerencial\va-av-text.png" alt="Validação de Avaliação" width="150"/></a>
+        <a href="construcao.jsp"> <img src="pic\gerencial\va-pen.png" alt="Validações Pendentes" width="150"/></a>
+        <a href="construcao.jsp"> <img src="pic\gerencial\es-gera.png" alt="Estatísticas Gerais" width="150"/></a>
         
         </center>
     </body>

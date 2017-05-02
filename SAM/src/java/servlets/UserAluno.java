@@ -12,7 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.url;
+import modelo.Aluno;
+import controle.AlunoImpl;
+import dao.AlunoDao;
 
 /**
  *
@@ -77,16 +79,22 @@ public class UserAluno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String user = request.getParameter("u");
-        String pass = request.getParameter("p");
+        String usuario = request.getParameter("u");
+        String senha = request.getParameter("p");
         
-        if ((user.equals("aluno")) && (pass.equals("aluno"))){
-            response.sendRedirect("aluno.jsp");
-        } else {
+        Aluno aluno = new Aluno();
+        AlunoDao login = new AlunoImpl();
+        
+        aluno.setNome(login.logar(usuario, senha));
+        
+        if((aluno.getNome())!= null){
+            response.sendRedirect("aluno.jsp?user="+aluno.getNome());
+        }else {
             
-            response.sendRedirect(url.INDEX);
+            response.sendRedirect("index.html");
         }
         
+              
         
         processRequest(request, response);
     }

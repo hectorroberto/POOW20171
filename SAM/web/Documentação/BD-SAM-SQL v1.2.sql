@@ -17,7 +17,7 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`perfil`
+-- Table `sam`.`perfil`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sam`.`perfil` (
   `cod_perfil` INT NOT NULL AUTO_INCREMENT,
@@ -27,7 +27,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`gerencia`
+-- Table `sam`.`gerencia`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sam`.`gerencia` (
   `cod_gerencia` INT NOT NULL AUTO_INCREMENT,
@@ -45,14 +45,14 @@ CREATE TABLE IF NOT EXISTS `sam`.`gerencia` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_gerencia_perfil1`
     FOREIGN KEY (`perfil_cod_perfil`)
-    REFERENCES `SAM`.`perfil` (`cod_perfil`)
+    REFERENCES `sam`.`perfil` (`cod_perfil`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`avaliacao`
+-- Table `sam`.`avaliacao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sam`.`avaliacao` (
   `cod_avaliacao` INT NOT NULL AUTO_INCREMENT,
@@ -61,7 +61,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`avalicao_textual`
+-- Table `sam`.`avalicao_textual`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sam`.`avalicao_textual` (
   `cod_avaliacao_textual` INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`avalicao_textual` (
   INDEX `fk_avalicao_textual_avaliacao1_idx` (`avaliacao_cod_avaliacao` ASC),
   CONSTRAINT `fk_avalicao_textual_avaliacao1`
     FOREIGN KEY (`avaliacao_cod_avaliacao`)
-    REFERENCES `SAM`.`avaliacao` (`cod_avaliacao`)
+    REFERENCES `sam`.`avaliacao` (`cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`coordenador` (
   INDEX `fk_coordenador_avaliacao_aluno1_idx` (`cod_avaliacao_aluno` ASC),
   CONSTRAINT `fk_coordenador_avaliacao_aluno1`
     FOREIGN KEY (`cod_avaliacao_aluno`)
-    REFERENCES `SAM`.`avaliacao_aluno` (`avaliacao_cod_avaliacao`)
+    REFERENCES `sam`.`avaliacao_aluno` (`avaliacao_cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -144,7 +144,7 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `SAM`.`avaliacao_aluno`
+-- Table `sam`.`avaliacao_aluno`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `sam`.`avaliacao_aluno` (
   `avaliacao_cod_avaliacao` INT NOT NULL AUTO_INCREMENT,
@@ -157,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`avaliacao_aluno` (
   INDEX `fk_avaliacao_aluno_gerencia1_idx` (`gerencia_cod_gerencia` ASC),
   CONSTRAINT `fk_avaliacao_has_aluno_avaliacao1`
     FOREIGN KEY (`avaliacao_cod_avaliacao`)
-    REFERENCES `SAM`.`avaliacao` (`cod_avaliacao`)
+    REFERENCES `sam`.`avaliacao` (`cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_avaliacao_has_aluno_aluno1`
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`avaliacao_aluno` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_avaliacao_aluno_gerencia1`
     FOREIGN KEY (`gerencia_cod_gerencia`)
-    REFERENCES `SAM`.`gerencia` (`cod_gerencia`)
+    REFERENCES `sam`.`gerencia` (`cod_gerencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -185,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`avaliacao_numerica` (
   INDEX `fk_avaliacao_numerica_avaliacao1_idx` (`avaliacao_cod_avaliacao` ASC),
   CONSTRAINT `fk_avaliacao_numerica_avaliacao1`
     FOREIGN KEY (`avaliacao_cod_avaliacao`)
-    REFERENCES `SAM`.`avaliacao` (`cod_avaliacao`)
+    REFERENCES `sam`.`avaliacao` (`cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`professor` (
   INDEX `fk_professor_avaliacao_aluno1_idx` (`cod_avaliacao_aluno` ASC),
   CONSTRAINT `fk_professor_avaliacao_aluno1`
     FOREIGN KEY (`cod_avaliacao_aluno`)
-    REFERENCES `SAM`.`avaliacao_aluno` (`avaliacao_cod_avaliacao`)
+    REFERENCES `sam`.`avaliacao_aluno` (`avaliacao_cod_avaliacao`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -259,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`professor_curso` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_professor_curso_gerencia1`
     FOREIGN KEY (`gerencia_cod_gerencia`)
-    REFERENCES `SAM`.`gerencia` (`cod_gerencia`)
+    REFERENCES `sam`.`gerencia` (`cod_gerencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -289,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`disciplina_aluno` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_disciplina_aluno_gerencia1`
     FOREIGN KEY (`gerencia_cod_gerencia`)
-    REFERENCES `SAM`.`gerencia` (`cod_gerencia`)
+    REFERENCES `sam`.`gerencia` (`cod_gerencia`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
