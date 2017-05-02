@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Hector Roberto
  */
-@WebServlet(name = "verificarUsuarioAluno", urlPatterns = {"/useraluno"})
-public class verificarUsuarioAluno extends HttpServlet {
+@WebServlet(name = "UserGerencial", urlPatterns = {"/usergerencial"})
+public class UserGerencial extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,19 +31,16 @@ public class verificarUsuarioAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet verificarUsuarioAluno</title>");            
+            out.println("<title>Servlet UserGerencial</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet verificarUsuarioAluno at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet UserGerencial at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,12 +76,12 @@ public class verificarUsuarioAluno extends HttpServlet {
         String user = request.getParameter("u");
         String pass = request.getParameter("p");
         
-        if ((user.equals("aluno")) && (pass.equals("aluno"))){
-            response.sendRedirect("aluno.jsp");
+        if ((user.equals("gerente")) && (pass.equals("gerente"))){
+            response.sendRedirect("gerente.jsp");
         } else {
-            response.sendRedirect("index.html");
+            
+            response.sendRedirect("gerencial.jsp");
         }
-        
         
         processRequest(request, response);
     }

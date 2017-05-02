@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Aluno - SAM</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h2>Bem-vindo, Aluno!</h2>
+        <center>
+        <a href="construcao.jsp"> <img src="pic\aluno\av-prof.png" alt="Avaliar Professor" align="left-center"/></a>
+        <a href="construcao.jsp"> <img src="pic\aluno\av-coord.png" alt="Avaliar Coordenador" align="center"  /></a>
+        <a href="construcao.jsp"> <img src="pic\aluno\rev-av.png" alt="Rever Avaliações" align="right-center" /></a>
+        </center>
     </body>
 </html>

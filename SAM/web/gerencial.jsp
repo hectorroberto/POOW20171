@@ -6,14 +6,12 @@
 </head>
 
 <body>
-  <div class="login">
-	<h1>Login Gerencial</h1>
-    <form action="aluno.jsp" method="post">
-    	<input type="text" name="u" placeholder="Username" required="required" />
-        <input type="password" name="p" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
+      <center><h1>Login Gerencial</h1></center>
+    <form action="usergerencial" method="post">
+        <center><input type="text" name="u" placeholder="Username" required="required" /><br/>
+        <input type="password" name="p" placeholder="Password" required="required" /><br/><br/>
+        <button type="submit">Entrar</button><br/><br/></center>
     </form>
-</div>
 </body>
 </html>
 
