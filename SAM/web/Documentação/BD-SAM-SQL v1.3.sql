@@ -109,6 +109,11 @@ CREATE TABLE IF NOT EXISTS `sam`.`professor` (
   PRIMARY KEY (`cod_professor`))
 ENGINE = InnoDB;
 
+INSERT INTO professor VALUES
+(1, "Josana Nishihira"),
+(2, "Francisco Gomes"),
+(3, "Maicon Vasconcelos"),
+(4, "Fernanda Figueira");
 
 -- -----------------------------------------------------
 -- Table `sam`.`disciplina`
@@ -125,6 +130,13 @@ CREATE TABLE IF NOT EXISTS `sam`.`disciplina` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+INSERT INTO disciplina VALUES
+(1, "Gestão de Projetos", 1),
+(2, "Padrão de Projetos", 2),
+(3, "Legislação e Ética", 1),
+(4, "Programação OO Web", 3),
+(5, "Gestão da Informação", 4);
 
 
 -- -----------------------------------------------------

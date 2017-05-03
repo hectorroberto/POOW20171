@@ -11,9 +11,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Aluno;
+import modelo.Professor;
 
 /**
  *
@@ -43,6 +46,32 @@ public class AlunoImpl implements AlunoDao{
         }
         
         return nome;
+    }
+
+    @Override
+    public List<Professor> getListProfessor(int codAluno) {
+        List<Professor> listProfessor = new ArrayList<>();
+        /*
+        String sql = "Select id, nome, idestado from cidade order by nome";
+        try {
+            stmt = conn.prepareStatement(sql);
+            rs  = stmt.executeQuery();
+            
+            while(rs.next()){
+                Cidade c = new Cidade();
+                c.setId(rs.getInt(1));
+                c.setNome(rs.getString(2));
+                c.getEstado().setId(rs.getInt(3));
+                
+                listCidades.add(c);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CidadeImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        */
+        return listProfessor;
     }
     
 }

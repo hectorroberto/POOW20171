@@ -1,7 +1,8 @@
 
 package dao;
 
-import modelo.Aluno;
+import java.util.List;
+import modelo.Professor;
 
 /**
  *
@@ -9,4 +10,5 @@ import modelo.Aluno;
  */
 public interface AlunoDao {
     public String logar(String usuario, String senha);
+    public List<Professor> getListProfessor(int codAluno);
 }
