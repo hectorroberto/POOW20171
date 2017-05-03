@@ -143,6 +143,12 @@ CREATE TABLE IF NOT EXISTS `sam`.`disciplina` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO disciplina VALUES
+(1, "Gestão de Projetos", 1, 1, 1),
+(2, "Padrão de Projetos", 2, 1, 1),
+(3, "Legislação e Ética", 1, 1, 1),
+(4, "Programação OO Web", 3, 1, 1),
+(5, "Gestão da Informação", 4, 1, 1);
 
 -- -----------------------------------------------------
 -- Table `sam`.`disciplina_has_aluno`
