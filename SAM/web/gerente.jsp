@@ -4,6 +4,8 @@
     Author     : Hector Roberto
 --%>
 
+<%@page import="controle.GerencialImpl"%>
+<%@page import="modelo.Gerencial"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -11,9 +13,21 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerente - SAM</title>
     </head>
-    
+        <% 
+     String usuario = request.getParameter("u");
+     String senha = request.getParameter("p");
+     
+     Gerencial gerente = new Gerencial();
+     GerencialImpl login = new GerencialImpl();
+     
+     gerente.setNomeGerente(login.logar(usuario, senha));
+     
+     if(gerente.getNomeGerente() == null){
+        response.sendRedirect("index.html");
+    }
+    %>
     <body>
-        <h1>Bem-vindo, Gerente!</h1>
+        <h2>Bem-vindo, <%=gerente.getNomeGerente()%>.</h2>
         <center>
         <a href="construcao.jsp"> <img src="pic\gerencial\bus-fun.png" alt="Buscar Funcionário" width="150"/></a>
         <a href="construcao.jsp"> <img src="pic\gerencial\va-av-text.png" alt="Validação de Avaliação" width="150"/></a>
