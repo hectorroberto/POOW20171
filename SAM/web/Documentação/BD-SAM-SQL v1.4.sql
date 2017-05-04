@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`coordenador` (
   PRIMARY KEY (`cod_coordenador`))
 ENGINE = InnoDB;
 
-INSERT INTO coordenador (cod_coordenador, nome_coordenador) VALUES (1, "Vander Magalhães");
+
 
 -- -----------------------------------------------------
 -- Table `sam`.`curso`
@@ -41,7 +41,6 @@ CREATE TABLE IF NOT EXISTS `sam`.`curso` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO curso values (1, "Sistemas de Informação", 1);
 
 -- -----------------------------------------------------
 -- Table `sam`.`aluno`
@@ -62,9 +61,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`aluno` (
 ENGINE = InnoDB;
 
 
-INSERT INTO aluno VALUES
-(1, "Hector Roberto", 1, "hector", "hector"),
-(2, "Brunna Rayanne", 1, "bruna", "bruna");
+
 
 -- -----------------------------------------------------
 -- Table `sam`.`perfil`
@@ -75,9 +72,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`perfil` (
   PRIMARY KEY (`cod_perfil`))
 ENGINE = InnoDB;
 
-INSERT INTO perfil VALUES
-(1, "Gerencial"),
-(2, "Avaliador");
+
 
 
 -- -----------------------------------------------------
@@ -99,9 +94,6 @@ CREATE TABLE IF NOT EXISTS `sam`.`gerencial` (
 ENGINE = InnoDB;
 
 
-INSERT INTO gerencial VALUES
-(2, "Sr. Hector Roberto Velásquez", 1, "gerenteHector", "hector" ),
-(3, "Sra. Brunna Rayanne Golçalves", 2, "avaliadoraBruna", "bruna" );
 
 -- -----------------------------------------------------
 -- Table `sam`.`professor`
@@ -113,11 +105,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`professor` (
 ENGINE = InnoDB;
 
 
-INSERT INTO professor VALUES
-(1, "Josana Nishihira"),
-(2, "Francisco Gomes"),
-(3, "Maicon Vasconcelos"),
-(4, "Fernanda Figueira");
+
 
 -- -----------------------------------------------------
 -- Table `sam`.`disciplina`
@@ -143,12 +131,7 @@ CREATE TABLE IF NOT EXISTS `sam`.`disciplina` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO disciplina VALUES
-(1, "Gestão de Projetos", 1, 1, 1),
-(2, "Padrão de Projetos", 2, 1, 1),
-(3, "Legislação e Ética", 1, 1, 1),
-(4, "Programação OO Web", 3, 1, 1),
-(5, "Gestão da Informação", 4, 1, 1);
+
 
 -- -----------------------------------------------------
 -- Table `sam`.`disciplina_has_aluno`
@@ -274,3 +257,70 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+-- -------------------------- CAMPO DE INSERT ------------------------------------------ --
+
+INSERT INTO coordenador (cod_coordenador, nome_coordenador) VALUES (1, "Vander Magalhães");
+
+INSERT INTO curso values (1, "Sistemas de Informação", 1);
+
+
+
+INSERT INTO aluno VALUES
+(1, "Hector Roberto", 1, "hector", "hector"),
+(2, "Brunna Rayanne", 1, "bruna", "bruna");
+
+INSERT INTO perfil VALUES
+(1, "Gerencial"),
+(2, "Avaliador");
+
+
+INSERT INTO gerencial VALUES
+(2, "Sr. Hector Roberto Velásquez", 1, "gerenteHector", "hector" ),
+(3, "Sra. Brunna Rayanne Golçalves", 2, "avaliadoraBruna", "bruna" );
+
+INSERT INTO professor VALUES
+(1, "Josana Nishihira"),
+(2, "Francisco Gomes"),
+(3, "Maicon Vasconcelos"),
+(4, "Fernanda Figueira");
+
+INSERT INTO disciplina VALUES
+(1, "Gestão de Projetos", 1, 1, 1),
+(2, "Padrão de Projetos", 2, 1, 1),
+(3, "Legislação e Ética", 1, 1, 1),
+(4, "Programação OO Web", 3, 1, 1),
+(5, "Gestão da Informação", 4, 1, 1);
+
+-- ADICIONANDO HECTOR A TODAS AS DISCIPLINAS DE SI 6 
+INSERT INTO disciplina_has_aluno VALUES
+(1, 1, 1, 1),
+(2, 2, 1, 1),
+(3, 1, 1, 1),
+(4, 3, 1, 1),
+(5, 4, 1, 1);
+
+
+-- -------------------------- CAMPO DE TESTES ------------------------------------------ --
+
+-- SELECIONAR TODOS OS PROFESSOR DO ALUNO TENTATIVA 1
+SELECT DISTINCT .cod_professor, p.nome_professor FROM
+professor p, disciplina d, disciplina_has_aluno da, aluno a WHERE
+a.cod_aluno = da.aluno_cod_aluno AND
+da.disciplina_professor_cod_professor = d.professor_cod_professor AND
+d.professor_cod_professor = p.cod_professor;
+
+-- SELECIONAR TODOS OS PROFESSORES DAS DISCIPLINAS
+SELECT p.cod_professor, p.nome_professor FROM
+disciplina d, professor p WHERE
+d.professor_cod_professor = p.cod_professor;
+
+-- SELECIONAR TODAS AS DISCIPLINAS DOS ALUNOS
+SELECT 
+
+-- SELECTIONAR PROFESSOR DO CODIGO UM
+select * from professor where cod_professor = 1
+
+
+
+select * from disciplina
+select * from aluno;

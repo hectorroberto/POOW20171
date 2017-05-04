@@ -51,7 +51,7 @@ public class AlunoImpl implements AlunoDao{
     @Override
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
-        /*
+        
         String sql = "Select id, nome, idestado from cidade order by nome";
         try {
             stmt = conn.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class AlunoImpl implements AlunoDao{
             Logger.getLogger(CidadeImpl.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
-        */
+        
         return listProfessor;
     }
     
