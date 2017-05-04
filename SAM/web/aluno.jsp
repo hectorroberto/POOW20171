@@ -19,8 +19,8 @@
      
      Aluno aluno = new Aluno();
      AlunoImpl login = new AlunoImpl();
-     
-     aluno.setNome(login.logar(usuario, senha));
+     aluno = login.logar(usuario, senha);
+   
      
      if(aluno.getNome() == null){
         response.sendRedirect("index.html");
@@ -29,7 +29,7 @@
     <body>
         <h2>Bem-vindo, <%=aluno.getNome()%>.</h2>
         <center>
-        <a href="construcao.jsp"> <img src="pic\aluno\av-prof.png" alt="Avaliar Professor" width="150"/></a>
+        <a href="aprofessor.jsp?cod="<%=aluno.getId()%>> <img src="pic\aluno\av-prof.png" alt="Avaliar Professor" width="150"/></a>
         <a href="construcao.jsp"> <img src="pic\aluno\av-coord.png" alt="Avaliar Coordenador" width="150" /></a>
         <a href="construcao.jsp"> <img src="pic\aluno\rev-av.png" alt="Rever Avaliações" width="150" /></a>
         </center>

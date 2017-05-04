@@ -28,49 +28,57 @@ public class AlunoImpl implements AlunoDao{
         ResultSet rs;
 
     @Override
-    public String logar(String usuario, String senha) {
+    public Aluno logar(String usuario, String senha) {
         String nome = null;
+        Aluno aluno = new Aluno();
         
-        String sql = "SELECT nome_aluno FROM aluno WHERE usuario=? and senha=?";
+        String sql = "SELECT cod_aluno, nome_aluno FROM aluno WHERE usuario=? and senha=?";
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
             rs  = stmt.executeQuery();
             rs.next();
-            nome = (rs.getString(1));
+            
+            aluno.setId((rs.getInt(1)));
+            aluno.setNome((rs.getString(2)));
             
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        return nome;
+        return aluno;
     }
 
     @Override
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
-        /*
-        String sql = "Select id, nome, idestado from cidade order by nome";
+                            
+        String sql = "select p.cod_professor, p.nome_professor" +
+            "from disciplina_has_aluno da, disciplina d, aluno a, professor p where" +
+            "da.disciplina_cod_disciplina = d.cod_disciplina" +
+            "and da.disciplina_professor_cod_professor = p.cod_professor" +
+            "and da.aluno_cod_aluno = a.cod_aluno" +
+            "and a.cod_aluno = ?";
         try {
             stmt = conn.prepareStatement(sql);
             rs  = stmt.executeQuery();
+            stmt.setInt(1, codAluno);
             
             while(rs.next()){
-                Cidade c = new Cidade();
-                c.setId(rs.getInt(1));
-                c.setNome(rs.getString(2));
-                c.getEstado().setId(rs.getInt(3));
+                Professor professor = new Professor();
+                professor.setCodProfessor(rs.getInt(1));
+                professor.setNomeProfessor(rs.getString(2));
                 
-                listCidades.add(c);
+                listProfessor.add(professor);
             }
            
         } catch (SQLException ex) {
-            Logger.getLogger(CidadeImpl.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AlunoImpl.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
-        */
+        
         return listProfessor;
     }
     
