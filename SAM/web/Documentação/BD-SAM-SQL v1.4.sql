@@ -308,7 +308,8 @@ professor p, disciplina d, disciplina_has_aluno da, aluno a WHERE
 a.cod_aluno = da.aluno_cod_aluno AND
 da.disciplina_professor_cod_professor = d.professor_cod_professor AND
 d.professor_cod_professor = p.cod_professor;
-
+ 
+ 
 -- SELECIONAR TODOS OS PROFESSOR DO ALUNO TENTATIVA 2
 SELECT p.cod_professor, p.nome_professor FROM
 professor p, disciplina d, disciplina_has_aluno da, aluno a WHERE
