@@ -303,11 +303,18 @@ INSERT INTO disciplina_has_aluno VALUES
 -- -------------------------- CAMPO DE TESTES ------------------------------------------ --
 
 -- SELECIONAR TODOS OS PROFESSOR DO ALUNO TENTATIVA 1
-SELECT DISTINCT .cod_professor, p.nome_professor FROM
+SELECT p.cod_professor, p.nome_professor FROM
 professor p, disciplina d, disciplina_has_aluno da, aluno a WHERE
 a.cod_aluno = da.aluno_cod_aluno AND
 da.disciplina_professor_cod_professor = d.professor_cod_professor AND
 d.professor_cod_professor = p.cod_professor;
+
+-- SELECIONAR TODOS OS PROFESSOR DO ALUNO TENTATIVA 2
+SELECT p.cod_professor, p.nome_professor FROM
+professor p, disciplina d, disciplina_has_aluno da, aluno a WHERE
+a.cod_aluno = da.aluno_cod_aluno
+AND da.disciplina_professor_cod_professor = d.professor_cod_professor
+AND d.professor_cod_professor = p.cod_professor;
 
 -- SELECIONAR TODOS OS PROFESSORES DAS DISCIPLINAS
 SELECT p.cod_professor, p.nome_professor FROM
@@ -317,10 +324,8 @@ d.professor_cod_professor = p.cod_professor;
 -- SELECIONAR TODAS AS DISCIPLINAS DOS ALUNOS
 SELECT 
 
--- SELECTIONAR PROFESSOR DO CODIGO UM
-select * from professor where cod_professor = 1
-
-
-
+-- TRECO DE SELEÇÕES AVULSAS
+select * from professor where cod_professor = 1;
+select * from professor;
 select * from disciplina
 select * from aluno;
