@@ -312,9 +312,8 @@ d.professor_cod_professor = p.cod_professor;
 -- SELECIONAR TODOS OS PROFESSOR DO ALUNO TENTATIVA 2
 SELECT p.cod_professor, p.nome_professor FROM
 professor p, disciplina d, disciplina_has_aluno da, aluno a WHERE
-a.cod_aluno = da.aluno_cod_aluno
-AND da.disciplina_professor_cod_professor = d.professor_cod_professor
-AND d.professor_cod_professor = p.cod_professor;
+da.aluno_cod_aluno = a.cod_aluno AND a.cod_aluno = 1
+AND da.disciplina_professor_cod_professor = d.professor_cod_professor and p.cod_professor = d.professor_cod_professor;
 
 -- SELECIONAR TODOS OS PROFESSORES DAS DISCIPLINAS
 SELECT p.cod_professor, p.nome_professor FROM
@@ -327,5 +326,20 @@ SELECT
 -- TRECO DE SELEÇÕES AVULSAS
 select * from professor where cod_professor = 1;
 select * from professor;
-select * from disciplina
+select * from disciplina;
 select * from aluno;
+
+select p.cod_professor, p.nome_professor
+from disciplina_has_aluno da, disciplina d, aluno a, professor p where
+da.disciplina_cod_disciplina = d.cod_disciplina
+and da.disciplina_professor_cod_professor = p.cod_professor
+and da.aluno_cod_aluno = a.cod_aluno
+and a.cod_aluno = 1;
+
+
+
+
+select * from disciplina_has_aluno;
+select * from aluno;
+select * from disciplina;
+
