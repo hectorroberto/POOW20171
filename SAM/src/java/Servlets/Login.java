@@ -5,8 +5,6 @@
  */
 package Servlets;
 
-import controle.AlunoImpl;
-import controle.GerencialImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,15 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Aluno;
-import modelo.Gerente;
+import modelo.User;
 
 /**
  *
- * @author Laboratorio
+ * @author DTEC
  */
-@WebServlet(name = "LoginGerencial", urlPatterns = {"/logingerencial"})
-public class LoginGerencial extends HttpServlet {
+@WebServlet(name = "Login", urlPatterns = {"/login"})
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +38,10 @@ public class LoginGerencial extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginProfessor</title>");            
+            out.println("<title>Servlet Login</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginProfessor at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,15 +76,15 @@ public class LoginGerencial extends HttpServlet {
         String usuario = request.getParameter("u");
         String senha = request.getParameter("p");
 
-        Gerente gerencial = new Gerente();
-        GerencialImpl login = new GerencialImpl();
-        gerencial = login.logar(usuario, senha);
+        User user;
+        AlunoImpl login = new AlunoImpl();
+        aluno = login.logar(usuario, senha);
 
-        if (gerencial.getNomeGerente() != null){
-           request.getSession().setAttribute("gerencial", gerencial);
-           response.sendRedirect("gerente.jsp");   
+        if (aluno.getNome() != null){
+           request.getSession().setAttribute("aluno", aluno);
+           response.sendRedirect("aluno.jsp");   
         } else{
-            response.sendRedirect("gerencial.jsp"); 
+            response.sendRedirect("index.html"); 
 
         }
     }
