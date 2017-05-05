@@ -73,7 +73,7 @@ public class AlunoImpl implements AlunoDao{
                 
                 listProfessor.add(professor);
             }
-           
+           return listProfessor;
         } catch (SQLException ex) {
             Logger.getLogger(AlunoImpl.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();

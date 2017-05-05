@@ -14,22 +14,18 @@
         <title>Aluno - SAM</title>
     </head>
     <% 
-     String usuario = request.getParameter("u");
-     String senha = request.getParameter("p");
      
-     Aluno aluno = new Aluno();
-     AlunoImpl login = new AlunoImpl();
-     aluno = login.logar(usuario, senha);
    
      
-     if(aluno.getNome() == null){
+     if(session.getAttribute("aluno") == null){
         response.sendRedirect("index.html");
     }
+     Aluno aluno = (Aluno) session.getAttribute("aluno");
     %>
     <body>
         <h2>Bem-vindo, <%=aluno.getNome()%>.</h2>
         <center>
-        <a href="aprofessor.jsp?cod="<%=aluno.getId()%>> <img src="pic\aluno\av-prof.png" alt="Avaliar Professor" width="150"/></a>
+        <a href="aprofessor.jsp?cod=<%=aluno.getId()%>"> <img src="pic\aluno\av-prof.png" alt="Avaliar Professor" width="150"/></a>
         <a href="construcao.jsp"> <img src="pic\aluno\av-coord.png" alt="Avaliar Coordenador" width="150" /></a>
         <a href="construcao.jsp"> <img src="pic\aluno\rev-av.png" alt="Rever Avaliações" width="150" /></a>
         </center>

@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelo.Gerencial;
 
 /**
  *
@@ -22,24 +23,27 @@ public class GerencialImpl implements GerenteDao{
     ResultSet rs;
     
     @Override
-    public String logar(String usuario, String senha) {
-        String nome = null;
+    public Gerencial logar(String usuario, String senha) {
+        Gerencial gerente = new Gerencial();
         
-        String sql = "SELECT nome_gerente FROM gerencial WHERE usuario=? and senha=?";
+        String sql = "SELECT cod_gerencial, nome_gerente, perfil_cod_perfil FROM gerencial WHERE usuario=? and senha=?";
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario);
             stmt.setString(2, senha);
             rs  = stmt.executeQuery();
             rs.next();
-            nome = (rs.getString(1));
+            
+            gerente.setCodGerencial(rs.getInt(1));
+            gerente.setNomeGerente(rs.getString(2));
+            gerente.setPerfilCodPerfil(rs.getInt(3));
             
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        return nome;
+        return gerente;
     }
     
 }

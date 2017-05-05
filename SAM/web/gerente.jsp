@@ -14,17 +14,11 @@
         <title>Gerente - SAM</title>
     </head>
         <% 
-     String usuario = request.getParameter("u");
-     String senha = request.getParameter("p");
-     
-     Gerencial gerente = new Gerencial();
-     GerencialImpl login = new GerencialImpl();
-     
-     gerente.setNomeGerente(login.logar(usuario, senha));
-     
-     if(gerente.getNomeGerente() == null){
-        response.sendRedirect("index.html");
-    }
+            if(session.getAttribute("gerencial") == null){
+               response.sendRedirect("gerencial.jsp");
+           }
+            Gerencial gerente = (Gerencial) session.getAttribute("gerencial");
+
     %>
     <body>
         <h2>Bem-vindo, <%=gerente.getNomeGerente()%>.</h2>
