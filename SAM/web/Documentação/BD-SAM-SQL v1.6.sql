@@ -60,17 +60,17 @@ CREATE TABLE IF NOT EXISTS `sam`.`user` (
   `usuario` VARCHAR(50) NOT NULL,
   `senha` VARCHAR(20) NOT NULL,
   `cod_curso` INT NOT NULL,
-  `perfil_cod_perfil` INT NOT NULL,
-  PRIMARY KEY (`cod_user`, `cod_curso`, `perfil_cod_perfil`),
+  `cod_perfil` INT NOT NULL,
+  PRIMARY KEY (`cod_user`, `cod_curso`, `cod_perfil`),
   INDEX `fk_aluno_curso1_idx` (`cod_curso` ASC),
-  INDEX `fk_user_perfil1_idx` (`perfil_cod_perfil` ASC),
+  INDEX `fk_user_perfil1_idx` (`cod_perfil` ASC),
   CONSTRAINT `fk_aluno_curso1`
     FOREIGN KEY (`cod_curso`)
     REFERENCES `sam`.`curso` (`cod_curso`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_perfil1`
-    FOREIGN KEY (`perfil_cod_perfil`)
+    FOREIGN KEY (`cod_perfil`)
     REFERENCES `sam`.`perfil` (`cod_perfil`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -226,26 +226,30 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
+
 -- ----------------------------------------------------------------------------- CAMPO DE INSERT ----------------------------------------------------------------  --
 
-INSERT INTO coordenador (cod_coordenador, nome_coordenador) VALUES (1, "Vander Magalhães");
-
-INSERT INTO curso values (1, "Sistemas de Informação", 1);
-
-
-
-INSERT INTO aluno VALUES
-(1, "Hector Roberto", 1, "hector", "hector"),
-(2, "Brunna Rayanne", 1, "bruna", "bruna");
-
 INSERT INTO perfil VALUES
-(1, "Gerencial"),
-(2, "Avaliador");
+(1, "Aluno"),
+(2, "Gerente"),
+(3, "Avaliador"),
+(4, "Admin");
 
+INSERT INTO coordenador VALUES
+(1, "Gerente"),
+(2, "Vander Magalhães");
 
-INSERT INTO gerencial VALUES
-(2, "Sr. Hector Roberto Velásquez", 1, "gerenteHector", "hector" ),
-(3, "Sra. Brunna Rayanne Golçalves", 2, "avaliadoraBruna", "bruna" );
+INSERT INTO curso VALUES
+(1, "Gerente", 1),
+(2, "Sistemas de Informação", 1);
+
+INSERT INTO user VALUES
+(1, "Hector Roberto Velásquez", "hector", "hector", 2, 1),
+(2, "Brunna Rayanne Golçalves", "bruna", "bruna", 2, 1);
+
+INSERT INTO USER VALUES
+(3, "Sr. Hector Roberto Velásquez", "gerenteHector", "hector", 1, 2),
+(4, "Sra. Brunna Rayanne Golçalves", "avaliadoraBruna", "bruna", 1, 3);
 
 INSERT INTO professor VALUES
 (1, "Josana Nishihira"),
@@ -254,11 +258,11 @@ INSERT INTO professor VALUES
 (4, "Fernanda Figueira");
 
 INSERT INTO disciplina VALUES
-(1, "Gestão de Projetos", 1, 1, 1),
-(2, "Padrão de Projetos", 2, 1, 1),
-(3, "Legislação e Ética", 1, 1, 1),
-(4, "Programação OO Web", 3, 1, 1),
-(5, "Gestão da Informação", 4, 1, 1);
+(1, 	"Gestão de Projetos", 	1, 	2, 	2),
+(2, 	"Padrão de Projetos", 	2, 	2, 	2),
+(3,	 	"Legislação e Ética", 	1, 	2, 	2),
+(4, 	"Programação OO Web", 	3, 	2, 	2),
+(5, 	"Gestão da Informação", 4, 	2, 	2);
 
 -- ADICIONANDO HECTOR A TODAS AS DISCIPLINAS DE SI 6 
 INSERT INTO disciplina_has_aluno VALUES
@@ -292,4 +296,5 @@ select * from aluno;
 select * from disciplina_has_aluno;
 select * from aluno;
 select * from disciplina;
+select * from perfil;
 
