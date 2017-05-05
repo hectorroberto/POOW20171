@@ -55,16 +55,18 @@ public class AlunoImpl implements AlunoDao{
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
                             
-        String sql = "select p.cod_professor, p.nome_professor" +
-            "from disciplina_has_aluno da, disciplina d, aluno a, professor p where" +
-            "da.disciplina_cod_disciplina = d.cod_disciplina" +
-            "and da.disciplina_professor_cod_professor = p.cod_professor" +
-            "and da.aluno_cod_aluno = a.cod_aluno" +
+        String sql = "select p.cod_professor, p.nome_professor " +
+            "from disciplina_has_aluno da, disciplina d, aluno a, professor p where " +
+            "da.disciplina_cod_disciplina = d.cod_disciplina " +
+            "and da.disciplina_professor_cod_professor = p.cod_professor " +
+            "and da.aluno_cod_aluno = a.cod_aluno " +
             "and a.cod_aluno = ?";
         try {
+            
             stmt = conn.prepareStatement(sql);
-            rs  = stmt.executeQuery();
             stmt.setInt(1, codAluno);
+            rs  = stmt.executeQuery();
+            
             
             while(rs.next()){
                 Professor professor = new Professor();
@@ -73,7 +75,6 @@ public class AlunoImpl implements AlunoDao{
                 
                 listProfessor.add(professor);
             }
-           return listProfessor;
         } catch (SQLException ex) {
             Logger.getLogger(AlunoImpl.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();

@@ -29,11 +29,10 @@
         <%
         Professor professor = new Professor();
         List<Professor> listProfessores = help.getListProfessor(aluno.getId());
-                    
                    
                     for(Professor p : listProfessores){
                         %>
-                        <h3> Professor
+                        <h3><br/> Professor
                             <%=p.getNomeProfessor()%>
                         </h3>
                         <%
