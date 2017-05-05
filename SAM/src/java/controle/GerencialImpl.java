@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modelo.Gerencial;
+import modelo.Gerente;
 
 /**
  *
@@ -23,8 +23,8 @@ public class GerencialImpl implements GerenteDao{
     ResultSet rs;
     
     @Override
-    public Gerencial logar(String usuario, String senha) {
-        Gerencial gerente = new Gerencial();
+    public Gerente logar(String usuario, String senha) {
+        Gerente gerente = new Gerente();
         
         String sql = "SELECT cod_gerencial, nome_gerente, perfil_cod_perfil FROM gerencial WHERE usuario=? and senha=?";
         try {

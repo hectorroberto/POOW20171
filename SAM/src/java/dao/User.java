@@ -5,13 +5,10 @@
  */
 package dao;
 
-import modelo.Gerente;
-
 /**
  *
- * @author Laboratorio
+ * @author DTEC
  */
-public interface GerenteDao {
-    public Gerente logar(String usuario, String senha);
-
+public interface User {
+    
 }

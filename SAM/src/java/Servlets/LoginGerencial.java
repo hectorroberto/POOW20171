@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Aluno;
-import modelo.Gerencial;
+import modelo.Gerente;
 
 /**
  *
@@ -79,7 +79,7 @@ public class LoginGerencial extends HttpServlet {
         String usuario = request.getParameter("u");
         String senha = request.getParameter("p");
 
-        Gerencial gerencial = new Gerencial();
+        Gerente gerencial = new Gerente();
         GerencialImpl login = new GerencialImpl();
         gerencial = login.logar(usuario, senha);
 

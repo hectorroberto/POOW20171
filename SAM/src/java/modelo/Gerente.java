@@ -5,23 +5,19 @@
  */
 package modelo;
 
+import dao.GerenteDao;
+
 /**
  *
- * @author Hector Roberto
+ * @author Laboratorio
  */
-public class Aluno extends User{
+public class Gerente extends User{
     int codUser;
     String nome;
     String usuario;
     String senha;
     int codPerfil;
     int codCurso;
-
-    
-
-    public void setCodCurso(int codCurso) {
-        this.codCurso = codCurso;
-    }
 
     public int getCodUser() {
         return codUser;
@@ -62,9 +58,13 @@ public class Aluno extends User{
     public void setCodPerfil(int codPerfil) {
         this.codPerfil = codPerfil;
     }
-    
+
     public int getCodCurso() {
         return codCurso;
+    }
+
+    public void setCodCurso(int codCurso) {
+        this.codCurso = codCurso;
     }
     
     
