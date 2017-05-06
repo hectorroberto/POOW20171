@@ -48,7 +48,7 @@ public class AlunoImpl implements AlunoDao{
             while(rs.next()){
                 Professor professor = new Professor();
                 professor.setCodProfessor(rs.getInt(1));
-                professor.setNomeProfessor(rs.getString(2));
+                professor.setNome(rs.getString(2));
                 
                 listProfessor.add(professor);
             }
