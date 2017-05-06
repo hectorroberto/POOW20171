@@ -31,13 +31,13 @@ public class Logar {
         switch(perfil){
             case "Aluno":
                 user = new Aluno();
-                user = preencher.preencherAluno(user)
+                user = preencher.preencherAluno(usuario, senha);
                 break;
             case "Gerente":
                 user = new Gerente();
+                user = preencher.preencherGerente(usuario, senha);
                 break;
         }
-        
         return user;
     }
     
