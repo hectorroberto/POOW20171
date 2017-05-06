@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="marcosBrizeno.builder1">
+  <ClassDiagramComponents>
+    <Class name="CarroBuilder" package="marcosBrizeno.builder1" visibility="public" isAbstract="true" xPosition="348.0" yPosition="307.0">
+      <Fields>
+        <Field name="carro" type="CarroProduct" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="buildPreco" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="buildDscMotor" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="buildAnoDeFabricacao" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="buildModelo" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="buildMontadora" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="getCarro" returnType="CarroProduct" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="CarroProduct" package="marcosBrizeno.builder1" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="preco" type="double" visibility="public"/>
+        <Field name="dscMotor" type="String" visibility="public"/>
+        <Field name="anoDeFabricacao" type="int" visibility="public"/>
+        <Field name="modelo" type="String" visibility="public"/>
+        <Field name="montadora" type="String" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Cliente" package="marcosBrizeno.builder1" visibility="public" xPosition="638.0" yPosition="115.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConcessionariaDirector" package="marcosBrizeno.builder1" visibility="public" xPosition="581.0" yPosition="519.0">
+      <Fields>
+        <Field name="montadora" type="CarroBuilder" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="CarroBuilder" name="montadora"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="construirCarro" returnType="void" visibility="public"/>
+        <Method name="getCarro" returnType="CarroProduct" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FiatBuilder" package="marcosBrizeno.builder1" visibility="public" xPosition="924.0" yPosition="217.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buildPreco" returnType="void" visibility="public"/>
+        <Method name="buildDscMotor" returnType="void" visibility="public"/>
+        <Method name="buildAnoDeFabricacao" returnType="void" visibility="public"/>
+        <Method name="buildModelo" returnType="void" visibility="public"/>
+        <Method name="buildMontadora" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VolksBuilder" package="marcosBrizeno.builder1" visibility="public" xPosition="128.0" yPosition="710.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="buildPreco" returnType="void" visibility="public"/>
+        <Method name="buildDscMotor" returnType="void" visibility="public"/>
+        <Method name="buildAnoDeFabricacao" returnType="void" visibility="public"/>
+        <Method name="buildModelo" returnType="void" visibility="public"/>
+        <Method name="buildMontadora" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="marcosBrizeno.builder1.ConcessionariaDirector" target="marcosBrizeno.builder1.CarroProduct" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="marcosBrizeno.builder1.FiatBuilder" target="marcosBrizeno.builder1.CarroBuilder"/>
+    <HasRelation name="carro" source="marcosBrizeno.builder1.CarroBuilder" target="marcosBrizeno.builder1.CarroProduct" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="marcosBrizeno.builder1.CarroBuilder" target="marcosBrizeno.builder1.CarroProduct" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="marcosBrizeno.builder1.VolksBuilder" target="marcosBrizeno.builder1.CarroBuilder"/>
+    <HasRelation name="montadora" source="marcosBrizeno.builder1.ConcessionariaDirector" target="marcosBrizeno.builder1.CarroBuilder" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

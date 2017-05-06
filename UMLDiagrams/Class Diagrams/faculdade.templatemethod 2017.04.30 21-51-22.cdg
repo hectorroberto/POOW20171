@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="faculdade.templatemethod">
+  <ClassDiagramComponents>
+    <Class name="ClasseAbstrata" package="faculdade.templatemethod" visibility="public" isAbstract="true" xPosition="220.0" yPosition="186.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="templateMethod" returnType="void" visibility="protected" isFinal="true"/>
+        <Method name="operacao1" returnType="void" visibility="protected" isAbstract="true"/>
+        <Method name="operacao2" returnType="void" visibility="protected" isAbstract="true"/>
+        <Method name="operacao3" returnType="void" visibility="protected"/>
+        <Method name="gancho" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ClasseConcreta1" package="faculdade.templatemethod" visibility="public" xPosition="479.0" yPosition="31.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="operacao1" returnType="void" visibility="protected"/>
+        <Method name="operacao2" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ClasseConcreta2" package="faculdade.templatemethod" visibility="public" xPosition="479.0" yPosition="213.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="operacao1" returnType="void" visibility="protected"/>
+        <Method name="operacao2" returnType="void" visibility="protected"/>
+        <Method name="operacao3" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ClasseConcreta3" package="faculdade.templatemethod" visibility="public" xPosition="440.0" yPosition="439.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="operacao1" returnType="void" visibility="protected"/>
+        <Method name="operacao2" returnType="void" visibility="protected"/>
+        <Method name="operacao3" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ClasseConcreta4" package="faculdade.templatemethod" visibility="public" xPosition="220.0" yPosition="439.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="operacao1" returnType="void" visibility="protected"/>
+        <Method name="operacao2" returnType="void" visibility="protected"/>
+        <Method name="gancho" returnType="void" visibility="protected"/>
+        <Method name="operacao4" returnType="void" visibility="private"/>
+        <Method name="operacao5" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="faculdade.templatemethod" visibility="public" xPosition="220.0" yPosition="31.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="faculdade.templatemethod.ClasseConcreta3" target="faculdade.templatemethod.ClasseAbstrata"/>
+    <IsRelation name="is" source="faculdade.templatemethod.ClasseConcreta1" target="faculdade.templatemethod.ClasseAbstrata"/>
+    <IsRelation name="is" source="faculdade.templatemethod.ClasseConcreta4" target="faculdade.templatemethod.ClasseAbstrata"/>
+    <IsRelation name="is" source="faculdade.templatemethod.ClasseConcreta2" target="faculdade.templatemethod.ClasseAbstrata"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
