@@ -1,13 +1,17 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package modelo;
 
 /**
  *
- * @author Hector Roberto
+ * @author Laboratório
  */
 public class Professor {
-    private int codProfessor;
-    private String nomeProfessor;
+    int codProfessor;
+    String nome;
 
     public int getCodProfessor() {
         return codProfessor;
@@ -17,13 +21,12 @@ public class Professor {
         this.codProfessor = codProfessor;
     }
 
-    public String getNomeProfessor() {
-        return nomeProfessor;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProfessor(String nomeProfessor) {
-        this.nomeProfessor = nomeProfessor;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    
     
 }

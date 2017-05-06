@@ -5,9 +5,6 @@
  */
 package dao;
 
-import modelo.Coordenador;
-import modelo.Curso;
-
 /**
  *
  * @author Hector Roberto

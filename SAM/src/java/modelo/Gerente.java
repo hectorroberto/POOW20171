@@ -12,12 +12,6 @@ import dao.GerenteDao;
  * @author Laboratorio
  */
 public class Gerente extends User{
-    int codUser;
-    String nome;
-    String usuario;
-    String senha;
-    int codPerfil;
-    int codCurso;
 
     public int getCodUser() {
         return codUser;
@@ -66,6 +60,5 @@ public class Gerente extends User{
     public void setCodCurso(int codCurso) {
         this.codCurso = codCurso;
     }
-    
-    
+   
 }
