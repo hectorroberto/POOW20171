@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="treinan.herancasmultiplas">
+  <ClassDiagramComponents>
+    <Class name="Animal" package="treinan.herancasmultiplas" visibility="public" isAbstract="true" xPosition="587.0" yPosition="219.0">
+      <Fields>
+        <Field name="cor" type="String" visibility="private"/>
+        <Field name="classe" type="Classe" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="cor"/>
+          <Argument type="String" name="classe"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="animalMove" returnType="String" visibility="package">
+          <Argument type="String" name="move"/>
+        </Method>
+        <Method name="animalCome" returnType="String" visibility="package" isAbstract="true"/>
+        <Method name="getCor" returnType="String" visibility="public"/>
+        <Method name="setCor" returnType="void" visibility="public">
+          <Argument type="String" name="cor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Classe" package="treinan.herancasmultiplas" visibility="public" xPosition="838.0" yPosition="86.0">
+      <Fields>
+        <Field name="classe" type="String" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="classe"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="classeInforma" returnType="String" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="Humano" package="treinan.herancasmultiplas" visibility="public" xPosition="356.0" yPosition="374.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Mamifero" package="treinan.herancasmultiplas" visibility="public" xPosition="87.0" yPosition="86.0">
+      <Fields>
+        <Field name="alimento" type="String" visibility="private"/>
+        <Field name="ovo" type="boolean" visibility="private"/>
+        <Field name="habitat" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="cor"/>
+          <Argument type="String" name="classe"/>
+          <Argument type="boolean" name="ovo"/>
+          <Argument type="String" name="habitat"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="animalCome" returnType="String" visibility="package"/>
+        <Method name="terrestreHabitat" returnType="String" visibility="public"/>
+        <Method name="isOvo" returnType="boolean" visibility="public"/>
+        <Method name="setOvo" returnType="void" visibility="public">
+          <Argument type="boolean" name="ovo"/>
+        </Method>
+        <Method name="setStatusLocomocao" returnType="String" visibility="public">
+          <Argument type="String" name="move"/>
+        </Method>
+        <Method name="animalMove" returnType="String" visibility="package">
+          <Argument type="String" name="move"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="Terrestre" package="treinan.herancasmultiplas" visibility="public" xPosition="587.0" yPosition="98.0">
+      <Methods>
+        <Method name="terrestreHabitat" returnType="String" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="classe" source="treinan.herancasmultiplas.Animal" target="treinan.herancasmultiplas.Classe" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="treinan.herancasmultiplas.Mamifero" target="treinan.herancasmultiplas.Animal"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="treinan.herancasmultiplas.Mamifero" target="treinan.herancasmultiplas.Terrestre"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

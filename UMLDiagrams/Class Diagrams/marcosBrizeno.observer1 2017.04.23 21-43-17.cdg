@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="marcosBrizeno.observer1">
+  <ClassDiagramComponents>
+    <Class name="BarraObserver" package="marcosBrizeno.observer1" visibility="public" xPosition="759.0" yPosition="533.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DadosSubject" name="dados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="marcosBrizeno.observer1" visibility="public" xPosition="423.0" yPosition="100.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Dados" package="marcosBrizeno.observer1" visibility="public" xPosition="423.0" yPosition="533.0">
+      <Fields>
+        <Field name="valorA" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="a"/>
+          <Argument type="int" name="b"/>
+          <Argument type="int" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="DadosObserver" package="marcosBrizeno.observer1" visibility="public" isAbstract="true" xPosition="756.0" yPosition="304.0">
+      <Fields>
+        <Field name="dados" type="DadosSubject" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DadosSubject" name="dados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="DadosSubject" package="marcosBrizeno.observer1" visibility="public" xPosition="382.0" yPosition="226.0">
+      <Fields>
+        <Field name="observers" type="ArrayList&lt;DadosObserver&gt;" visibility="protected"/>
+        <Field name="dados" type="Dados" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="attach" returnType="void" visibility="public">
+          <Argument type="DadosObserver" name="observer"/>
+        </Method>
+        <Method name="detach" returnType="void" visibility="public">
+          <Argument type="int" name="indice"/>
+        </Method>
+        <Method name="setState" returnType="void" visibility="public">
+          <Argument type="Dados" name="dados"/>
+        </Method>
+        <Method name="notifyObservers" returnType="void" visibility="private"/>
+        <Method name="getState" returnType="Dados" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PorcentoObserver" package="marcosBrizeno.observer1" visibility="public" xPosition="750.0" yPosition="100.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DadosSubject" name="dados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TabelaObserver" package="marcosBrizeno.observer1" visibility="public" xPosition="1065.0" yPosition="322.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DadosSubject" name="dados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="marcosBrizeno.observer1.BarraObserver" target="marcosBrizeno.observer1.DadosObserver"/>
+    <IsRelation name="is" source="marcosBrizeno.observer1.PorcentoObserver" target="marcosBrizeno.observer1.DadosObserver"/>
+    <UseRelation source="marcosBrizeno.observer1.DadosSubject" target="marcosBrizeno.observer1.Dados" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="marcosBrizeno.observer1.DadosSubject" target="marcosBrizeno.observer1.DadosObserver" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dados" source="marcosBrizeno.observer1.DadosSubject" target="marcosBrizeno.observer1.Dados" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dados" source="marcosBrizeno.observer1.DadosObserver" target="marcosBrizeno.observer1.DadosSubject" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="marcosBrizeno.observer1.TabelaObserver" target="marcosBrizeno.observer1.DadosObserver"/>
+    <HasRelation name="observers" source="marcosBrizeno.observer1.DadosSubject" target="marcosBrizeno.observer1.DadosObserver" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;DadosObserver&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

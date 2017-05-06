@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="faculdade.oberver">
+  <ClassDiagramComponents>
+    <Class name="DadosDoTempo" package="faculdade.oberver" visibility="public" xPosition="425.0" yPosition="480.0">
+      <Fields>
+        <Field name="observadores" type="ArrayList" visibility="private"/>
+        <Field name="temperatura" type="float" visibility="private"/>
+        <Field name="humidade" type="float" visibility="private"/>
+        <Field name="pressao" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="registrarObservador" returnType="void" visibility="public">
+          <Argument type="Observer" name="o"/>
+        </Method>
+        <Method name="removerObservador" returnType="void" visibility="public">
+          <Argument type="Observer" name="o"/>
+        </Method>
+        <Method name="notificarObservadores" returnType="void" visibility="public"/>
+        <Method name="medidasAlteradas" returnType="void" visibility="public"/>
+        <Method name="setMedidas" returnType="void" visibility="public">
+          <Argument type="float" name="temperatura"/>
+          <Argument type="float" name="humidade"/>
+          <Argument type="float" name="pressao"/>
+        </Method>
+        <Method name="getTemperatura" returnType="float" visibility="public"/>
+        <Method name="getHumidade" returnType="float" visibility="public"/>
+        <Method name="getPressao" returnType="float" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MostrarCondicoesAtuais" package="faculdade.oberver" visibility="public" xPosition="1602.0" yPosition="57.0">
+      <Fields>
+        <Field name="temperatura" type="float" visibility="private"/>
+        <Field name="humidade" type="float" visibility="private"/>
+        <Field name="dados" type="Subject" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Subject" name="dados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="atualizar" returnType="void" visibility="public">
+          <Argument type="float" name="temperatura"/>
+          <Argument type="float" name="humidade"/>
+          <Argument type="float" name="pressao"/>
+        </Method>
+        <Method name="mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MostrarEstatisticas" package="faculdade.oberver" visibility="public" xPosition="434.0" yPosition="168.0">
+      <Fields>
+        <Field name="maxTemp" type="float" visibility="private"/>
+        <Field name="minTemp" type="float" visibility="private"/>
+        <Field name="tempSum" type="float" visibility="private"/>
+        <Field name="numLeituras" type="int" visibility="private"/>
+        <Field name="dadosDoTempo" type="DadosDoTempo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DadosDoTempo" name="dadosDoTempo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="atualizar" returnType="void" visibility="public">
+          <Argument type="float" name="temperatura"/>
+          <Argument type="float" name="humidade"/>
+          <Argument type="float" name="pressao"/>
+        </Method>
+        <Method name="mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MostrarIndiceCalor" package="faculdade.oberver" visibility="public" xPosition="918.0" yPosition="677.0">
+      <Fields>
+        <Field name="indiceCalor" type="float" visibility="package"/>
+        <Field name="dadosDoTempo" type="DadosDoTempo" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="DadosDoTempo" name="dadosDoTempo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="atualizar" returnType="void" visibility="public">
+          <Argument type="float" name="t"/>
+          <Argument type="float" name="rh"/>
+          <Argument type="float" name="pressao"/>
+        </Method>
+        <Method name="computarIndiceCalor" returnType="float" visibility="private">
+          <Argument type="float" name="t"/>
+          <Argument type="float" name="rh"/>
+        </Method>
+        <Method name="mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MostrarPrevisao" package="faculdade.oberver" visibility="public" xPosition="1602.0" yPosition="710.0">
+      <Fields>
+        <Field name="pressaoAtual" type="float" visibility="private"/>
+        <Field name="pressaoAnterior" type="float" visibility="private"/>
+        <Field name="dados" type="Subject" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Subject" name="dados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="atualizar" returnType="void" visibility="public">
+          <Argument type="float" name="temperatura"/>
+          <Argument type="float" name="humidade"/>
+          <Argument type="float" name="pressao"/>
+        </Method>
+        <Method name="mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Teste" package="faculdade.oberver" visibility="public" xPosition="1765.0" yPosition="360.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="MostrarDados" package="faculdade.oberver" visibility="public" xPosition="1015.0" yPosition="424.0">
+      <Methods>
+        <Method name="mostrar" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="Observer" package="faculdade.oberver" visibility="public" xPosition="1104.0" yPosition="110.0">
+      <Methods>
+        <Method name="atualizar" returnType="void" visibility="public">
+          <Argument type="float" name="temperatura"/>
+          <Argument type="float" name="humidade"/>
+          <Argument type="float" name="pressao"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Interface name="Subject" package="faculdade.oberver" visibility="public" xPosition="1345.0" yPosition="441.0">
+      <Methods>
+        <Method name="registrarObservador" returnType="void" visibility="public">
+          <Argument type="Observer" name="o"/>
+        </Method>
+        <Method name="removerObservador" returnType="void" visibility="public">
+          <Argument type="Observer" name="o"/>
+        </Method>
+        <Method name="notificarObservadores" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarPrevisao" target="faculdade.oberver.Observer"/>
+    <HasRelation name="dados" source="faculdade.oberver.MostrarCondicoesAtuais" target="faculdade.oberver.Subject" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="faculdade.oberver.Subject" target="faculdade.oberver.Observer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarPrevisao" target="faculdade.oberver.MostrarDados"/>
+    <HasRelation name="dadosDoTempo" source="faculdade.oberver.MostrarEstatisticas" target="faculdade.oberver.DadosDoTempo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarEstatisticas" target="faculdade.oberver.Observer"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarIndiceCalor" target="faculdade.oberver.MostrarDados"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.DadosDoTempo" target="faculdade.oberver.Subject"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarCondicoesAtuais" target="faculdade.oberver.Observer"/>
+    <HasRelation name="dadosDoTempo" source="faculdade.oberver.MostrarIndiceCalor" target="faculdade.oberver.DadosDoTempo" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dados" source="faculdade.oberver.MostrarPrevisao" target="faculdade.oberver.Subject" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="faculdade.oberver.DadosDoTempo" target="faculdade.oberver.Observer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarIndiceCalor" target="faculdade.oberver.Observer"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarCondicoesAtuais" target="faculdade.oberver.MostrarDados"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="faculdade.oberver.MostrarEstatisticas" target="faculdade.oberver.MostrarDados"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

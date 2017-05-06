@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="marcosBrizeno.factorymethod">
+  <ClassDiagramComponents>
+    <Class name="Celta" package="marcosBrizeno.factorymethod" visibility="public" xPosition="220.0" yPosition="34.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="exibirInfo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaChevrolet" package="marcosBrizeno.factorymethod" visibility="public" xPosition="974.0" yPosition="34.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="criarCarro" returnType="Carro" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaFiat" package="marcosBrizeno.factorymethod" visibility="public" xPosition="974.0" yPosition="150.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="criarCarro" returnType="Carro" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaFord" package="marcosBrizeno.factorymethod" visibility="public" xPosition="974.0" yPosition="266.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="criarCarro" returnType="Carro" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FabricaVolts" package="marcosBrizeno.factorymethod" visibility="public" xPosition="974.0" yPosition="385.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="criarCarro" returnType="Carro" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Fiesta" package="marcosBrizeno.factorymethod" visibility="public" xPosition="220.0" yPosition="266.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="exibirInfo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Gol" package="marcosBrizeno.factorymethod" visibility="public" xPosition="220.0" yPosition="150.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="exibirInfo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Palio" package="marcosBrizeno.factorymethod" visibility="public" xPosition="220.0" yPosition="385.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="exibirInfo" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Carro" package="marcosBrizeno.factorymethod" visibility="public" xPosition="538.0" yPosition="218.0">
+      <Methods>
+        <Method name="exibirInfo" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Interface name="FabricaDeCarro" package="marcosBrizeno.factorymethod" visibility="public" xPosition="742.0" yPosition="228.0">
+      <Methods>
+        <Method name="criarCarro" returnType="Carro" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="marcosBrizeno.factorymethod.FabricaVolts" target="marcosBrizeno.factorymethod.Carro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.FabricaVolts" target="marcosBrizeno.factorymethod.FabricaDeCarro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.Fiesta" target="marcosBrizeno.factorymethod.Carro"/>
+    <UseRelation source="marcosBrizeno.factorymethod.FabricaChevrolet" target="marcosBrizeno.factorymethod.Carro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.Palio" target="marcosBrizeno.factorymethod.Carro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.FabricaFord" target="marcosBrizeno.factorymethod.FabricaDeCarro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.FabricaChevrolet" target="marcosBrizeno.factorymethod.FabricaDeCarro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.Gol" target="marcosBrizeno.factorymethod.Carro"/>
+    <UseRelation source="marcosBrizeno.factorymethod.FabricaFord" target="marcosBrizeno.factorymethod.Carro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="marcosBrizeno.factorymethod.FabricaFiat" target="marcosBrizeno.factorymethod.Carro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="marcosBrizeno.factorymethod.FabricaDeCarro" target="marcosBrizeno.factorymethod.Carro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.Celta" target="marcosBrizeno.factorymethod.Carro"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="marcosBrizeno.factorymethod.FabricaFiat" target="marcosBrizeno.factorymethod.FabricaDeCarro"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
