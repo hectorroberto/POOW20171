@@ -20,7 +20,7 @@
             Informe o nome do aluno:
             <input type="text" name="nome" required="required" /><br/>
             Selecione o curso:
-            <select name="curso">
+            <select name="curso" required="required">
                 <option value="">Escolha</option>
                 <%
                     for(Curso c : cursoDao.getAllCurso()){

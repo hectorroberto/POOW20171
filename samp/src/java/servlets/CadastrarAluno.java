@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controle.AlunoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Aluno;
 
 /**
  *
@@ -73,6 +75,17 @@ public class CadastrarAluno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Aluno aluno = new Aluno();
+        aluno.setNome(request.getParameter("nome"));
+        aluno.setUsuario((aluno.getNome())+"");
+        aluno.setSenha((aluno.getNome())+"123");
+        aluno.setCodCurso(Integer.valueOf(request.getParameter("curso")));
+        
+        AlunoImpl novo = new AlunoImpl();
+        
+        novo.cadastrar(aluno);
+        
+        response.sendRedirect("cadastraraluno.jsp");  
         
         
     }

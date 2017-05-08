@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Aluno;
 import modelo.Professor;
 
 /**
@@ -53,6 +54,28 @@ public class AlunoImpl extends Login implements AlunoDao{
         
         return listProfessor;
     }
+
+    @Override
+    public void cadastrar(Aluno aluno) {
+         try {
+            String sql = "INSERT INTO aluno"+
+                        "(nome, usuario, senha, cod_curso)"+
+                        "VALUES (?, ?, ?, ?)";
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, aluno.getNome());
+            stmt.setString(2, aluno.getUsuario());
+            stmt.setString(3, aluno.getSenha());
+            stmt.setInt (4, aluno.getCodCurso());
+
+            stmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
     
    
     
