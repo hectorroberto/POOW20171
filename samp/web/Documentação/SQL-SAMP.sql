@@ -271,7 +271,7 @@ INSERT INTO disciplina_aluno VALUES
 (4, 3, 1, 1, 1),
 (5, 4, 1, 1, 1);
 
-SELECT p.cod_professor, p.nome FROM
+SELECT p.cod_professor, p.nome, d.nome FROM
 professor p, disciplina d, disciplina_aluno da, aluno a WHERE
 da.cod_disciplina = d.cod_disciplina
 AND da.cod_professor = p.cod_professor
