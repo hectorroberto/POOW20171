@@ -20,5 +20,6 @@
     </head>
     <body>
         <h1>Bem vindo, <%=aluno.getNome()%>!</h1>
+        <a href="avaliar.jsp"> Avaliar Professor</a>
     </body>
 </html>

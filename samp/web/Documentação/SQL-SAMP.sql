@@ -250,6 +250,12 @@ INSERT INTO gerente VALUES
 (2, "Sr. Hector Roberto Velásquez", "gerenteHector", "hector", 1 ),
 (3, "Sra. Brunna Rayanne Golçalves", "avaliadoraBruna", "bruna", 2 );
 
+INSERT INTO professor VALUES
+(1, "Josana Nishihira"),
+(2, "Francisco Gomes"),
+(3, "Maicon Vasconcelos"),
+(4, "Fernanda Figueira");
+
 INSERT INTO disciplina VALUES
 (1, "Gestão de Projetos", 1, 1, 1),
 (2, "Padrão de Projetos", 2, 1, 1),
@@ -259,18 +265,22 @@ INSERT INTO disciplina VALUES
 
 -- ADICIONANDO HECTOR A TODAS AS DISCIPLINAS DE SI 6 
 INSERT INTO disciplina_aluno VALUES
-(1, 1, 1, 1),
-(2, 2, 1, 1),
-(3, 1, 1, 1),
-(4, 3, 1, 1),
-(5, 4, 1, 1);
+(1, 1, 1, 1, 1),
+(2, 2, 1, 1, 1),
+(3, 1, 1, 1, 1),
+(4, 3, 1, 1, 1),
+(5, 4, 1, 1, 1);
+
+SELECT p.cod_professor, p.nome FROM
+professor p, disciplina d, disciplina_aluno da, aluno a WHERE
+da.cod_disciplina = d.cod_disciplina
+AND da.cod_professor = p.cod_professor
+AND da.cod_aluno = a.cod_aluno
+AND a.cod_aluno = 1;
 
 
 
-
-
-
-
+select * from professor;
 
 
 

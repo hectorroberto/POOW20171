@@ -22,7 +22,6 @@ public class Login {
     Connection conn = ConnectionFactory.getConnection();
     PreparedStatement stmt;
     ResultSet rs;
-    
       
     public Aluno logarAluno (String usuario, String senha) {
         Aluno aluno = new Aluno();
