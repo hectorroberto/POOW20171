@@ -77,15 +77,27 @@ public class CadastrarAluno extends HttpServlet {
         
         Aluno aluno = new Aluno();
         aluno.setNome(request.getParameter("nome"));
-        aluno.setUsuario((aluno.getNome())+"");
-        aluno.setSenha((aluno.getNome())+"123");
+        int contaEspaco = 0;
+        String usuario = "";
+        
+        
+        for(int i = 0; i < (aluno.getNome().length()) && contaEspaco <=1; i++){
+            if (aluno.getNome().charAt(i) == ' '){
+                contaEspaco++;
+            } else{
+                usuario = usuario + aluno.getNome().charAt(i);
+            }
+        }
+        
         aluno.setCodCurso(Integer.valueOf(request.getParameter("curso")));
         
+        aluno.setUsuario((usuario +""+ aluno.getCodCurso()));
+        aluno.setSenha(usuario);
         AlunoImpl novo = new AlunoImpl();
         
         novo.cadastrar(aluno);
         
-        response.sendRedirect("cadastraraluno.jsp");  
+        response.sendRedirect("cadastradosucesso.jsp?login="+aluno.getUsuario()+"&senha="+aluno.getSenha());  
         
         
     }
