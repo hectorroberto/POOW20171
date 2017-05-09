@@ -6,14 +6,12 @@
 package dao;
 
 import java.util.List;
-import modelo.Curso;
+import modelo.Coordenador;
 
 /**
  *
  * @author DTEC
  */
-public interface CursoDao {
-    
-    public List<Curso> getAllCurso();
-    public void cadastrar(Curso curso);
+public interface CoordenadorDao {
+    List<Coordenador> getAllCoordenador ();
 }

@@ -51,5 +51,27 @@ public class CursoImpl implements CursoDao{
         }
         return listCurso;
     }
+
+    @Override
+    public void cadastrar(Curso curso) {
+        
+        try {
+            String sql = "INSERT INTO curso"+
+                        "(nome, cod_coordenador)"+
+                        "VALUES (?, ?)";
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, curso.getNome());
+            stmt.setInt(2, curso.getCodCoordenador());
+
+            stmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
     
 }

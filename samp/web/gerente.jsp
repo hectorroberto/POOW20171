@@ -21,6 +21,6 @@
     <body>
         <h1>Bem vindo, <%=gerente.getNome()%></h1>
         <a href="cadastraraluno.jsp"> Cadastrar aluno</a>
-        <a href="cadastrarcursos.jsp"> Cadastrar Cursos</a>
+        <a href="cadastrarcurso.jsp"> Cadastrar Cursos</a>
     </body>
 </html>
