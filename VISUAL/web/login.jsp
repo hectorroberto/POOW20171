@@ -37,7 +37,7 @@
                                 <label for="senha">Senha</label>
                                 <input type="password" required="" class="form-control" id="idsenha" placeholder="Digite sua Senha:">
                             </div>
-                            <button type="submit" class="btn btn-success btn-block">Entrar</button>
+                            <a href="index.jsp"><i class="btn btn-success btn-block">Entrar</i></a>
                         </form>
                     </div>
                 </div>
