@@ -11,10 +11,38 @@
             </div>
         </div>
         <div class="row">
-            <!--Começo do corpo da pagina-->
-            <div class="col-sm-12">
+            <div class="col-lg-3">
+                <div class="white-box">
+                    <div align="center">
+                        <i class="glyphicon glyphicon-book"></i>
+                        <h3 class="box-title"><a href="cadastrarCurso.jsp">Cadastrar curso</a></h3>
+                    </div>
+                </div>
             </div>
-            <!--Começo do corpo da pagina-->
+            <div class="col-lg-3">
+                <div class="white-box">
+                    <div align="center">
+                        <i class="glyphicon glyphicon-list-alt"></i>
+                        <h3 class="box-title"><a href="cadastrarDisciplina.jsp">Cadastrar disciplina</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="white-box">
+                    <div align="center">
+                        <i class="glyphicon glyphicon-user"></i>
+                        <h3 class="box-title"><a href="cadastrarAluno.jsp">Cadastrar aluno</a></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="white-box">
+                    <div align="center">
+                        <i class="glyphicon glyphicon-cog"></i>
+                        <h3 class="box-title"><a href="cadastrarGerente.jsp">Cadastrar gerente</a></h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

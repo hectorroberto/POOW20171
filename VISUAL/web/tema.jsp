@@ -85,7 +85,7 @@
                             <a href="cadastrarGerente.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Gerente</a>
                         </li>
                         <li>
-                            <a href="cadastrarCurso.jsp" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Curso</a>
+                            <a href="cadastrarCurso.jsp" class="waves-effect"><i class="glyphicon glyphicon-book fa-fw" aria-hidden="true"></i>Curso</a>
                         </li>
                         <li>
                             <a href="#" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Menu 5</a>

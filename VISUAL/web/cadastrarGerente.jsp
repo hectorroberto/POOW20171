@@ -20,15 +20,23 @@
                             <div class="form-group col-sm-12">
                                 <label>Nome do Gerente</label>
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                    <input type="text"  id="" name="" required="" maxlength="30" class="form-control" placeholder="Nome do Gerente"/>
+                                    <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do Gerente"/>
                                 </div>
-                               
-                                <div>
+                            </div>
+                            <div class="form-group col-sm-6">
                                 <label>Perfil</label>
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                    <input type="text"  id="" name="" required="" maxlength="30" class="form-control" placeholder="Perfil do Gerente"/>
+                                    <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do Gerente"/>
                                 </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Perfil</label>
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
+                                    <select required="" class="form-control">
+                                        <option value="0">Selecione uma perfil</option>
+                                    </select>
                                 </div>
+                            </div>
                         </div>
                         <div align="center">
                             <button type="submit" value="btnEnviar" id="btnEnviar" class="btn btn-flat btn-success"> Cadastrar </button>

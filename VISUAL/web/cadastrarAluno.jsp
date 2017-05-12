@@ -22,25 +22,27 @@
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
                                     <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do Aluno"/>
                                 </div>
-                                <div>
-                                <label>Nome do Curso</label>
-                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                    <input type="text"  id="" name="" required="" maxlength="30" class="form-control" placeholder="Nome do Curso"/>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Curso</label>
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
+                                    <select required="" class="form-control">
+                                        <option value="0">Selecione uma curso</option>
+                                    </select>
                                 </div>
-                                </div>
-                                <div>
+                            </div>
+                            <div>
                                 <label>Nome da Turma</label>
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
                                     <input type="text"  id="" name="" required="" maxlength="30" class="form-control" placeholder="Nome da Turma"/>
                                 </div>
-                                </div>
+                            </div><br>
+                            <div align="center">
+                                <button type="submit" value="btnEnviar" id="btnEnviar" class="btn btn-flat btn-success"> Cadastrar </button>
+                                <!--Botão de cadastrar-->
+                                <button type="reset" value="limpar" id="limpar" class="btn btn-flat btn-danger"> Limpar </button><!--Botão de cadastrar-->
+                            </div>
                         </div>
-                        <div align="center">
-                            <button type="submit" value="btnEnviar" id="btnEnviar" class="btn btn-flat btn-success"> Cadastrar </button>
-                            <!--Botão de cadastrar-->
-                            <button type="reset" value="limpar" id="limpar" class="btn btn-flat btn-danger"> Limpar </button><!--Botão de cadastrar-->
-                        </div>
-                    </div>
                 </form>
             </div>
         </section>
