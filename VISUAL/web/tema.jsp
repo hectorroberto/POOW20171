@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>SAM</title>
+        <title>SAMP</title>
 
         <!--Metatags-->
         <meta charset="ISO-8859-1">
@@ -46,7 +46,7 @@
                         <!-- Logo -->
                         <a class="logo" href="index.jsp">
                             <b>
-                                <img src="img/admin-logo-dark.png" alt="SAM" class="light-logo" />
+                                <img src="img/admin-logo-dark.png" alt="SAMP" class="light-logo" />
                             </b>
                             <span class="hidden-xs">
                                 <!--
@@ -61,7 +61,7 @@
                                 <input type="text" placeholder="Pesquisar" class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
                         </li>
                         <li>
-                            <a class="profile-pic" href="#"> <img src="img/users/genu.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">SAM</b></a>
+                            <a class="profile-pic" href="#"> <img src="img/users/genu.jpg" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">SAMP</b></a>
                         </li>
                     </ul>
                 </div>
@@ -79,13 +79,13 @@
                             <a href="cadastrarDisciplina.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Disciplina</a>
                         </li>
                         <li>
-                            <a href="#" class="waves-effect"><i class="fa fa-table fa-fw" aria-hidden="true"></i>Menu 2</a>
+                            <a href="cadastrarAluno.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Aluno</a>
                         </li>
                         <li>
-                            <a href="#" class="waves-effect"><i class="fa fa-font fa-fw" aria-hidden="true"></i>Menu 3</a>
+                            <a href="cadastrarGerente.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Gerente</a>
                         </li>
                         <li>
-                            <a href="#" class="waves-effect"><i class="fa fa-globe fa-fw" aria-hidden="true"></i>Menu 4</a>
+                            <a href="cadastrarCurso.jsp" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Curso</a>
                         </li>
                         <li>
                             <a href="#" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Menu 5</a>
