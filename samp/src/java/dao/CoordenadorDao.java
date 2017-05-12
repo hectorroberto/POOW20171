@@ -14,4 +14,5 @@ import modelo.Coordenador;
  */
 public interface CoordenadorDao {
     List<Coordenador> getAllCoordenador ();
+    void cadastrar (Coordenador coorndenador);
 }

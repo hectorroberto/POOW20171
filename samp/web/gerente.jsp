@@ -20,7 +20,13 @@
     </head>
     <body>
         <h1>Bem vindo, <%=gerente.getNome()%></h1>
-        <a href="cadastraraluno.jsp"> Cadastrar aluno</a>
-        <a href="cadastrarcurso.jsp"> Cadastrar Cursos</a>
+        <h2><center>
+            <a href="cadastraraluno.jsp"> Cadastrar aluno</a><br/>
+            <a href="cadastrarcurso.jsp"> Cadastrar Cursos</a><br/>
+            <a href="cadastrarcoordenador.jsp"> Cadastrar Coordenador</a><br/>
+            <a href="cadastrardisciplina.jsp"> Cadastrar Disciplina</a><br/>
+            <a href="cadastrarprofessor.jsp"> Cadastrar Professor</a><br/>
+        </center></h2>
+        
     </body>
 </html>

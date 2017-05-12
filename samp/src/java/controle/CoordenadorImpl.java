@@ -50,5 +50,25 @@ public class CoordenadorImpl implements CoordenadorDao {
         }
         return listCoordenador;
     }
+
+    @Override
+    public void cadastrar(Coordenador coordenador) {
+        try {
+            String sql = "INSERT INTO coordenador"+
+                        "(nome)"+
+                        "VALUES (?)";
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, coordenador.getNome());
+
+            stmt.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    
     
 }

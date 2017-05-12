@@ -5,7 +5,7 @@
  */
 package servlets;
 
-import controle.CursoImpl;
+import controle.DisciplinaImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,14 +13,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Curso;
+import modelo.Disciplina;
 
 /**
  *
- * @author DTEC
+ * @author Laboratorio
  */
-@WebServlet(name = "CadastrarCurso", urlPatterns = {"/cadastrarcurso"})
-public class CadastrarCurso extends HttpServlet {
+@WebServlet(name = "CadastrarDisciplina", urlPatterns = {"/cadastrardisciplina"})
+public class CadastrarDisciplina extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class CadastrarCurso extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CadastrarCurso</title>");            
+            out.println("<title>Servlet CadastrarDisciplina</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CadastrarCurso at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CadastrarDisciplina at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,18 +74,19 @@ public class CadastrarCurso extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
         
-        Curso curso  = new Curso();
-        curso.setNome(request.getParameter("nome"));
-        curso.setCodCoordenador(Integer.valueOf(request.getParameter("coordenador")));
+        Disciplina disciplina  = new Disciplina();
+        disciplina.setNome(request.getParameter("nome"));
+        disciplina.setCodProfessor(Integer.valueOf(request.getParameter("codProfessor")));
+        disciplina.setCodProfessor(Integer.valueOf(request.getParameter("codCurso")));
+        disciplina.setCodProfessor(Integer.valueOf(request.getParameter("codCoordenador")));
         
-        CursoImpl novo = new CursoImpl();
+        DisciplinaImpl novo = new DisciplinaImpl();
         
-        novo.cadastrar(curso);
+        novo.cadastrar(disciplina);
         
-        response.sendRedirect("operacaosucesso.jsp"); 
-        
-        
+        response.sendRedirect("operacaosucesso.jsp");
     }
 
     /**
