@@ -76,17 +76,18 @@ public class CadastrarDisciplina extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        Disciplina disciplina  = new Disciplina();
-        disciplina.setNome(request.getParameter("nome"));
-        disciplina.setCodProfessor(Integer.valueOf(request.getParameter("codProfessor")));
-        disciplina.setCodProfessor(Integer.valueOf(request.getParameter("codCurso")));
-        disciplina.setCodProfessor(Integer.valueOf(request.getParameter("codCoordenador")));
+        Disciplina novo  = new Disciplina();
+        novo.setNome(request.getParameter("nome"));
+        novo.setCodProfessor(Integer.valueOf(request.getParameter("codProfessor")));
+        novo.setCodProfessor(Integer.valueOf(request.getParameter("codCurso")));
+        novo.setCodProfessor(Integer.valueOf(request.getParameter("codCoordenador")));
         
-        DisciplinaImpl novo = new DisciplinaImpl();
+        DisciplinaImpl disciplina = new DisciplinaImpl();
         
-        novo.cadastrar(disciplina);
+        disciplina.cadastrar(novo);
         
         response.sendRedirect("operacaosucesso.jsp");
+        
     }
 
     /**

@@ -74,14 +74,17 @@ public class CadastrarCoordenador extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Coordenador coordenador  = new Coordenador();
-        coordenador.setNome(request.getParameter("nome"));
         
-        CoordenadorImpl novo = new CoordenadorImpl();
+        Coordenador novo  = new Coordenador();
+        novo.setNome(request.getParameter("nome"));
         
-        novo.cadastrar(coordenador);
+        CoordenadorImpl coordenador = new CoordenadorImpl();
+        
+        coordenador.cadastrar(novo);
         
         response.sendRedirect("operacaosucesso.jsp"); 
+        
+        
     }
 
     /**

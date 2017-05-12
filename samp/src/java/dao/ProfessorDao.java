@@ -10,5 +10,5 @@ import modelo.Professor;
  */
 public interface ProfessorDao {
     List<Professor> getAllProfessor();
-    void cadastrar(Professor professor);
+    public void cadastrar(Professor professor);
 }

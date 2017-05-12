@@ -75,29 +75,29 @@ public class CadastrarAluno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Aluno aluno = new Aluno();
-        aluno.setNome(request.getParameter("nome"));
+        Aluno novo = new Aluno();
+        novo.setNome(request.getParameter("nome"));
         int contaEspaco = 0;
         String usuario = "";
         
         
-        for(int i = 0; i < (aluno.getNome().length()) && contaEspaco <=1; i++){
-            if (aluno.getNome().charAt(i) == ' '){
+        for(int i = 0; i < (novo.getNome().length()) && contaEspaco <=1; i++){
+            if (novo.getNome().charAt(i) == ' '){
                 contaEspaco++;
             } else{
-                usuario = usuario + aluno.getNome().charAt(i);
+                usuario = usuario + novo.getNome().charAt(i);
             }
         }
         
-        aluno.setCodCurso(Integer.valueOf(request.getParameter("curso")));
+        novo.setCodCurso(Integer.valueOf(request.getParameter("curso")));
         
-        aluno.setUsuario((usuario +""+ aluno.getCodCurso()));
-        aluno.setSenha(usuario);
-        AlunoImpl novo = new AlunoImpl();
+        novo.setUsuario((usuario +""+ novo.getCodCurso()));
+        novo.setSenha(usuario);
+        AlunoImpl aluno = new AlunoImpl();
         
-        novo.cadastrar(aluno);
+        aluno.cadastrar(novo);
         
-        response.sendRedirect("cadastradosucesso.jsp?login="+aluno.getUsuario()+"&senha="+aluno.getSenha());  
+        response.sendRedirect("cadastradosucesso.jsp?login="+novo.getUsuario()+"&senha="+novo.getSenha());  
         
         
     }

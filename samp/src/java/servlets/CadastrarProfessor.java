@@ -17,7 +17,7 @@ import modelo.Professor;
 
 /**
  *
- * @author Laboratorio
+ * @author Hector Roberto
  */
 @WebServlet(name = "CadastrarProfessor", urlPatterns = {"/cadastrarprofessor"})
 public class CadastrarProfessor extends HttpServlet {
@@ -33,6 +33,7 @@ public class CadastrarProfessor extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -76,14 +77,17 @@ public class CadastrarProfessor extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        Professor professor  = new Professor();
-        professor.setNome(request.getParameter("nome"));
+        Professor novo  = new Professor();
+        novo.setNome(request.getParameter("nome"));
         
-        ProfessorImpl novo = new ProfessorImpl();
+        ProfessorImpl professor = new ProfessorImpl();
 
-        novo.cadastrar(professor);
+        professor.cadastrar(novo);
         
         response.sendRedirect("operacaosucesso.jsp"); 
+        
+        
+        
     }
 
     /**

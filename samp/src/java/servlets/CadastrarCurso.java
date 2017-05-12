@@ -75,13 +75,13 @@ public class CadastrarCurso extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Curso curso  = new Curso();
-        curso.setNome(request.getParameter("nome"));
-        curso.setCodCoordenador(Integer.valueOf(request.getParameter("coordenador")));
+        Curso novo  = new Curso();
+        novo.setNome(request.getParameter("nome"));
+        novo.setCodCoordenador(Integer.valueOf(request.getParameter("coordenador")));
         
-        CursoImpl novo = new CursoImpl();
+        CursoImpl curso = new CursoImpl();
         
-        novo.cadastrar(curso);
+        curso.cadastrar(novo);
         
         response.sendRedirect("operacaosucesso.jsp"); 
         
