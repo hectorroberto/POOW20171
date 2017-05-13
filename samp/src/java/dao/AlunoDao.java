@@ -12,5 +12,6 @@ import modelo.Professor;
 public interface AlunoDao{
     public List<Professor> getListProfessor (int codAluno);
     public void cadastrar(Aluno aluno);
+    public List<Aluno> getListAluno();
 
 }
