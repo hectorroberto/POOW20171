@@ -13,11 +13,13 @@ public class Aluno{
     private String usuario;
     private String senha;
     private int codCurso;
+    private Disciplina disciplina;
     
-    Login login;
+    private Login login;
 
     public Aluno(){
         login = new Login();
+        disciplina = new Disciplina();
     }
     
     public int getCodAluno() {
@@ -62,6 +64,22 @@ public class Aluno{
     
     public Aluno logarAluno(String u, String p){
         return (login.logarAluno(u,p));
+    }
+
+    public int getCodDisciplina() {
+        return disciplina.getCodDisciplina();
+    }
+    
+    public void setCodDisciplina(int codDisciplina) {
+        this.disciplina.setCodDisciplina(codDisciplina);
+    }
+
+    public String getNomeDisciplina() {
+        return disciplina.getNome();
+    }
+    
+    public void setNomeDisciplina(String nomeDisciplina) {
+        this.disciplina.setNome(nomeDisciplina);
     }
     
     

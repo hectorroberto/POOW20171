@@ -81,33 +81,30 @@ public class AlunoImpl extends Login implements AlunoDao{
         
         List<Aluno> listAluno = new ArrayList<>();
         
-        String sql = "SELECT cod_aluno, nome, d.nome FROM" +
-                    "professor p, disciplina d, disciplina_aluno da, aluno a WHERE" +
-                    "da.cod_disciplina = d.cod_disciplina" +
-                    "AND da.cod_professor = p.cod_professor" +
-                    "AND da.cod_aluno = a.cod_aluno" +
-                    "AND a.cod_aluno = ?";
+        String sql = "SELECT cod_aluno, nome, d.nome" +
+                    "FROM aluno a, disciplina_aluno da, disciplina a"+
+                    "WHERE a.cod_aluno = da.cod_aluno"+
+                    "AND da.cod_disciplina = d.cod_disciplina;";
+                   
         try {
             
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, codAluno);
             rs  = stmt.executeQuery();
             
-            
             while(rs.next()){
-                Professor professor = new Professor();
-                professor.setCodProfessor(rs.getInt(1));
-                professor.setNome(rs.getString(2));
-                professor.setDisciplina(rs.getString(3));
+                Aluno aluno = new Aluno();
+                aluno.setCodAluno(rs.getInt(1));
+                aluno.setNome(rs.getString(2));
+                aluno.setNomeDisciplina(rs.getString(3));
                 
-                listProfessor.add(professor);
+                listAluno.add(aluno);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AlunoImpl.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         }
         
-        return listProfessor;
+        return listAluno;
     }
     
     
