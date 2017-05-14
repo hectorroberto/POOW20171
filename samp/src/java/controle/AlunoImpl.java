@@ -84,7 +84,7 @@ public class AlunoImpl extends Login implements AlunoDao{
         String sql = "SELECT cod_aluno, nome, d.nome" +
                     "FROM aluno a, disciplina_aluno da, disciplina a"+
                     "WHERE a.cod_aluno = da.cod_aluno"+
-                    "AND da.cod_disciplina = d.cod_disciplina;";
+                    "AND da.cod_disciplina = d.cod_disciplina";
                    
         try {
             
