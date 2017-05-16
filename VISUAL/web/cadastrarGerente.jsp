@@ -7,6 +7,7 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Página inicial</a></li>
+                    <li><a href="listarGerente.jsp">Listar gerentes</a></li>
                     <li><a href="cadastrarGerente.jsp">Cadastrar gerente</a></li>
                 </ol>
             </div>
@@ -26,7 +27,7 @@
                             <div class="form-group col-sm-6">
                                 <label>Perfil</label>
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                    <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do Gerente"/>
+                                    <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do perfil"/>
                                 </div>
                             </div>
                             <div class="form-group col-sm-6">

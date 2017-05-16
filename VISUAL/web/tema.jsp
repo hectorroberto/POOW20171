@@ -76,17 +76,18 @@
                             <a href="index.jsp" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Página inicial</a>
                         </li>
                         <li>
-                            <a href="cadastrarDisciplina.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Disciplina</a>
+                            <a href="listarAluno.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Aluno</a>
                         </li>
                         <li>
-                            <a href="cadastrarAluno.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Aluno</a>
+                            <a href="listarCurso.jsp" class="waves-effect"><i class="glyphicon glyphicon-book fa-fw" aria-hidden="true"></i>Curso</a>
                         </li>
                         <li>
-                            <a href="cadastrarGerente.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Gerente</a>
+                            <a href="listarDisciplina.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Disciplina</a>
                         </li>
                         <li>
-                            <a href="cadastrarCurso.jsp" class="waves-effect"><i class="glyphicon glyphicon-book fa-fw" aria-hidden="true"></i>Curso</a>
+                            <a href="listarGerente.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Gerente</a>
                         </li>
+
                         <li>
                             <a href="#" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Menu 5</a>
                         </li>

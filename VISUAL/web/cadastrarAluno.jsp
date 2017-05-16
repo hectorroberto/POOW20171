@@ -7,6 +7,7 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Página inicial</a></li>
+                    <li><a href="listarAluno.jsp">Listar alunos</a></li>
                     <li><a href="cadastrarAluno.jsp">Cadastrar aluno</a></li>
                 </ol>
             </div>
@@ -43,6 +44,7 @@
                                 <button type="reset" value="limpar" id="limpar" class="btn btn-flat btn-danger"> Limpar </button><!--Botão de cadastrar-->
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </section>

@@ -7,6 +7,7 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Página inicial</a></li>
+                    <li><a href="listarCurso.jsp">Listar cursos</a></li>
                     <li><a href="cadastrarCurso.jsp">Cadastrar Curso</a></li>
                 </ol>
             </div>
