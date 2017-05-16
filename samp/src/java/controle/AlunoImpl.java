@@ -26,11 +26,11 @@ public class AlunoImpl extends Login implements AlunoDao{
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
         
-        String sql = "SELECT p.cod_professor, p.nome, d.nome FROM" +
-                    "professor p, disciplina d, disciplina_aluno da, aluno a WHERE" +
-                    "da.cod_disciplina = d.cod_disciplina" +
-                    "AND da.cod_professor = p.cod_professor" +
-                    "AND da.cod_aluno = a.cod_aluno" +
+        String sql = "SELECT p.cod_professor, p.nome, d.nome FROM\n" +
+                    "professor p, disciplina d, disciplina_aluno da, aluno a WHERE\n" +
+                    "da.cod_disciplina = d.cod_disciplina\n" +
+                    "AND da.cod_professor = p.cod_professor\n" +
+                    "AND da.cod_aluno = a.cod_aluno\n" +
                     "AND a.cod_aluno = ?";
         try {
             

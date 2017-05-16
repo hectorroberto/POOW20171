@@ -26,6 +26,7 @@
             <a href="cadastrarcoordenador.jsp"> Cadastrar Coordenador</a><br/>
             <a href="cadastrardisciplina.jsp"> Cadastrar Disciplina</a><br/>
             <a href="cadastrarprofessor.jsp"> Cadastrar Professor</a><br/>
+            <a href="alteraraluno.jsp"> Alterar Aluno</a><br/>
         </center></h2>
         
     </body>

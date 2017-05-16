@@ -8,6 +8,8 @@
 <%@page import="modelo.Aluno"%>
 <%@page import="controle.AlunoImpl"%>
 <%@page import="modelo.Professor"%>
+<jsp:useBean id="alunoDao" class="controle.AlunoImpl"/>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,9 +23,6 @@
         // Resgatando o aluno da session
         Aluno aluno = (Aluno) session.getAttribute("aluno");
         // Criando objeto para poder listar os alunos
-        AlunoImpl listar = new AlunoImpl();
-        // Criando um array de professor para receber os dados
-        List<Professor> listProfessor = listar.getListProfessor(aluno.getCodAluno());
         %>
     </head>
     <body>
@@ -31,8 +30,9 @@
         <h1>Avaliar Professor</h1>
         <h2> Selecione um professor: </h2> 
         
-        <%for(Professor p: listProfessor){%>
+        <%for(Professor p: alunoDao.getListProfessor(aluno.getCodAluno())){%>
             <%=p.getNome()%>
+            ------
             <%=p.getDisciplina()%>
         <%}%>
         
