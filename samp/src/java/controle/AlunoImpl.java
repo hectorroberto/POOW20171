@@ -26,11 +26,11 @@ public class AlunoImpl extends Login implements AlunoDao{
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
         
-        String sql = "SELECT p.cod_professor, p.nome, d.nome FROM\n" +
-                    "professor p, disciplina d, disciplina_aluno da, aluno a WHERE\n" +
-                    "da.cod_disciplina = d.cod_disciplina\n" +
-                    "AND da.cod_professor = p.cod_professor\n" +
-                    "AND da.cod_aluno = a.cod_aluno\n" +
+        String sql = "SELECT p.cod_professor, p.nome, d.nome FROM" +
+                    "professor p, disciplina d, disciplina_aluno da, aluno a WHERE" +
+                    "da.cod_disciplina = d.cod_disciplina" +
+                    "AND da.cod_professor = p.cod_professor" +
+                    "AND da.cod_aluno = a.cod_aluno" +
                     "AND a.cod_aluno = ?";
         try {
             
@@ -59,8 +59,8 @@ public class AlunoImpl extends Login implements AlunoDao{
     public void cadastrar(Aluno aluno) {
          try {
             String sql = "INSERT INTO aluno"+
-                        "(nome, usuario, senha, cod_curso)"+
-                        "VALUES (?, ?, ?, ?)";
+                        "(nome, usuario, senha, cod_curso, cod_turma)"+
+                        "VALUES (?, ?, ?, ?, ?)";
 
             stmt = conn.prepareStatement(sql);
 
@@ -68,6 +68,7 @@ public class AlunoImpl extends Login implements AlunoDao{
             stmt.setString(2, aluno.getUsuario());
             stmt.setString(3, aluno.getSenha());
             stmt.setInt (4, aluno.getCodCurso());
+            stmt.setInt (5, aluno.getCodTurma());
 
             stmt.execute();
 

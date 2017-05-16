@@ -15,6 +15,16 @@ CREATE SCHEMA IF NOT EXISTS `samp` DEFAULT CHARACTER SET utf8 ;
 USE `samp` ;
 
 -- -----------------------------------------------------
+-- Table `samp`.`coordenador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `samp`.`coordenador` (
+  `cod_coordenador` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`cod_coordenador`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `samp`.`turma`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `samp`.`turma` (
@@ -25,34 +35,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `samp`.`coordenador`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `samp`.`coordenador` (
-  `cod_coordenador` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`cod_coordenador`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `samp`.`curso`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `samp`.`curso` (
   `cod_curso` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(150) NOT NULL,
-  `cod_turma` INT NOT NULL,
+  `nome` VARCHAR(100) NOT NULL,
   `cod_coordenador` INT NOT NULL,
-  PRIMARY KEY (`cod_curso`, `cod_turma`, `cod_coordenador`),
-  INDEX `fk_curso_turma_idx` (`cod_turma` ASC),
+  `cod_turma` INT NOT NULL,
+  PRIMARY KEY (`cod_curso`, `cod_coordenador`, `cod_turma`),
   INDEX `fk_curso_coordenador1_idx` (`cod_coordenador` ASC),
-  CONSTRAINT `fk_curso_turma`
-    FOREIGN KEY (`cod_turma`)
-    REFERENCES `samp`.`turma` (`cod_turma`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_curso_turma1_idx` (`cod_turma` ASC),
   CONSTRAINT `fk_curso_coordenador1`
     FOREIGN KEY (`cod_coordenador`)
     REFERENCES `samp`.`coordenador` (`cod_coordenador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_curso_turma1`
+    FOREIGN KEY (`cod_turma`)
+    REFERENCES `samp`.`turma` (`cod_turma`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -70,9 +70,35 @@ CREATE TABLE IF NOT EXISTS `samp`.`aluno` (
   `cod_turma` INT NOT NULL,
   PRIMARY KEY (`cod_aluno`, `cod_curso`, `cod_turma`),
   INDEX `fk_aluno_curso1_idx` (`cod_curso` ASC, `cod_turma` ASC),
-  CONSTRAINT `fk_aluno_curso1`
-    FOREIGN KEY (`cod_curso` , `cod_turma`)
-    REFERENCES `samp`.`curso` (`cod_curso` , `cod_turma`)
+	ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `samp`.`perfil`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `samp`.`perfil` (
+  `cod_perfil` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`cod_perfil`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `samp`.`gerente`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `samp`.`gerente` (
+  `cod_gerente` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  `usuario` VARCHAR(50) NOT NULL,
+  `senha` VARCHAR(20) NOT NULL,
+  `cod_perfil` INT NOT NULL,
+  PRIMARY KEY (`cod_gerente`, `cod_perfil`),
+  INDEX `fk_gerente_perfil_idx` (`cod_perfil` ASC),
+  CONSTRAINT `fk_gerente_perfil`
+    FOREIGN KEY (`cod_perfil`)
+    REFERENCES `samp`.`perfil` (`cod_perfil`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -93,19 +119,41 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `samp`.`disciplina` (
   `cod_disciplina` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(150) NOT NULL,
-  `cod_curso` INT NOT NULL,
-  `cod_turma` INT NOT NULL,
+  `nome` VARCHAR(100) NOT NULL,
   `cod_professor` INT NOT NULL,
-  PRIMARY KEY (`cod_disciplina`, `cod_curso`, `cod_turma`, `cod_professor`),
-  INDEX `fk_disciplina_curso1_idx` (`cod_curso` ASC, `cod_turma` ASC),
+  `cod_curso` INT NOT NULL,
+  `cod_coordenador` INT NOT NULL,
+  `cod_turma` INT NOT NULL,
+  PRIMARY KEY (`cod_disciplina`, `cod_professor`, `cod_curso`, `cod_coordenador`, `cod_turma`),
   INDEX `fk_disciplina_professor1_idx` (`cod_professor` ASC),
-  CONSTRAINT `fk_disciplina_curso1`
-    FOREIGN KEY (`cod_curso` , `cod_turma`)
-    REFERENCES `samp`.`curso` (`cod_curso` , `cod_turma`)
+  INDEX `fk_disciplina_curso1_idx` (`cod_curso` ASC, `cod_coordenador` ASC, `cod_turma` ASC),
+  CONSTRAINT `fk_disciplina_professor1`
+    FOREIGN KEY (`cod_professor`)
+    REFERENCES `samp`.`professor` (`cod_professor`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_disciplina_professor1`
+  CONSTRAINT `fk_disciplina_curso1`
+    FOREIGN KEY (`cod_curso` , `cod_coordenador` , `cod_turma`)
+    REFERENCES `samp`.`curso` (`cod_curso` , `cod_coordenador` , `cod_turma`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `samp`.`nota`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `samp`.`nota` (
+  `cod_nota` INT NOT NULL AUTO_INCREMENT,
+  `didatica` DOUBLE NOT NULL,
+  `conhecimento` DOUBLE NOT NULL,
+  `interacao` DOUBLE NOT NULL,
+  `material` DOUBLE NOT NULL,
+  `comunicacao` DOUBLE NOT NULL,
+  `cod_professor` INT NOT NULL,
+  PRIMARY KEY (`cod_nota`, `cod_professor`),
+  INDEX `fk_nota_professor1_idx` (`cod_professor` ASC),
+  CONSTRAINT `fk_nota_professor1`
     FOREIGN KEY (`cod_professor`)
     REFERENCES `samp`.`professor` (`cod_professor`)
     ON DELETE NO ACTION
@@ -133,6 +181,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `samp`.`texto` (
   `cod_texto` INT NOT NULL AUTO_INCREMENT,
   `texto` TEXT NOT NULL,
+  `avaliada` TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`cod_texto`))
 ENGINE = InnoDB;
 
@@ -142,19 +191,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `samp`.`avaliacao` (
   `cod_avaliacao` INT NOT NULL AUTO_INCREMENT,
-  `credibilidade` DOUBLE NULL DEFAULT 1,
-  `avaliada` TINYINT(1) NULL DEFAULT 0,
   `cod_numerica` INT NOT NULL,
   `cod_texto` INT NOT NULL,
   `cod_aluno` INT NOT NULL,
   `cod_curso` INT NOT NULL,
+  `cod_coordenador` INT NOT NULL,
   `cod_turma` INT NOT NULL,
-  `cod_professor` INT NOT NULL,
-  PRIMARY KEY (`cod_avaliacao`, `cod_numerica`, `cod_texto`, `cod_aluno`, `cod_curso`, `cod_turma`, `cod_professor`),
+  PRIMARY KEY (`cod_avaliacao`, `cod_numerica`, `cod_texto`, `cod_aluno`, `cod_curso`, `cod_coordenador`, `cod_turma`),
   INDEX `fk_avaliacao_numerica1_idx` (`cod_numerica` ASC),
   INDEX `fk_avaliacao_texto1_idx` (`cod_texto` ASC),
-  INDEX `fk_avaliacao_aluno1_idx` (`cod_aluno` ASC, `cod_curso` ASC, `cod_turma` ASC),
-  INDEX `fk_avaliacao_professor1_idx` (`cod_professor` ASC),
+  INDEX `fk_avaliacao_aluno1_idx` (`cod_aluno` ASC, `cod_curso` ASC, `cod_coordenador` ASC, `cod_turma` ASC),
   CONSTRAINT `fk_avaliacao_numerica1`
     FOREIGN KEY (`cod_numerica`)
     REFERENCES `samp`.`numerica` (`cod_numerica`)
@@ -169,59 +215,25 @@ CREATE TABLE IF NOT EXISTS `samp`.`avaliacao` (
     FOREIGN KEY (`cod_aluno` , `cod_curso` , `cod_turma`)
     REFERENCES `samp`.`aluno` (`cod_aluno` , `cod_curso` , `cod_turma`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_avaliacao_professor1`
-    FOREIGN KEY (`cod_professor`)
-    REFERENCES `samp`.`professor` (`cod_professor`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `samp`.`perfil`
+-- Table `samp`.`disciplina_has_aluno`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `samp`.`perfil` (
-  `cod_perfil` INT NOT NULL AUTO_INCREMENT,
-  `descricao` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`cod_perfil`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `samp`.`gerente`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `samp`.`gerente` (
-  `cod_gerente` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NOT NULL,
-  `usuario` VARCHAR(50) NOT NULL,
-  `senha` VARCHAR(20) NOT NULL,
-  `cod_perfil` INT NOT NULL,
-  PRIMARY KEY (`cod_gerente`, `cod_perfil`),
-  INDEX `fk_gerente_perfil1_idx` (`cod_perfil` ASC),
-  CONSTRAINT `fk_gerente_perfil1`
-    FOREIGN KEY (`cod_perfil`)
-    REFERENCES `samp`.`perfil` (`cod_perfil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `samp`.`disciplina_aluno`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `samp`.`disciplina_aluno` (
+CREATE TABLE IF NOT EXISTS `samp`.`disciplina_has_aluno` (
   `cod_disciplina` INT NOT NULL,
+  `cod_professor` INT NOT NULL,
   `cod_curso` INT NOT NULL,
   `cod_turma` INT NOT NULL,
-  `cod_professor` INT NOT NULL,
   `cod_aluno` INT NOT NULL,
-  PRIMARY KEY (`cod_disciplina`, `cod_curso`, `cod_turma`, `cod_professor`, `cod_aluno`),
+  PRIMARY KEY (`cod_disciplina`, `cod_professor`, `cod_curso`, `cod_turma`, `cod_aluno`),
   INDEX `fk_disciplina_has_aluno_aluno1_idx` (`cod_aluno` ASC),
-  INDEX `fk_disciplina_has_aluno_disciplina1_idx` (`cod_disciplina` ASC, `cod_curso` ASC, `cod_turma` ASC, `cod_professor` ASC),
+  INDEX `fk_disciplina_has_aluno_disciplina1_idx` (`cod_disciplina` ASC, `cod_professor` ASC, `cod_curso` ASC, `cod_turma` ASC),
   CONSTRAINT `fk_disciplina_has_aluno_disciplina1`
-    FOREIGN KEY (`cod_disciplina` , `cod_curso` , `cod_turma` , `cod_professor`)
-    REFERENCES `samp`.`disciplina` (`cod_disciplina` , `cod_curso` , `cod_turma` , `cod_professor`)
+    FOREIGN KEY (`cod_disciplina` , `cod_professor` , `cod_curso` , `cod_turma`)
+    REFERENCES `samp`.`disciplina` (`cod_disciplina` , `cod_professor` , `cod_curso` , `cod_turma`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_disciplina_has_aluno_aluno1`
@@ -235,11 +247,6 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
-
-
-
-
 
 
 -- -------------------------------------------------- INSERÇÃO DE DADOS ------------------------------------------------------------- --
@@ -284,12 +291,17 @@ INSERT INTO disciplina_aluno VALUES
 (4, 3, 1, 1, 1),
 (5, 4, 1, 1, 1);
 
+-- Selecionando todos os professores de um determinado aluno
 SELECT p.cod_professor, p.nome, d.nome FROM
 professor p, disciplina d, disciplina_aluno da, aluno a WHERE
 da.cod_disciplina = d.cod_disciplina
 AND da.cod_professor = p.cod_professor
 AND da.cod_aluno = a.cod_aluno
 AND a.cod_aluno = 1;
+
+-- Selecionando todas turmas
+SELECT cod_turma, descricao FROM turma;
+
 
 use samp;
 select * from disciplina_aluno;

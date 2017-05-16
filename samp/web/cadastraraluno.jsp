@@ -5,9 +5,13 @@
 --%>
 
 <%@page import="dao.CursoDao"%>
+<%@page import="dao.TurmaDao"%>
 <%@page import="modelo.Curso"%>
+<%@page import="modelo.Turma"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:useBean id="cursoDao" class="controle.CursoImpl"/>
+<jsp:useBean id="turmaDao" class="controle.TurmaImpl"/>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,6 +34,19 @@
                     }    
                 %>
             </select>
+            
+            Selecione a turma:
+            <select name="turma" required="required">
+                <option value="">Escolha</option>
+                <%
+                    for(Turma t : turmaDao.getAllTurma()){
+                %>
+                    <option value="<%=t.getCodTurma()%>"><%=t.getDescricao()%></option>
+                <%
+                    }    
+                %>
+            </select>
+            
             <input type="submit" value="Adicionar"/>
         </form>
     </body>

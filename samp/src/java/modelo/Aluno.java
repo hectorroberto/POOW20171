@@ -16,10 +16,12 @@ public class Aluno{
     private Disciplina disciplina;
     
     private Login login;
+    private Turma turma;
 
     public Aluno(){
         login = new Login();
         disciplina = new Disciplina();
+        turma = new Turma();
     }
     
     public int getCodAluno() {
@@ -82,5 +84,19 @@ public class Aluno{
         this.disciplina.setNome(nomeDisciplina);
     }
     
+     public int getCodTurma() {
+        return turma.getCodTurma();
+    }
     
+    public void setCodTurma(int codTurma) {
+        this.turma.setCodTurma(codTurma);
+    }
+
+    public String getNomeTurma() {
+        return turma.getDescricao();
+    }
+
+    public void setNomeTurma(String nomeTurma) {
+        this.turma.setDescricao(nomeTurma);
+    }
 }
