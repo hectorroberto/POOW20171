@@ -304,6 +304,9 @@ SELECT cod_turma, descricao FROM turma;
 
 
 use samp;
+
+select * from curso;
+
 select * from disciplina_aluno;
 
 select * from professor;
