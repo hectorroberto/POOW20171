@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Aluno;
 import modelo.Professor;
+import modelo.Turma;
 
 /**
  *
@@ -26,21 +27,21 @@ public class AlunoImpl extends Login implements AlunoDao{
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
         
-        String sql = "SELECT p.cod_professor, p.nome, d.nome FROM" +
-                    "professor p, disciplina d, disciplina_aluno da, aluno a WHERE" +
-                    "da.cod_disciplina = d.cod_disciplina" +
-                    "AND da.cod_professor = p.cod_professor" +
+        String sql = "SELECT p.cod_professor, p.nome, d.nome" +
+                    "FROM aluno a, disciplina_aluno da, disciplina d, professor p" +
+                    "WHERE p.cod_professor = d.cod_professor" +
+                    "AND d.cod_disciplina = da.cod_disciplina" +
                     "AND da.cod_aluno = a.cod_aluno" +
-                    "AND a.cod_aluno = ?";
+                    "AND a.cod_aluno = ?;";
         try {
             
             stmt = conn.prepareStatement(sql);
             stmt.setInt(1, codAluno);
             rs  = stmt.executeQuery();
             
-            
+            Professor professor;
             while(rs.next()){
-                Professor professor = new Professor();
+                professor = new Professor();
                 professor.setCodProfessor(rs.getInt(1));
                 professor.setNome(rs.getString(2));
                 professor.setDisciplina(rs.getString(3));
@@ -82,10 +83,8 @@ public class AlunoImpl extends Login implements AlunoDao{
         
         List<Aluno> listAluno = new ArrayList<>();
         
-        String sql = "SELECT cod_aluno, nome, d.nome" +
-                    "FROM aluno a, disciplina_aluno da, disciplina a"+
-                    "WHERE a.cod_aluno = da.cod_aluno"+
-                    "AND da.cod_disciplina = d.cod_disciplina";
+        String sql = "SELECT cod_aluno, nome, cod_curso, cod_turma" +
+                    "FROM aluno;";
                    
         try {
             
@@ -96,7 +95,8 @@ public class AlunoImpl extends Login implements AlunoDao{
                 Aluno aluno = new Aluno();
                 aluno.setCodAluno(rs.getInt(1));
                 aluno.setNome(rs.getString(2));
-                aluno.setNomeDisciplina(rs.getString(3));
+                aluno.setCodCurso(rs.getInt(3));
+                aluno.setCodTurma(rs.getInt(4));
                 
                 listAluno.add(aluno);
             }
@@ -106,6 +106,29 @@ public class AlunoImpl extends Login implements AlunoDao{
         }
         
         return listAluno;
+    }
+
+    @Override
+    public String findNomeByCodTurma(int codTurma) {
+        String sql = "SELECT descricao FROM turma"+
+                     "WHERE cod_turma = ?";
+        
+        String nome = null;
+        
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, codTurma);
+            rs = stmt.executeQuery();
+            
+            rs.next();
+            nome = rs.getString(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        
+        return nome;
     }
     
     

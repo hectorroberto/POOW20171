@@ -26,7 +26,7 @@ public class Login {
     public Aluno logarAluno (String usuario, String senha) {
         Aluno aluno = new Aluno();
         
-        String sql = "SELECT cod_aluno, nome, cod_curso FROM aluno WHERE usuario=? and senha=?";
+        String sql = "SELECT cod_aluno, nome, cod_curso, cod_turma FROM aluno WHERE usuario=? and senha=?";
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario);
@@ -37,6 +37,7 @@ public class Login {
             aluno.setCodAluno((rs.getInt(1)));
             aluno.setNome((rs.getString(2)));
             aluno.setCodCurso((rs.getInt(3)));
+            aluno.setCodTurma((rs.getInt(4)));
             
             
         } catch (SQLException ex) {

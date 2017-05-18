@@ -16,4 +16,5 @@ public interface TurmaDao {
     
     public List<Turma> getAllTurma();
     public void cadastrar(Turma turma);
+    public Turma findByCod (int codTurma);
 }

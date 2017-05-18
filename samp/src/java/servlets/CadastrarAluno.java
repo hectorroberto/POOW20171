@@ -76,8 +76,10 @@ public class CadastrarAluno extends HttpServlet {
             throws ServletException, IOException {
         
         Aluno novo = new Aluno();
+        AlunoImpl aluno = new AlunoImpl();
         novo.setNome(request.getParameter("nome"));
         novo.setCodTurma(Integer.valueOf(request.getParameter("turma")));
+        novo.setNomeTurma(aluno.findNomeByCodTurma(novo.getCodTurma()));
         int contaEspaco = 0;
         String nome = novo.getNome().toLowerCase();
         String usuario = ""+novo.getNomeTurma();
@@ -95,7 +97,6 @@ public class CadastrarAluno extends HttpServlet {
         
         novo.setUsuario((usuario));
         novo.setSenha(usuario);
-        AlunoImpl aluno = new AlunoImpl();
         
         aluno.cadastrar(novo);
         

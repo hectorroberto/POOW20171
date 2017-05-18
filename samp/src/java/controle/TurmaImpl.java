@@ -55,6 +55,30 @@ public class TurmaImpl implements TurmaDao{
     public void cadastrar(Turma turma) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public Turma findByCod(int codTurma) {
+        String sql = "SELECT descricao FROM turma"+
+                     "WHERE cod_turma = ?";
+        
+        Turma t = new Turma();
+        
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, codTurma);
+            rs = stmt.executeQuery();
+            
+            rs.next();
+            t.setDescricao((rs.getString(1)));
+            t.setCodTurma(codTurma);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(TurmaImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        
+        return t;
+    }
     
     
 }
