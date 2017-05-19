@@ -16,14 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Avaliar Professor - SAMP</title>
-        <% 
-        if(session.getAttribute("aluno") == null){
-           response.sendRedirect("loginaluno.jsp");
-       }
-        // Resgatando o aluno da session
-        Aluno aluno = (Aluno) session.getAttribute("aluno");
-        // Criando objeto para poder listar os alunos
-        %>
+        <%@include file="certificadoaluno.jsp" %>
     </head>
     <body>
         <h1>Bem vindo, <%=aluno.getNome()%></h1>

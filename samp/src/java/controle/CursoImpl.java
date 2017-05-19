@@ -56,8 +56,8 @@ public class CursoImpl implements CursoDao{
     public void cadastrar(Curso curso) {
         
         try {
-            String sql = "INSERT INTO curso"+
-                        "(nome, cod_coordenador)"+
+            String sql = "INSERT INTO curso "+
+                        "(nome, cod_coordenador) "+
                         "VALUES (?, ?)";
 
             stmt = conn.prepareStatement(sql);

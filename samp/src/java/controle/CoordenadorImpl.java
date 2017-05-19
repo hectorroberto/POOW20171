@@ -54,8 +54,8 @@ public class CoordenadorImpl implements CoordenadorDao {
     @Override
     public void cadastrar(Coordenador coordenador) {
         try {
-            String sql = "INSERT INTO coordenador"+
-                        "(nome)"+
+            String sql = "INSERT INTO coordenador "+
+                        "(nome) "+
                         "VALUES (?)";
 
             stmt = conn.prepareStatement(sql);

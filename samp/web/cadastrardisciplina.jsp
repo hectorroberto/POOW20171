@@ -20,6 +20,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SAMP</title>
+        <%@include file="certificadogerente.jsp" %>
     </head>
     <body>
         <h1>Cadastrar Disciplina</h1>

@@ -11,12 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerente - SAMP</title>
-        <% 
-            if(session.getAttribute("gerente") == null){
-               response.sendRedirect("logingerente.jsp");
-           }
-            Gerente gerente = (Gerente) session.getAttribute("gerente");
-        %>
+        <%@include file="certificadogerente.jsp" %>
     </head>
     <body>
         <h1>Bem vindo, <%=gerente.getNome()%></h1>

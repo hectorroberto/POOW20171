@@ -21,8 +21,8 @@ public class DisciplinaImpl implements DisciplinaDao{
     @Override
     public void cadastrar(Disciplina disciplina) {
         try {
-            String sql ="INSERT INTO disciplina"+
-                        "(nome, cod_professor, cod_curso, cod_coordenador)"+
+            String sql ="INSERT INTO disciplina "+
+                        "(nome, cod_professor, cod_curso, cod_coordenador) "+
                         "VALUES (?, ?, ?, ?)";
 
             stmt = conn.prepareStatement(sql);

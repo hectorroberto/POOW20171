@@ -49,8 +49,8 @@ public class ProfessorImpl implements ProfessorDao{
     @Override
     public void cadastrar(Professor professor) {
         try {
-            String sql = "INSERT INTO professor"+
-                        "(nome)"+
+            String sql = "INSERT INTO professor "+
+                        "(nome) "+
                         "VALUES (?)";
 
             stmt = conn.prepareStatement(sql);

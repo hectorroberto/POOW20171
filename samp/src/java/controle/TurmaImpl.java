@@ -58,8 +58,8 @@ public class TurmaImpl implements TurmaDao{
 
     @Override
     public Turma findByCod(int codTurma) {
-        String sql = "SELECT descricao FROM turma"+
-                     "WHERE cod_turma = ?";
+        String sql = "SELECT descricao FROM turma "+
+                     "WHERE cod_turma = ? ";
         
         Turma t = new Turma();
         

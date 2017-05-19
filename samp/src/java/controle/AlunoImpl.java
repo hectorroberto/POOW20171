@@ -15,7 +15,6 @@ import modelo.Professor;
 import modelo.Turma;
 
 /**
- *
  * @author Hector Roberto
  */
 public class AlunoImpl extends Login implements AlunoDao{
@@ -27,12 +26,12 @@ public class AlunoImpl extends Login implements AlunoDao{
     public List<Professor> getListProfessor(int codAluno) {
         List<Professor> listProfessor = new ArrayList<>();
         
-        String sql = "SELECT p.cod_professor, p.nome, d.nome" +
-                    "FROM aluno a, disciplina_aluno da, disciplina d, professor p" +
-                    "WHERE p.cod_professor = d.cod_professor" +
-                    "AND d.cod_disciplina = da.cod_disciplina" +
-                    "AND da.cod_aluno = a.cod_aluno" +
-                    "AND a.cod_aluno = ?;";
+        String sql = "SELECT p.cod_professor, p.nome, d.nome " +
+                    "FROM aluno a, disciplina_aluno da, disciplina d, professor p " +
+                    "WHERE p.cod_professor = d.cod_professor " +
+                    "AND d.cod_disciplina = da.cod_disciplina " +
+                    "AND da.cod_aluno = a.cod_aluno " +
+                    "AND a.cod_aluno = ?";
         try {
             
             stmt = conn.prepareStatement(sql);
@@ -59,8 +58,8 @@ public class AlunoImpl extends Login implements AlunoDao{
     @Override
     public void cadastrar(Aluno aluno) {
          try {
-            String sql = "INSERT INTO aluno"+
-                        "(nome, usuario, senha, cod_curso, cod_turma)"+
+            String sql = "INSERT INTO aluno "+
+                        "(nome, usuario, senha, cod_curso, cod_turma) "+
                         "VALUES (?, ?, ?, ?, ?)";
 
             stmt = conn.prepareStatement(sql);
@@ -83,8 +82,8 @@ public class AlunoImpl extends Login implements AlunoDao{
         
         List<Aluno> listAluno = new ArrayList<>();
         
-        String sql = "SELECT cod_aluno, nome, cod_curso, cod_turma" +
-                    "FROM aluno;";
+        String sql = "SELECT cod_aluno, nome, cod_curso, cod_turma " +
+                    "FROM aluno";
                    
         try {
             
@@ -110,7 +109,7 @@ public class AlunoImpl extends Login implements AlunoDao{
 
     @Override
     public String findNomeByCodTurma(int codTurma) {
-        String sql = "SELECT descricao FROM turma"+
+        String sql = "SELECT descricao FROM turma "+
                      "WHERE cod_turma = ?";
         
         String nome = null;

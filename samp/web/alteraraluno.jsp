@@ -16,13 +16,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>SAMP</title>
+        <%@include file="certificadogerente.jsp" %>
     </head>
     <body>
         <h1>Alterar Aluno</h1>
-        Selecione o aluno que deseja alterar:
+        Selecione o aluno que deseja alterar: <br/>
         
-        <% for(Aluno a : alunoDao.getListAluno()){ %>
-            <%=a.getNome()%> 1
+        <% for(Aluno aluno : alunoDao.getListAluno()){ %>
+        <a href="efetuaralteracaoaluno.jsp?cod=<%=aluno.getCodAluno()%>"> <%=aluno.getNome()%></a> <br/>
+         
         <%}%>
     </body>
 </html>
