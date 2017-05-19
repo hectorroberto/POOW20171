@@ -24,7 +24,6 @@
         
         <% for(Aluno aluno : alunoDao.getListAluno()){ %>
         <a href="efetuaralteracaoaluno.jsp?cod=<%=aluno.getCodAluno()%>"> <%=aluno.getNome()%></a> <br/>
-         
         <%}%>
     </body>
 </html>

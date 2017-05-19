@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Alteração de Aluno - SAMP</title>
+        <%String cod = request.getParameter("cod");%>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%response.sendRedirect("alteraraluno?cod="+cod);%>
     </body>
 </html>

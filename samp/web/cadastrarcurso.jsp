@@ -31,6 +31,17 @@
                     }    
                 %>
             </select>
+            Selecione a turma:
+            <select name="turma" required="required">
+                <option value="">Escolha</option>
+                <%
+                    for(Turma t : turmaDao.getAllTurma()){
+                %>
+                    <option value="<%=t.getCodTurma()%>"><%=t.getDescricao()%></option>
+                <%
+                    }    
+                %>
+            </select>
             <input type="submit" value="Adicionar"/>
         </form>
     </body>
