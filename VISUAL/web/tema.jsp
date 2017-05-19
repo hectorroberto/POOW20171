@@ -92,7 +92,7 @@
                             <a href="#" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Menu 5</a>
                         </li>
                         <li>
-                            <a href="#" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>Menu 6</a>
+                            <a href="login.jsp" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>Sair</a>
                         </li>
                     </ul>
                 </div>
