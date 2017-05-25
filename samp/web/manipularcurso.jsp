@@ -1,36 +1,42 @@
+<%@page import="modelo.Curso"%>
+<jsp:useBean id="cursoDao" class="controle.CursoImpl"/>
+
 <jsp:include page="tema.jsp" />
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Listar Cursos</h4> </div>
+                <h4 class="page-title">Manipular Cursos</h4> </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="index.jsp">Página inicial</a></li>
-                    <li><a href="listarCurso.jsp">Listar cursos</a></li>
+                    <li><a href="manipularcurso.jsp">Manipular Cursos</a></li>
                 </ol>
             </div>
         </div>
         <section class="content">
-            <a href="cCurso.jsp"><i class="btn btn-success">Cadastrar curso</i></a><br><br>
+            <a href="cGerente.jsp"><i class="btn btn-success">Cadastrar Curso</i></a><br><br>
             <div class="panel panel-primary">
-                <div class="panel-heading">Lista de cursos</div>
+                <div class="panel-heading">Lista de Cursos</div>
                 <div class="table-responsive table-bordered table-striped table-condensed">          
                     <table class="table table-responsive  table-condensed">
                         <thead>
                             <tr>
-                                <th align="center">Nome do curso</th>
-                                <th align="center">Ações</th>
+                                <th>Nome</th>
+                                <th>Coordenador</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <%for(Curso c : cursoDao.getAllCurso()){%>
                             <tr>
-                                <td>Fisioterapia</td>
+                                <td><%=c.getNome()%></td>
+                                <td><%=c.getNomeCoordenador()%></td>
                                 <td> 
-                                    <a href="eCurso.jsp"><i class=" btn btn-success glyphicon glyphicon-edit"></i></a>
+                                    <a href="eGerente.jsp"><i class=" btn btn-success glyphicon glyphicon-edit"></i></a>
                                     <a href="#"><i class=" btn btn-danger glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>
+                            <%}%>
                         </tbody>
                     </table>
                 </div>

@@ -5,6 +5,7 @@
  */
 package servlets;
 
+import controle.CoordenadorImpl;
 import controle.CursoImpl;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -76,10 +77,13 @@ public class CadastrarCurso extends HttpServlet {
             throws ServletException, IOException {
         
         Curso novo  = new Curso();
+        CursoImpl curso = new CursoImpl();
+        CoordenadorImpl coordenador = new CoordenadorImpl();
+
         novo.setNome(request.getParameter("nome"));
         novo.setCodCoordenador(Integer.valueOf(request.getParameter("coordenador")));
+        novo.setNomeCoordenador(coordenador.findByCod(novo.getCodCoordenador()));
         
-        CursoImpl curso = new CursoImpl();
         
         curso.cadastrar(novo);
         

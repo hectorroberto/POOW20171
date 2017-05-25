@@ -4,10 +4,12 @@
     Author     : DTEC
 --%>
 
+<%@page import="modelo.Turma"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dao.CoordenadorDao"%>
 <%@page import="modelo.Coordenador"%>
 <jsp:useBean id="coordenadorDao" class="controle.CoordenadorImpl"/>
+<jsp:useBean id="turmaDao" class="controle.TurmaImpl"/>
 <!DOCTYPE html>
 <html>
     <head>

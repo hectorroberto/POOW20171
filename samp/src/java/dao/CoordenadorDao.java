@@ -15,4 +15,5 @@ import modelo.Coordenador;
 public interface CoordenadorDao {
     List<Coordenador> getAllCoordenador ();
     public void cadastrar (Coordenador coorndenador);
+    public String findByCod(int codCoordenador);
 }

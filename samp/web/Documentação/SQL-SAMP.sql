@@ -256,7 +256,8 @@ INSERT INTO turma VALUES
 -- COD | NOME | COD_TURMA | COD_COORDENADOR
 INSERT INTO curso VALUES
 (1, "Sistemas de Informação", 1, 1),
-(2, "Rede de Computadores", 2, 2);
+(2, "Rede de Computadores", 2, 2)
+
 
 -- COD | NOME | USER | SENHA | COD_CURSO | COD_TURMA
 INSERT INTO aluno VALUES

@@ -69,6 +69,27 @@ public class CoordenadorImpl implements CoordenadorDao {
         }
     }
     
-    
+    @Override
+    public String findByCod(int codCoordenador) {
+        String sql = "SELECT nome FROM coordenador "+
+                     "WHERE cod_coordenador = ?";
+        
+        String nome = null;
+        
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, codCoordenador);
+            rs = stmt.executeQuery();
+            
+            rs.next();
+            nome = rs.getString(1);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AlunoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        
+        return nome;
+    }
     
 }

@@ -8,7 +8,12 @@ package modelo;
 public class Curso {
     private int codCurso;
     private String nome;
-    private int codCoordenador;
+    private Coordenador coordenador;
+    
+    public Curso(){
+        coordenador = new Coordenador();
+    }
+    
 
     public int getCodCurso() {
         return codCurso;
@@ -27,11 +32,19 @@ public class Curso {
     }
 
     public int getCodCoordenador() {
-        return codCoordenador;
+        return coordenador.getCodCoordenador();
     }
 
     public void setCodCoordenador(int codCoordenador) {
-        this.codCoordenador = codCoordenador;
+        coordenador.setCodCoordenador(codCoordenador);
+    }
+    
+    public void setNomeCoordenador(String nomeCoordenador){
+        coordenador.setNome(nomeCoordenador);
+    }
+    
+    public String getNomeCoordenador(){
+        return coordenador.getNome();
     }
     
     

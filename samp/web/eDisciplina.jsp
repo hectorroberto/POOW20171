@@ -7,8 +7,8 @@
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="home.jsp">Página inicial</a></li>
-                    <li><a href="listarDisciplina.jsp">Listar disciplinas</a></li>
-                    <li><a href="eDisciplina.jsp">Editar disciplina</a></li>
+                    <li><a href="listarDisciplina.jsp">Manipular Disciplinas</a></li>
+                    <li><a href="eDisciplina.jsp">Editar Disciplina</a></li>
                 </ol>
             </div>
         </div>

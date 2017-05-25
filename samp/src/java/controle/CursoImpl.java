@@ -30,7 +30,10 @@ public class CursoImpl implements CursoDao{
     @Override
     public List<Curso> getAllCurso() {
         List<Curso> listCurso = new ArrayList<>();
-        String sql = "SELECT cod_curso, nome, cod_coordenador FROM curso ORDER BY nome";
+        String sql = "SELECT c.cod_curso, c.nome, c.cod_coordenador,  co.nome "
+                + "FROM curso c, coordenador co "
+                + "WHERE c.cod_coordenador = co.cod_coordenador "
+                + "ORDER BY c.nome;";
         
         try {
             stmt = conn.prepareStatement(sql);
@@ -41,6 +44,7 @@ public class CursoImpl implements CursoDao{
                 c.setCodCurso(rs.getInt(1));
                 c.setNome(rs.getString(2));
                 c.setCodCoordenador(rs.getInt(3));
+                c.setNomeCoordenador(rs.getString(4));
                 
                 listCurso.add(c);
             }
@@ -57,13 +61,14 @@ public class CursoImpl implements CursoDao{
         
         try {
             String sql = "INSERT INTO curso "+
-                        "(nome, cod_coordenador) "+
-                        "VALUES (?, ?)";
-
+                        "(nome, cod_turma, cod_coordenador) "+
+                        "VALUES (?, ?, ?)";
+            
             stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, curso.getNome());
-            stmt.setInt(2, curso.getCodCoordenador());
+            stmt.setInt(2, 1); //Apagar 1, do cod_turma
+            stmt.setInt(3, curso.getCodCoordenador());
 
             stmt.execute();
 
@@ -71,6 +76,8 @@ public class CursoImpl implements CursoDao{
             e.printStackTrace();
         }
     }
+
+    
     
     
     
