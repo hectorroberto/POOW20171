@@ -14,7 +14,7 @@
             </div>
         </div>
         <section class="content">
-            <a href="cGerente.jsp"><i class="btn btn-success">Cadastrar Curso</i></a><br><br>
+            <a href="cUsuario.jsp"><i class="btn btn-success">Cadastrar Curso</i></a><br><br>
             <div class="panel panel-primary">
                 <div class="panel-heading">Lista de Cursos</div>
                 <div class="table-responsive table-bordered table-striped table-condensed">          
@@ -32,7 +32,7 @@
                                 <td><%=c.getNome()%></td>
                                 <td><%=c.getNomeCoordenador()%></td>
                                 <td> 
-                                    <a href="eGerente.jsp"><i class=" btn btn-success glyphicon glyphicon-edit"></i></a>
+                                    <a href="eUsuario.jsp"><i class=" btn btn-success glyphicon glyphicon-edit"></i></a>
                                     <a href="#"><i class=" btn btn-danger glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>

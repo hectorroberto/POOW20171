@@ -77,14 +77,14 @@ public class LoginUsuario extends HttpServlet {
         String usuario = request.getParameter("u");
         String senha = request.getParameter("p");
 
-        Usuario gerente = new Usuario();
-        gerente = gerente.logarUsuario(usuario, senha);
+        Usuario Usuario = new Usuario();
+        Usuario = Usuario.logarUsuario(usuario, senha);
 
-        if (gerente.getNome() != null){
-           request.getSession().setAttribute("gerente", gerente);
-           response.sendRedirect("gerente.jsp");   
+        if (Usuario.getNome() != null){
+           request.getSession().setAttribute("Usuario", Usuario);
+           response.sendRedirect("Usuario.jsp");   
         } else{
-            response.sendRedirect("logingerente.jsp"); 
+            response.sendRedirect("loginUsuario.jsp"); 
 
         }
         processRequest(request, response);

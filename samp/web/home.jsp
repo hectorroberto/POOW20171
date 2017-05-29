@@ -39,7 +39,7 @@
                 <div class="white-box">
                     <div align="center">
                         <i class="glyphicon glyphicon-cog"></i>
-                        <h3 class="box-title"><a href="cadastrarGerente.jsp">Cadastrar gerente</a></h3>
+                        <h3 class="box-title"><a href="cadastrarUsuario.jsp">Cadastrar Usuario</a></h3>
                     </div>
                 </div>
             </div>

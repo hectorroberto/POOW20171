@@ -21,9 +21,9 @@
            <h2> <a href="aluno.jsp"> Retornar ao menu inicial</a></h2>
             <%
                        
-       } else if ((session.getAttribute("gerente"))!= null){
+       } else if ((session.getAttribute("Usuario"))!= null){
             %>
-           <h2> <a href="gerente.jsp"> Retornar ao menu inicial</a></h2>
+           <h2> <a href="Usuario.jsp"> Retornar ao menu inicial</a></h2>
             <%
             
         } else{

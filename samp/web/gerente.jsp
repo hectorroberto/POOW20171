@@ -1,5 +1,5 @@
 <jsp:include page="tema.jsp" />
-<%@include file="certificadogerente.jsp" %>
+<%@include file="certificadousuario.jsp" %>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row bg-title">
@@ -40,7 +40,7 @@
                 <div class="white-box">
                     <div align="center">
                         <i class="glyphicon glyphicon-cog"></i>
-                        <h3 class="box-title"><a href="cadastrarGerente.jsp">Cadastrar Grente</a></h3>
+                        <h3 class="box-title"><a href="cadastrarUsuario.jsp">Cadastrar Grente</a></h3>
                     </div>
                 </div>
             </div>

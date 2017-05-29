@@ -85,7 +85,7 @@
                             <a href="listarDisciplina.jsp" class="waves-effect"><i class="glyphicon glyphicon-list-alt fa-fw" aria-hidden="true"></i> Disciplina</a>
                         </li>
                         <li>
-                            <a href="listarGerente.jsp" class="waves-effect"><i class="glyphicon glyphicon-user fa-fw" aria-hidden="true"></i> Gerente</a>
+                            <a href="listarUsuario.jsp" class="waves-effect"><i class="glyphicon glyphicon-user fa-fw" aria-hidden="true"></i> Usuario</a>
                         </li>
                         <li>
                             <a href="login.jsp" class="waves-effect"><i class="glyphicon glyphicon-log-in fa-fw" aria-hidden="true"></i> Sair</a>

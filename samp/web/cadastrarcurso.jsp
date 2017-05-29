@@ -15,7 +15,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <%@include file="certificadogerente.jsp" %>
+        <%@include file="certificadoUsuario.jsp" %>
     </head>
     <body>
         <h1>Cadastrar Curso</h1>

@@ -25,7 +25,7 @@
         </h2>
         
         <a href="cadastraraluno.jsp"> Cadastrar novo aluno</a>
-        <a href="gerente.jsp"> Voltar ao menu inicial</a>
+        <a href="Usuario.jsp"> Voltar ao menu inicial</a>
         
     </body>
 </html>

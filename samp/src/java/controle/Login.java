@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import modelo.Gerente;
+import modelo.Usuario;
 
 /**
  *
@@ -47,27 +47,27 @@ public class Login {
         return aluno;
     }
     
-    public Gerente logarGerente (String usuario, String senha){
-        Gerente gerente = new Gerente();
+    public Usuario logarUsuario (String user, String senha){
+        Usuario usuario = new Usuario();
         
-        String sql = "SELECT cod_gerente, nome, cod_perfil FROM gerente WHERE usuario=? and senha=?";
+        String sql = "SELECT cod_usuario, nome, cod_perfil FROM usuario WHERE usuario=? and senha=?";
         try {
             stmt = conn.prepareStatement(sql);
-            stmt.setString(1, usuario);
+            stmt.setString(1, user);
             stmt.setString(2, senha);
             rs  = stmt.executeQuery();
             rs.next();
             
-            gerente.setCodGerente((rs.getInt(1)));
-            gerente.setNome((rs.getString(2)));
-            gerente.setCodPerfil((rs.getInt(3)));
+            usuario.setCodUsuario((rs.getInt(1)));
+            usuario.setNome((rs.getString(2)));
+            usuario.setCodPerfil((rs.getInt(3)));
             
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
         
-        return gerente;
+        return usuario;
     }
     
 }

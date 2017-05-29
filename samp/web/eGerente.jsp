@@ -3,25 +3,25 @@
     <div class="container-fluid">
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Editar gerente</h4> </div>
+                <h4 class="page-title">Editar Usuario</h4> </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
                     <li><a href="home.jsp">Página inicial</a></li>
-                    <li><a href="listarGerente.jsp">Listar gerentes</a></li>
-                    <li><a href="eGerente.jsp">Editar gerente</a></li>
+                    <li><a href="listarUsuario.jsp">Listar Usuarios</a></li>
+                    <li><a href="eUsuario.jsp">Editar Usuario</a></li>
                 </ol>
             </div>
         </div>
         <section class="content">
             <div class="panel panel-primary">
-                <div class="panel-heading">Editar gerente</div>
+                <div class="panel-heading">Editar Usuario</div>
                 <form method="post" action="#" id="form-processo" role="form">
                     <div class="panel-body">
                         <div class="row">
                             <div class="form-group col-sm-12">
-                                <label>Nome do Gerente</label>
+                                <label>Nome do Usuario</label>
                                 <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-                                    <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do Gerente"/>
+                                    <input type="text"  id="" name="" required="" maxlength="100" class="form-control" placeholder="Nome do Usuario"/>
                                 </div>
                             </div>
                             <div class="form-group col-sm-6">

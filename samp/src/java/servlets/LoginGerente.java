@@ -12,14 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Gerente;
+import modelo.Usuario;
 
 /**
  *
  * @author Hector Roberto
  */
-@WebServlet(name = "LoginGerente", urlPatterns = {"/logingerente"})
-public class LoginGerente extends HttpServlet {
+@WebServlet(name = "LoginUsuario", urlPatterns = {"/loginUsuario"})
+public class LoginUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +38,10 @@ public class LoginGerente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginGerente</title>");            
+            out.println("<title>Servlet LoginUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginGerente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginUsuario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,14 +77,14 @@ public class LoginGerente extends HttpServlet {
         String usuario = request.getParameter("u");
         String senha = request.getParameter("p");
 
-        Gerente gerente = new Gerente();
-        gerente = gerente.logarGerente(usuario, senha);
+        Usuario Usuario = new Usuario();
+        Usuario = Usuario.logarUsuario(usuario, senha);
 
-        if (gerente.getNome() != null){
-           request.getSession().setAttribute("gerente", gerente);
-           response.sendRedirect("gerente.jsp");   
+        if (Usuario.getNome() != null){
+           request.getSession().setAttribute("Usuario", Usuario);
+           response.sendRedirect("Usuario.jsp");   
         } else{
-            response.sendRedirect("logingerente.jsp"); 
+            response.sendRedirect("loginUsuario.jsp"); 
 
         }
         processRequest(request, response);

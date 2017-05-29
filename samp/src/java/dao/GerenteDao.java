@@ -5,11 +5,11 @@
  */
 package dao;
 
-import modelo.Gerente;
+import modelo.Usuario;
 
 /**
  *
  * @author Hector Roberto
  */
-public interface GerenteDao {
+public interface UsuarioDao {
 }

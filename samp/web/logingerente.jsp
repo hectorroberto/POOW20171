@@ -1,5 +1,5 @@
 <%-- 
-    Document   : logingerente
+    Document   : loginUsuario
     Created on : 07/05/2017, 23:53:40
     Author     : Hector Roberto
 --%>
@@ -13,8 +13,8 @@
         <title>Login - SAMP</title>
     </head>
     <body>
-        <center><h1>Login Gerente</h1></center>
-        <form action="logingerente" method="post">
+        <center><h1>Login Usuario</h1></center>
+        <form action="loginUsuario" method="post">
             <center><input type="text" name="u" placeholder="Username" required="required" /><br/>
             <input type="password" name="p" placeholder="Password" required="required" /><br/><br/>
             <button type="submit">Entrar</button><br/><br/></center>
@@ -32,7 +32,7 @@
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <title>Login Gerente - SAMP</title>
+        <title>Login Usuario - SAMP</title>
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="dist/bootstrap/dist/css/bootstrap.min.css">
@@ -50,9 +50,9 @@
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4">
                         <div class="page-header">
-                            <h1 style="font-family:Comic Sans MS" align="center">LOGIN GERENTE</h1><br>
+                            <h1 style="font-family:Comic Sans MS" align="center">LOGIN Usuario</h1><br>
                         </div>
-                        <form  action="logingerente" method="POST">
+                        <form  action="loginusuario" method="POST">
                             <div style="font-family:Verdana "class="form-group">
                                 <label for="usuario">Usuário</label>
                                 <input type= "text" required="" class="form-control" name="u" placeholder="Digite seu Usuário">

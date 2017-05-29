@@ -11,13 +11,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dao.GerenteDao;
-import modelo.Gerente;
+import dao.UsuarioDao;
+import modelo.Usuario;
 /**
  *
  * @author Hector Roberto
  */
-public class GerenteImpl implements GerenteDao{
+public class UsuarioImpl implements UsuarioDao{
     Connection conn = ConnectionFactory.getConnection();
     PreparedStatement stmt;
     ResultSet rs;

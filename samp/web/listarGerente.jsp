@@ -3,17 +3,17 @@
     <div class="container-fluid">
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Listar gerentes</h4> </div>
+                <h4 class="page-title">Listar Usuarios</h4> </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="listarGerente.jsp">Listar gerentes</a></li>
+                    <li><a href="listarUsuario.jsp">Listar Usuarios</a></li>
                 </ol>
             </div>
         </div>
         <section class="content">
-            <a href="cGerente.jsp"><i class="btn btn-success">Cadastrar gerente</i></a><br><br>
+            <a href="cUsuario.jsp"><i class="btn btn-success">Cadastrar Usuario</i></a><br><br>
             <div class="panel panel-primary">
-                <div class="panel-heading">Lista de gerentes</div>
+                <div class="panel-heading">Lista de Usuarios</div>
                 <div class="table-responsive table-bordered table-striped table-condensed">          
                     <table class="table table-responsive  table-condensed">
                         <thead>
@@ -28,7 +28,7 @@
                                 <td>Brunna</td>
                                 <td>Administradora</td>
                                 <td> 
-                                    <a href="eGerente.jsp"><i class=" btn btn-success glyphicon glyphicon-edit"></i></a>
+                                    <a href="eUsuario.jsp"><i class=" btn btn-success glyphicon glyphicon-edit"></i></a>
                                     <a href="#"><i class=" btn btn-danger glyphicon glyphicon-remove"></i></a>
                                 </td>
                             </tr>

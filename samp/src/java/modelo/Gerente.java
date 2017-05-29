@@ -7,25 +7,25 @@ import controle.Login;
  *
  * @author Hector Roberto
  */
-public class Gerente{
-    private int codGerente;
+public class Usuario{
+    private int codUsuario;
     private String nome;
-    private String usuario;
+    private String user;
     private String senha;
     private int codPerfil;
     
     Login login;
     
-    public Gerente(){
+    public Usuario(){
         login = new Login();
     }
 
-    public int getCodGerente() {
-        return codGerente;
+    public int getCodUsuario() {
+        return codUsuario;
     }
 
-    public void setCodGerente(int codGerente) {
-        this.codGerente = codGerente;
+    public void setCodUsuario(int codUsuario) {
+        this.codUsuario = codUsuario;
     }
 
     public String getNome() {
@@ -36,12 +36,12 @@ public class Gerente{
         this.nome = nome;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getuser() {
+        return user;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setuser(String user) {
+        this.user = user;
     }
 
     public String getSenha() {
@@ -60,7 +60,7 @@ public class Gerente{
         this.codPerfil = codPerfil;
     }
     
-    public Gerente logarGerente(String u, String p){
-        return (login.logarGerente(u, p));
+    public Usuario logarUsuario(String u, String p){
+        return (login.logaruser(u, p));
     }
 }
