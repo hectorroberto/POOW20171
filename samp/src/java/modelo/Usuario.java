@@ -10,7 +10,7 @@ import controle.Login;
 public class Usuario{
     private int codUsuario;
     private String nome;
-    private String usuario;
+    private String user;
     private String senha;
     private int codPerfil;
     
@@ -36,12 +36,12 @@ public class Usuario{
         this.nome = nome;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getuser() {
+        return user;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setuser(String user) {
+        this.user = user;
     }
 
     public String getSenha() {

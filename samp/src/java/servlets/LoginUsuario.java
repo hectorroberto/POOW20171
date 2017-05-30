@@ -18,7 +18,7 @@ import modelo.Usuario;
  *
  * @author Hector Roberto
  */
-@WebServlet(name = "LoginUsuario", urlPatterns = {"/loginusuario"})
+@WebServlet(name = "LoginUsuario", urlPatterns = {"/loginUsuario"})
 public class LoginUsuario extends HttpServlet {
 
     /**

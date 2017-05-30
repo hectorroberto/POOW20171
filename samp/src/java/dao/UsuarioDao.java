@@ -12,4 +12,5 @@ import modelo.Usuario;
  * @author Hector Roberto
  */
 public interface UsuarioDao {
+    
 }
