@@ -208,16 +208,16 @@ INSERT INTO coordenador VALUES
 (1, "Vander Magalhães"),
 (2, "Bill Gates");
 
--- COD | DESCRICAO | COD_CURSO
-INSERT INTO turma VALUES
-(1, "SI20142"),
-(2, "RDC20151");
-
 -- COD | NOME | COD_COORDENADOR
 INSERT INTO curso VALUES
 (1, "Sistemas de Informação", 1),
 (2, "Rede de Computadores", 2),
 (3, "Engenharia Elétrica", 2);
+
+-- COD | DESCRICAO | COD_CURSO
+INSERT INTO turma VALUES
+(1, "SI20142", 1),
+(2, "RDC20151", 2);
 
 
 -- COD | NOME | USER | SENHA | MEDIA_NOTAS | PORCENTAGEM FALTAS
@@ -248,7 +248,6 @@ INSERT INTO disciplina_aluno VALUES
 (3, 1, 1, 1, 2),
 (4, 1, 1, 3, 2),
 (5, 1, 1, 4, 2);
-
 
 -- ------------------------------------------------- QUERYS DOS SISTEMA --------------------------------------------------------------------------
 

@@ -18,7 +18,7 @@ import modelo.Usuario;
  *
  * @author Hector Roberto
  */
-@WebServlet(name = "LoginUsuario", urlPatterns = {"/loginUsuario"})
+@WebServlet(name = "LoginUsuario", urlPatterns = {"/loginusuario"})
 public class LoginUsuario extends HttpServlet {
 
     /**
@@ -74,17 +74,17 @@ public class LoginUsuario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String usuario = request.getParameter("u");
+        String user = request.getParameter("u");
         String senha = request.getParameter("p");
 
-        Usuario Usuario = new Usuario();
-        Usuario = Usuario.logarUsuario(usuario, senha);
+        Usuario usuario = new Usuario();
+        usuario = usuario.logarUsuario(user, senha);
 
-        if (Usuario.getNome() != null){
-           request.getSession().setAttribute("Usuario", Usuario);
-           response.sendRedirect("Usuario.jsp");   
+        if (usuario.getNome() != null){
+           request.getSession().setAttribute("usuario", usuario);
+           response.sendRedirect("usuario.jsp");   
         } else{
-            response.sendRedirect("loginUsuario.jsp"); 
+            response.sendRedirect("loginusuario.jsp"); 
 
         }
         processRequest(request, response);

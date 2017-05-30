@@ -31,7 +31,7 @@
                         
                         <center><h3>
                             <a href="loginaluno.jsp"><img src="img/gerais/aluno.png"></a> Aluno
-                            <a href="loginUsuario.jsp"><img src="img/gerais/Usuario.png"></a> Usuario
+                            <a href="loginusuario.jsp"><img src="img/gerais/usuario.png"></a> Usuario
                         </h3></center>
                         
                     </div>

@@ -50,7 +50,7 @@
                     <div class="col-sm-4"></div>
                     <div class="col-sm-4">
                         <div class="page-header">
-                            <h1 style="font-family:Comic Sans MS" align="center">LOGIN Usuario</h1><br>
+                            <h1 style="font-family:Comic Sans MS" align="center">LOGIN</h1><br>
                         </div>
                         <form  action="loginusuario" method="POST">
                             <div style="font-family:Verdana "class="form-group">
