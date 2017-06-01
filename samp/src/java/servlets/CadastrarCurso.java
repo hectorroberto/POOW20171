@@ -82,7 +82,7 @@ public class CadastrarCurso extends HttpServlet {
 
         novo.setNome(request.getParameter("nome"));
         novo.setCodCoordenador(Integer.valueOf(request.getParameter("coordenador")));
-        novo.setNomeCoordenador(coordenador.findByCod(novo.getCodCoordenador()));
+        //novo.setNomeCoordenador(coordenador.findByCod(novo.getCodCoordenador()));
         
         
         curso.cadastrar(novo);

@@ -42,19 +42,17 @@ ENGINE = InnoDB;
 -- Table `samp`.`usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `samp`.`usuario` (
-  `cod_Usuario` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NOT NULL,
-  `usuario` VARCHAR(50) NOT NULL,
-  `senha` TEXT NOT NULL,
-  `cod_perfil` INT NOT NULL,
-  PRIMARY KEY (`cod_Usuario`, `cod_perfil`),
-  INDEX `fk_Usuario_perfil_idx` (`cod_perfil` ASC),
-  CONSTRAINT `fk_Usuario_perfil`
-    FOREIGN KEY (`cod_perfil`)
-    REFERENCES `samp`.`perfil` (`cod_perfil`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    `cod_usuario` INT NOT NULL AUTO_INCREMENT,
+    `nome` VARCHAR(100) NOT NULL,
+    `usuario` VARCHAR(50) NOT NULL,
+    `senha` TEXT NOT NULL,
+    `cod_perfil` INT NOT NULL,
+    PRIMARY KEY (`cod_usuario` , `cod_perfil`),
+    INDEX `fk_usuario_perfil_idx` (`cod_perfil` ASC),
+    CONSTRAINT `fk_usuario_perfil` FOREIGN KEY (`cod_perfil`)
+        REFERENCES `samp`.`perfil` (`cod_perfil`)
+        ON DELETE NO ACTION ON UPDATE NO ACTION
+)  ENGINE=INNODB;
 
 
 -- -----------------------------------------------------
@@ -200,7 +198,7 @@ INSERT INTO perfil VALUES
 (2, "Avaliador");
 
 -- COD | NOME | USUARIO | SENHA | COD_PERFIL
-INSERT INTO Usuario VALUES
+INSERT INTO usuario VALUES
 (1, "Administrador", "admin", "admin", 1),
 (2, "Hector Roberto Velásquez", "hector", "hector", 1),
 (3, "Bruna Rayane Gonçalves", "bruna", "bruna", 2);
@@ -210,23 +208,23 @@ INSERT INTO coordenador VALUES
 (1, "Vander Magalhães"),
 (2, "Bill Gates");
 
--- COD | NOME
-INSERT INTO turma VALUES
-(1, "SI20142"),
-(2, "RDC20151");
-
--- COD | NOME | COD_TURMA | COD_COORDENADOR
+-- COD | NOME | COD_COORDENADOR
 INSERT INTO curso VALUES
-(1, "Sistemas de Informação", 1, 1),
-(2, "Rede de Computadores", 2, 2),
-(3, "Engenharia Elétrica", 
+(1, "Sistemas de Informação", 1),
+(2, "Rede de Computadores", 2),
+(3, "Engenharia Elétrica", 2);
+
+-- COD | DESCRICAO | COD_CURSO
+INSERT INTO turma VALUES
+(1, "SI20142", 1),
+(2, "RDC20151", 2);
 
 
--- COD | NOME | USER | SENHA | COD_CURSO | COD_TURMA
+-- COD | NOME | USER | SENHA | MEDIA_NOTAS | PORCENTAGEM FALTAS
 INSERT INTO aluno VALUES
-(1, "Aluno do SAMP", "aluno", "aluno", 1, 1),
-(2, "Hector Roberto Velásquez", "si20142hectorroberto", "hector", 1, 1),
-(3, "Bruna Rayane Golçalves", "rdc20151brunarayane", "bruna", 2, 2);
+(1, "Aluno do SAMP", "aluno", "aluno", 10, 0),
+(2, "Hector Roberto Velásquez", "si20142hectorroberto", "hector", 7, 15),
+(3, "Bruna Rayane Golçalves", "rdc20151brunarayane", "bruna", 8, 20);
 
 -- COD | NOME
 INSERT INTO professor VALUES
@@ -250,7 +248,6 @@ INSERT INTO disciplina_aluno VALUES
 (3, 1, 1, 1, 2),
 (4, 1, 1, 3, 2),
 (5, 1, 1, 4, 2);
-
 
 -- ------------------------------------------------- QUERYS DOS SISTEMA --------------------------------------------------------------------------
 

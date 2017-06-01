@@ -61,14 +61,13 @@ public class CursoImpl implements CursoDao{
         
         try {
             String sql = "INSERT INTO curso "+
-                        "(nome, cod_turma, cod_coordenador) "+
-                        "VALUES (?, ?, ?)";
+                        "(nome, cod_coordenador) "+
+                        "VALUES (?, ?)";
             
             stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, curso.getNome());
-            stmt.setInt(2, 1); //Apagar 1, do cod_turma
-            stmt.setInt(3, curso.getCodCoordenador());
+            stmt.setInt(2, curso.getCodCoordenador());
 
             stmt.execute();
 
