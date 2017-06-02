@@ -63,6 +63,33 @@ public class ProfessorImpl implements ProfessorDao{
             e.printStackTrace();
         }
     }
+
+    @Override
+    public Professor findByCod(int codProfessor) {
+        
+        String sql = "SELECT nome FROM professor "+
+                     "WHERE cod_professor = ? ";
+        
+        Professor p = new Professor();
+        
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, codProfessor);
+            rs = stmt.executeQuery();
+            
+            rs.next();
+            p.setNome((rs.getString(1)));
+            p.setCodProfessor(codProfessor);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfessorImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        
+        return p;
+    }
+    
+    
     
     
 }

@@ -7,7 +7,7 @@
                 <h4 class="page-title"></h4>Página Inicial </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                 <ol class="breadcrumb">
-                    <li><a href="home.jsp">Página Inicial</a></li>
+                    <li><a href="usuario.jsp">Página Inicial</a></li>
                 </ol>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <div class="white-box">
                     <div align="center">
                         <i class="glyphicon glyphicon-list-alt"></i>
-                        <h3 class="box-title"><a href="cDisciplina.jsp">Manipular Disciplina</a></h3>
+                        <h3 class="box-title"><a href="manipulardisciplina.jsp">Manipular Disciplina</a></h3>
                     </div>
                 </div>
             </div>

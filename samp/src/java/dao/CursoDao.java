@@ -16,5 +16,6 @@ public interface CursoDao {
     
     public List<Curso> getAllCurso();
     public void cadastrar(Curso curso);
+    public Curso findByCod(int codCurso);
     
 }

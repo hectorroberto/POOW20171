@@ -11,4 +11,5 @@ import modelo.Professor;
 public interface ProfessorDao {
     List<Professor> getAllProfessor();
     public void cadastrar(Professor professor);
+    public Professor findByCod(int codProfessor);
 }

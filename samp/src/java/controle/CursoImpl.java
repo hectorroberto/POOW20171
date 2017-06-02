@@ -76,6 +76,36 @@ public class CursoImpl implements CursoDao{
         }
     }
 
+    @Override
+    public Curso findByCod(int codCurso) {
+        
+        Curso c = new Curso();
+        String sql = "SELECT c.cod_curso, c.nome, c.cod_coordenador,  co.nome "
+                + "FROM curso c, coordenador co "
+                + "WHERE c.cod_coordenador = co.cod_coordenador "
+                + "AND c.cod_curso = ? ";
+        
+        try {
+
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, codCurso);
+            rs = stmt.executeQuery();
+
+            rs.next();
+            c.setCodCurso(rs.getInt(1));
+            c.setNome((rs.getString(2)));
+            c.setCodCoordenador((rs.getInt(3)));
+            c.setNomeCoordenador((rs.getString(4)));
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CursoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+        }
+        return c;
+        
+    }
+
     
     
     

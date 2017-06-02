@@ -1,6 +1,7 @@
 
 package dao;
 
+import java.util.List;
 import modelo.Disciplina;
 
 /**
@@ -9,4 +10,5 @@ import modelo.Disciplina;
  */
 public interface DisciplinaDao {
     public void cadastrar (Disciplina disciplina);
+    public List<Disciplina> findByCodCurso(int codCurso);
 }
