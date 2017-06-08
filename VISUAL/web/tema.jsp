@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>SAMP</title>
-
-        <!--Metatags-->
-        <meta charset="ISO-8859-1">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-        <!--Favicon da pagina-->
-        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.png">
-
-        <!-- Bootstrap-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" type="image/png" sizes="16x16" href="#">
+        <title>SAM</title>
+        <!-- Bootstrap Core CSS -->
         <link href="dist/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
-
-        <!--Menu-->
+        <!-- Menu CSS -->
         <link href="plugins/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-        <script src="plugins/sidebar-nav/dist/sidebar-nav.min.js"></script>
-
-        <!-- Efeitos-->
+        <!-- animation CSS -->
         <link href="dist/css/animate.css" rel="stylesheet">
-        <script src="dist/js/waves.js"></script>
-
-        <!-- Estilo da pagina -->
+        <!-- Custom CSS -->
         <link href="dist/css/style.css" rel="stylesheet">
+        <!-- color CSS -->
         <link href="dist/css/default.css" id="theme" rel="stylesheet">
-        <script src="dist/js/custom.min.js"></script>
-
-        <!--Jquery-->
+        <!-- JQUERY -->
         <script src="plugins/jquery/dist/jquery.min.js"></script>
-
-        <!--Slim Srool-->
+        <!-- Bootstrap Core JavaScript -->
+        <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Menu Plugin JavaScript -->
+        <script src="plugins/sidebar-nav/dist/sidebar-nav.min.js"></script>
+        <!--slimscroll JavaScript -->
         <script src="dist/js/jquery.slimscroll.js"></script>
+        <!--Wave Effects -->
+        <script src="dist/js/waves.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="dist/js/custom.min.js"></script>
     </head>
     <!--Inicio do body-->
     <body class="fix-header">
@@ -87,9 +81,21 @@
                         <li>
                             <a href="listarGerente.jsp" class="waves-effect"><i class="fa fa-user fa-fw" aria-hidden="true"></i>Gerente</a>
                         </li>
-
-                        <li>
-                            <a href="#" class="waves-effect"><i class="fa fa-columns fa-fw" aria-hidden="true"></i>Menu 5</a>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-list-alt fa-fw" aria-hidden="true"></i><span>Avaliações</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-down pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="avaliarCoordenador.jsp">Avaliar coordenador </a>
+                                </li>
+                                <li>
+                                    <a href="avaliarProfessor.jsp"> Avaliar professor </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="login.jsp" class="waves-effect"><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>Sair</a>
