@@ -20,8 +20,6 @@ public class Aluno{
 
     public Aluno(){
         login = new Login();
-        disciplina = new Disciplina();
-        turma = new Turma();
     }
     
     public int getCodAluno() {
